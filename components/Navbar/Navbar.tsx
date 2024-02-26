@@ -50,14 +50,15 @@ export function Navbar() {
             <div className={classes.navbarMain}>
                 <Group className={classes.header} justify="space-between">
                     <MantineLogo size={28} inverted style={{ color: 'white' }} />
+                    <span>Reetesh Sudhakar</span>
                     <Code fw={700} className={classes.version}>
-                        v3.1.2
+                        v1.0.0
                     </Code>
                 </Group>
                 {links}
             </div>
 
-            <div className={classes.footer}>
+            {/* <div className={classes.footer}>
                 <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
                     <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
                     <span>Change account</span>
@@ -67,7 +68,7 @@ export function Navbar() {
                     <IconLogout className={classes.linkIcon} stroke={1.5} />
                     <span>Logout</span>
                 </a>
-            </div>
+            </div> */}
         </nav>
     );
 }
