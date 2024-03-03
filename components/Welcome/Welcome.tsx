@@ -1,12 +1,17 @@
-import { Title, Text, Anchor } from '@mantine/core';
+'use client'
+
+import { Title, Text, Anchor, useMantineColorScheme } from '@mantine/core';
 import classes from './Welcome.module.css';
 
 export function Welcome() {
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === 'dark';
+
   return (
     <>
       <Title className={classes.title} ta="center" mt={100}>
         Welcome to{' '}
-        <Text inherit variant="gradient" component="span" gradient={{ from: 'pink', to: 'yellow' }}>
+        <Text inherit variant="gradient" component="span" gradient={dark ? { from: 'pink', to: 'yellow' } : { from: 'blue', to: 'cyan' }}>
           Mantine
         </Text>
       </Title>

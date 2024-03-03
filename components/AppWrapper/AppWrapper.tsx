@@ -1,12 +1,15 @@
 'use client'
 
-import { AppShell, Burger, Group, ScrollArea, Skeleton, Text } from '@mantine/core';
+import { AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useMantineColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineLogo } from '@mantinex/mantine-logo';
-import React from 'react';
+import classes from './AppWrapper.module.css';
+import { HeaderLinkButtons } from '../HeaderLinkButtons/HeaderLinkButtons';
+import { VersionBadge } from '../VersionBadge/VersionBadge';
 
 export function AppWrapper({ children }: React.PropsWithChildren) {
     const [opened, { toggle }] = useDisclosure();
+    const { colorScheme } = useMantineColorScheme();
+    const dark = colorScheme === 'dark';
 
     return (
         <AppShell
@@ -15,10 +18,24 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
             padding="md"
         >
             <AppShell.Header>
-                <Group h="100%" px="md">
-                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                    <Text>Reetesh Sudhakar</Text>
-                </Group>
+                <Flex className={classes.groupStyle}>
+                    {/* Left side elements */}
+                    <Group className={classes.leftGroupStyle}>
+                        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+                        <Text
+                            fw={900}
+                            c={dark ? 'white' : 'black'}
+                        >
+                            Reetesh Sudhakar
+                        </Text>
+                        <VersionBadge />
+                    </Group>
+
+                    {/* Right side elements */}
+                    <Group gap='xs'>
+                        <HeaderLinkButtons />
+                    </Group>
+                </Flex>
             </AppShell.Header>
             <AppShell.Navbar p="md">
                 <AppShell.Section>Navbar header</AppShell.Section>
@@ -33,7 +50,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                 <AppShell.Section>Navbar footer – always at the bottom</AppShell.Section>
             </AppShell.Navbar>
             <AppShell.Main>{children}</AppShell.Main>
-        </AppShell>
+        </AppShell >
     );
 }
 
