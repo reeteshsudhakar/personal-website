@@ -1,6 +1,6 @@
 'use client'
 
-import { AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useMantineColorScheme } from '@mantine/core';
+import { AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useComputedColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
 import { HeaderLinkButtons } from '../HeaderLinkButtons/HeaderLinkButtons';
@@ -8,8 +8,7 @@ import { VersionBadge } from '../VersionBadge/VersionBadge';
 
 export function AppWrapper({ children }: React.PropsWithChildren) {
     const [opened, { toggle }] = useDisclosure();
-    const { colorScheme } = useMantineColorScheme();
-    const dark = colorScheme === 'dark';
+    const dark = useComputedColorScheme('dark') === 'dark';
 
     return (
         <AppShell
