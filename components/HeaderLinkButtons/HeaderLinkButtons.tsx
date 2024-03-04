@@ -1,12 +1,12 @@
 'use client'
 
-import { Button, Box, useMantineColorScheme } from "@mantine/core";
+import { Button, Box, useMantineColorScheme, useComputedColorScheme } from "@mantine/core";
 import { IconBrandGithub, IconCalendar } from "@tabler/icons-react";
 import { ColorSchemeToggle } from "../ColorSchemeToggle/ColorSchemeToggle";
 
 export function HeaderLinkButtons() {
     const { colorScheme } = useMantineColorScheme();
-    const dark = colorScheme === 'dark';
+    const dark = useComputedColorScheme('dark') === 'dark';
     return (
         <>
             <Button

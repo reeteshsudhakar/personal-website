@@ -1,11 +1,10 @@
 'use client'
 
-import { Title, Text, Anchor, useMantineColorScheme } from '@mantine/core';
+import { Title, Text, Anchor, useMantineColorScheme, useComputedColorScheme } from '@mantine/core';
 import classes from './Welcome.module.css';
 
 export function Welcome() {
-  const { colorScheme } = useMantineColorScheme();
-  const dark = colorScheme === 'dark';
+  const dark = useComputedColorScheme('dark') === 'dark';
 
   return (
     <>

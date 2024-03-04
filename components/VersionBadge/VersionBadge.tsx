@@ -1,10 +1,9 @@
-import { Anchor, Badge, Box, Popover, PopoverDropdown, PopoverTarget, Text, useMantineColorScheme } from '@mantine/core';
+import { Anchor, Badge, Box, Popover, PopoverDropdown, PopoverTarget, Text, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import { IconInfoSquareRoundedFilled, IconChevronDown } from '@tabler/icons-react';
 import classes from './VersionBadge.module.css';
 
 export function VersionBadge() {
-    const { colorScheme } = useMantineColorScheme();
-    const dark = colorScheme === 'dark';
+    const dark = useComputedColorScheme('dark') === 'dark';
 
     return (
         <Popover withArrow shadow="sm">
