@@ -24,7 +24,7 @@ export function VersionBadge() {
             </PopoverTarget>
             <PopoverDropdown w={160}>
                 <Text size="xs" ta="center">
-                    <Box component="span" c="blue">
+                    <Box component="span" c="green">
                         <IconInfoSquareRoundedFilled />
                     </Box>
                     <br />

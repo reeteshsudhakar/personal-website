@@ -40,3 +40,11 @@
     justify-content: flex-start;
     gap: var(--mantine-spacing-md);
 }
+
+.loader {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

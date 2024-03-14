@@ -1,6 +1,22 @@
 'use client'
 
-import { Anchor, AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useMantineTheme } from '@mantine/core';
+import {
+    Anchor,
+    AppShell,
+    Badge,
+    Box,
+    Burger,
+    Button,
+    Center,
+    Container,
+    Flex,
+    Group,
+    Loader,
+    ScrollArea,
+    Skeleton,
+    Text,
+    useMantineTheme
+} from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
 import { HeaderLinkButtons } from '../HeaderLinkButtons/HeaderLinkButtons';
@@ -9,7 +25,6 @@ import { useState, useEffect } from 'react';
 
 export function NewAppWrapper({ children }: React.PropsWithChildren) {
     const [opened, { toggle }] = useDisclosure();
-    const theme = useMantineTheme();
     const [isMounted, setIsMounted] = useState(false);
 
     // Use theme.breakpoints.sm to get the 'sm' breakpoint value from theme
@@ -21,7 +36,12 @@ export function NewAppWrapper({ children }: React.PropsWithChildren) {
     }, []);
 
     if (!isMounted) {
-        return null; // or a loading spinner if you prefer
+
+        return (
+            <Center className={classes.loader}>
+                <Loader color="teal" size="xl" type="dots" />
+            </Center>
+        );
     }
 
     return (
