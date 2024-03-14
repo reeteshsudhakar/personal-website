@@ -1,14 +1,14 @@
 'use client'
 
-import { AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useComputedColorScheme } from '@mantine/core';
+import { Anchor, AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
 import { HeaderLinkButtons } from '../HeaderLinkButtons/HeaderLinkButtons';
 import { VersionBadge } from '../VersionBadge/VersionBadge';
+import { useState, useEffect } from 'react';
 
 export function AppWrapper({ children }: React.PropsWithChildren) {
     const [opened, { toggle }] = useDisclosure();
-    const dark = useComputedColorScheme('dark') === 'dark';
 
     return (
         <AppShell
@@ -21,12 +21,15 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                     {/* Left side elements */}
                     <Group className={classes.leftGroupStyle}>
                         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                        <Text
-                            fw={900}
-                            c={dark ? 'white' : 'black'}
-                        >
-                            Reetesh Sudhakar
-                        </Text>
+                        <Anchor href="/">
+                            <Text
+                                fw={900}
+                                c={'white'}
+                            >
+                                Reetesh Sudhakar
+                            </Text>
+
+                        </Anchor>
                         <VersionBadge />
                     </Group>
 

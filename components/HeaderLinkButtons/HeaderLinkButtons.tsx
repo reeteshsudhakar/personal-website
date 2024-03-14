@@ -1,12 +1,9 @@
 'use client'
 
-import { Button, Box, useMantineColorScheme, useComputedColorScheme } from "@mantine/core";
+import { Button, Box, useMantineColorScheme, useComputedColorScheme, ActionIcon, Tooltip, Anchor } from "@mantine/core";
 import { IconBrandGithub, IconCalendar } from "@tabler/icons-react";
-import { ColorSchemeToggle } from "../ColorSchemeToggle/ColorSchemeToggle";
 
 export function HeaderLinkButtons() {
-    const { colorScheme } = useMantineColorScheme();
-    const dark = useComputedColorScheme('dark') === 'dark';
     return (
         <>
             <Button
@@ -26,8 +23,8 @@ export function HeaderLinkButtons() {
             </Button>
             <Button
                 size="xs"
-                variant="filled"
-                color={dark ? "#BC474A" : '#478FD9'}
+                variant="light"
+                color='green'
                 leftSection={<IconCalendar size={16} />}
                 component="a"
                 aria-label={`Support me!`}
@@ -40,7 +37,21 @@ export function HeaderLinkButtons() {
                     ! - Calendly
                 </Box>
             </Button>
-            <ColorSchemeToggle />
+
+            <Tooltip label='Source Code' hiddenFrom="xs">
+                <Anchor href={'https://www.github.com/reeteshsudhakar/personal-website'} hiddenFrom="xs">
+                    <ActionIcon hiddenFrom='xs' variant="light" color='gray'>
+                        <IconBrandGithub size={16} />
+                    </ActionIcon>
+                </Anchor>
+            </Tooltip>
+            <Tooltip label='Schedule Meeting - Calendly' hiddenFrom="xs">
+                <Anchor href={'https://calendly.com/reesud6187/30min'} hiddenFrom="xs">
+                    <ActionIcon hiddenFrom='xs' variant="light" color='green'>
+                        <IconCalendar size={16} />
+                    </ActionIcon>
+                </Anchor>
+            </Tooltip>
 
         </>
     )

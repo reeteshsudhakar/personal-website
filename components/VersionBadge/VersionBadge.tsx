@@ -3,15 +3,14 @@ import { IconInfoSquareRoundedFilled, IconChevronDown } from '@tabler/icons-reac
 import classes from './VersionBadge.module.css';
 
 export function VersionBadge() {
-    const dark = useComputedColorScheme('dark') === 'dark';
 
     return (
         <Popover withArrow shadow="sm">
             <PopoverTarget>
                 <Badge
                     className={classes.root}
-                    variant="gradient"
-                    gradient={dark ? { from: 'pink', to: 'yellow' } : { from: 'blue', to: 'cyan' }}
+                    variant="light"
+                    color='green'
                     rightSection={
                         <Box mt={4} ml={-3} mr={-5}>
                             <IconChevronDown size={10} stroke={3} />
