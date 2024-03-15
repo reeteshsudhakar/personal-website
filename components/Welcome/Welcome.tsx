@@ -1,9 +1,7 @@
 'use client'
 
-import { Title, Text, Anchor, useMantineColorScheme, useComputedColorScheme } from '@mantine/core';
+import { Title, Text } from '@mantine/core';
 import classes from './Welcome.module.css';
-import { useState, useEffect } from 'react';
-
 
 interface WelcomeProps {
   pageTitle: string;

@@ -14,6 +14,7 @@ import {
     Loader,
     ScrollArea,
     Skeleton,
+    Stack,
     Text,
     useMantineTheme
 } from '@mantine/core';
@@ -52,8 +53,8 @@ export function NewAppWrapper({ children }: React.PropsWithChildren) {
         >
             {!isLargeScreen && (
                 <AppShell.Header>
-                    <Flex className={classes.groupStyle}>
-                        <Group className={classes.leftGroupStyle}>
+                    <Flex className={classes.header}>
+                        <Group className={classes.nameBadge}>
                             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
                             <Anchor href="/">
                                 <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
@@ -68,16 +69,27 @@ export function NewAppWrapper({ children }: React.PropsWithChildren) {
             )}
             <AppShell.Navbar p="md">
                 {isLargeScreen && (
-                    <AppShell.Section>
-                        <Flex className={classes.groupStyle}>
-                            <Group className={classes.leftGroupStyle}>
-                                <Anchor href="/">
-                                    <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
-                                </Anchor>
-                                <VersionBadge />
-                            </Group>
-                        </Flex>
-                    </AppShell.Section>
+                    <>
+                        <AppShell.Section>
+                            <Flex className={classes.navbarTop}>
+                                <Group className={classes.nameBadge}>
+                                    <Anchor href="/">
+                                        <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
+                                    </Anchor>
+                                    <VersionBadge />
+                                </Group>
+                            </Flex>
+                        </AppShell.Section>
+                        <AppShell.Section>
+                            <Flex className={classes.navbarText}>
+                                <Stack gap='xs'>
+                                    <Text ta='center' size='sm'>Software Developer.</Text>
+                                    <Text ta='center' size='sm'>Dog Lover.</Text>
+                                    <Text ta='center' size='sm'>Lifelong Learner.</Text>
+                                </Stack>
+                            </Flex>
+                        </AppShell.Section>
+                    </>
                 )}
                 <AppShell.Section grow my="md" component={ScrollArea}>
                     {/* Navbar content */}
@@ -87,7 +99,7 @@ export function NewAppWrapper({ children }: React.PropsWithChildren) {
                 </AppShell.Section>
             </AppShell.Navbar>
             <AppShell.Main>{children}</AppShell.Main>
-        </AppShell>
+        </AppShell >
     );
 }
 

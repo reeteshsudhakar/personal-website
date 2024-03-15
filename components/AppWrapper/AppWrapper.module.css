@@ -25,7 +25,7 @@
     }
 }
 
-.groupStyle {
+.navbarTop {
     height: 100%;
     padding-left: var(--mantine-spacing-md);
     padding-right: var(--mantine-spacing-md);
@@ -34,7 +34,25 @@
     align-items: center;
 }
 
-.leftGroupStyle {
+.navbarText {
+    padding-top: var(--mantine-spacing-md);
+    padding-bottom: var(--mantine-spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    height: 100%;
+    padding-left: var(--mantine-spacing-md);
+    padding-right: var(--mantine-spacing-md);
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+
+.nameBadge {
     display: flex;
     align-items: center;
     justify-content: flex-start;
