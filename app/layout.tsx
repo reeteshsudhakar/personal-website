@@ -2,7 +2,6 @@ import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript, MantineColorScheme } from '@mantine/core';
 import { theme } from '../theme';
-import AppWrapper from '@/components/AppWrapper/AppWrapper';
 import NewAppWrapper from '@/components/AppWrapper/NewAppWrapper';
 
 export const metadata = {

@@ -1,6 +1,7 @@
 import { Anchor, Badge, Box, Popover, PopoverDropdown, PopoverTarget, Text, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import { IconInfoSquareRoundedFilled, IconChevronDown } from '@tabler/icons-react';
 import classes from './VersionBadge.module.css';
+import { theme } from '../../theme';
 
 export function VersionBadge() {
 
@@ -12,19 +13,20 @@ export function VersionBadge() {
                     variant="light"
                     color='green'
                     rightSection={
-                        <Box mt={4} ml={-3} mr={-5}>
+                        <Box mt={4} ml={-3} mr={-5} c={'green'}>
                             <IconChevronDown size={10} stroke={3} />
                         </Box>
                     }
                     role="button"
                     visibleFrom='xs'
+                    radius={'sm'}
                 >
                     v2.0.0
                 </Badge>
             </PopoverTarget>
             <PopoverDropdown w={160}>
-                <Text size="xs" ta="center">
-                    <Box component="span" c="green">
+                <Text size="xs" ta="center" c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>
+                    <Box component="span" c="#2374AB">
                         <IconInfoSquareRoundedFilled />
                     </Box>
                     <br />
