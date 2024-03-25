@@ -18,7 +18,6 @@ import {
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery, useHotkeys, useOs } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
-import { HeaderLinkButtons } from '../HeaderLinkButtons/HeaderLinkButtons';
 import { VersionBadge } from '../VersionBadge/VersionBadge';
 import { useState, useEffect } from 'react';
 import {
@@ -37,9 +36,11 @@ import {
     IconFingerprint,
     IconBrandNextjs,
     IconBrandMantine,
+    IconCalendar,
 } from "@tabler/icons-react";
 import { theme } from '../../theme';
 import { usePathname } from 'next/navigation';
+import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
 
 const navbarBlurbs = [
     'Software Developer 💻',
@@ -86,6 +87,9 @@ const navbarSection1Items = {
         },
         {
             label: 'LinkedIn', icon: <IconBrandLinkedin size={20} color='white' />, href: 'https://www.linkedin.com/in/reeteshsudhakar/'
+        },
+        {
+            label: 'Calendly', icon: <IconCalendar size={20} color='white' />, href: 'https://calendly.com/reesud6187/30min'
         }
     ]
 }
@@ -131,18 +135,16 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
             withBorder={false}
         >
             {!isLargeScreen && (
+                /* TODO: fix this so that the items are left, center, right */
                 <AppShell.Header>
                     <Flex className={classes.header}>
-                        <Group className={classes.nameBadge}>
+                        <Group gap='xs'>
                             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
                             <Anchor href="/" underline='never'>
                                 <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
                             </Anchor>
-                            <VersionBadge />
                         </Group>
-                        <Group gap='xs'>
-                            <HeaderLinkButtons />
-                        </Group>
+                        <VersionBadge />
                     </Flex>
                 </AppShell.Header>
             )}
@@ -172,10 +174,11 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                     <Flex direction={'column'} py={3}>
                                         <Tooltip label={label} withArrow position={'top'} className={classes.tooltip}>
                                             <SegmentedControl
-                                                className={classes.segmentControl}
+                                                classNames={{ root: classes.segmentControl, indicator: classes.indicator }}
                                                 value={section}
                                                 onChange={(value: any) => setSection(value)}
                                                 transitionTimingFunction="ease"
+                                                radius='md'
                                                 data={[
                                                     {
                                                         label: (
@@ -230,11 +233,12 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                         }
                                         {section === 'section2' &&
                                             <>
-                                                {Array(60)
+                                                {/* {Array(60)
                                                     .fill(0)
                                                     .map((_, index) => (
                                                         <Skeleton key={index} h={28} mt="sm" animate={false} />
-                                                    ))}
+                                                    ))} */}
+                                                <PasswordInputBlock />
                                             </>
                                         }
                                     </Flex>

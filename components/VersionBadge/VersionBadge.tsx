@@ -19,7 +19,7 @@ export function VersionBadge() {
                     }
                     role="button"
                     visibleFrom='xs'
-                    radius={'sm'}
+                    radius={'md'}
                 >
                     v2.0.0
                 </Badge>
