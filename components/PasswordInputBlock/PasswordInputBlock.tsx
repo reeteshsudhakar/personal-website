@@ -1,7 +1,8 @@
-import { PasswordInput, Text, Group, Anchor, Tooltip, ActionIcon, rem, Stack, TextInput, Box, Button, Checkbox } from '@mantine/core';
+import { ActionIcon, rem, TextInput, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { IconArrowRight } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
 
 export default function PasswordInputBlock() {
     const form = useForm({
@@ -14,8 +15,32 @@ export default function PasswordInputBlock() {
         },
     });
 
-    function handleSubmit() {
-        console.log(form.values.password);
+    const router = useRouter();
+
+    async function handleSubmit() {
+        const response = await fetch('/api/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ password: form.values.password }),
+        });
+
+        const data = await response.json();
+
+        if (data.authenticated) {
+            toast.success('Success! Redirecting...');
+            setTimeout(() => {
+                router.push('/dashboard');
+            }, 500);
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+
+        } else {
+            toast.error('Authentication failed.');
+        }
+
         form.reset();
     }
 

@@ -14,13 +14,6 @@
     justify-content: center;
 }
 
-.navbarTextBlurb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--mantine-spacing-md);
-}
-
 .header {
     height: 100%;
     padding-left: var(--mantine-spacing-md);

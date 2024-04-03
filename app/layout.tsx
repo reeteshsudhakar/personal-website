@@ -4,14 +4,13 @@ import { MantineProvider, ColorSchemeScript, MantineColorScheme } from '@mantine
 import { theme } from '../theme';
 import AppWrapper from '@/components/AppWrapper/AppWrapper';
 
+
 export const metadata = {
   title: 'Mantine Next.js template',
   description: 'I am using Mantine with Next.js!',
 };
 
 export default function RootLayout({ children }: { children: any }) {
-  // This could be in your _app.js or wherever you setup MantineProvider
-
   return (
     <html lang="en">
       <head>
@@ -24,7 +23,9 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme='dark'>
-          <AppWrapper>{children}</AppWrapper>
+          <AppWrapper>
+            {children}
+          </AppWrapper>
         </MantineProvider>
       </body>
     </html>
