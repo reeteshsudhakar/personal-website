@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     Anchor,
+    Box,
     Flex,
     Group,
     Stack,
@@ -9,6 +10,7 @@ import {
 import { theme } from '../../theme';
 import classes from './NavbarSections.module.css';
 import { navbarFooterItems, navbarBlurbs } from '@/utils/constants';
+import { SpotifyEmbed } from '../SpotifyEmbed/SpotifyEmbed';
 
 interface NavbarItem {
     label: string;
@@ -39,7 +41,7 @@ export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsPro
     return (
         <Flex direction={'column'}>
             {Object.keys(sectionItems).map((section, index) => (
-                <Stack key={index} py={15} gap={7}>
+                <Stack key={index} pt={15} gap={7} pl={25} pr={25}>
                     <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{section}</Text>
                     {sectionItems[section].map((item, index) => (
                         <Anchor
@@ -62,6 +64,10 @@ export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsPro
 export function NavbarFooter() {
     return (
         <Stack justify='center' align='center' gap={'xs'}>
+            <Stack p={15} gap={5}>
+                <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>Some of my favorite songs...</Text>
+                <SpotifyEmbed />
+            </Stack>
             <Text size='xs'>{navbarFooterItems.text}</Text>
             <Group>
                 {navbarFooterItems.links.map((link, index) => (

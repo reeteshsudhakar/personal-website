@@ -1,4 +1,4 @@
-import { IconApi, IconApiApp, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMoneybag, IconMovie, IconNews, IconPrompt, IconSchool, IconWriting } from "@tabler/icons-react";
+import { IconApi, IconApiApp, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMoneybag, IconMovie, IconMusic, IconNews, IconPrompt, IconSchool, IconWriting } from "@tabler/icons-react";
 
 export const navbarBlurbs = [
     'Software Developer 💻',
@@ -34,6 +34,9 @@ export const navbarSection1Items = {
         },
         {
             label: 'Blog', icon: IconWriting, href: '/blog'
+        },
+        {
+            label: 'Music', icon: IconMusic, href: '/music'
         }
     ],
     'Let\'s Connect': [
@@ -95,3 +98,17 @@ export const navbarFooterItems = {
         }
     ]
 }
+
+/* TODO: refactor this to grab my 10 most listened songs from the past 30 days */
+export const spotifyURLs = [
+    'https://open.spotify.com/track/2bSk87AVkCIIC3Bcligq1z?si=390c4e8a27f94664',
+    'https://open.spotify.com/track/0ZKKJTv21zJpNrKiL0LYyV?si=32711e55aca84341',
+    'https://open.spotify.com/track/1zi7xx7UVEFkmKfv06H8x0?si=ba27c74684884cce',
+    'https://open.spotify.com/track/3DoBTwfr8yi2LN08SBpFkN?si=ada8e368e2ec4598',
+    'https://open.spotify.com/track/424DkevE18QJazwlljiTD4?si=dba5913b250b487c',
+    'https://open.spotify.com/track/0uxSUdBrJy9Un0EYoBowng?si=54ebf4691fe149fc',
+    'https://open.spotify.com/track/7J0hYdgCaxYjz17L5smEhz?si=2c376ef449814809',
+    'https://open.spotify.com/track/00RI7b6oZDjx6IQC2eH6bh?si=2feaffd8484f4cf6',
+    'https://open.spotify.com/track/2z7VITS30dBexE91V5QXWv?si=dc1e70546e20448c',
+    'https://open.spotify.com/track/0suLmBuEbatdochI4tHduq?si=4df5367feaae49d8',
+]

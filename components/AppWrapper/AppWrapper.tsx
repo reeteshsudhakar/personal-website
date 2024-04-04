@@ -93,7 +93,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                         <>
                             <Stack>
                                 <AppShell.Section>
-                                    <Group>
+                                    <Group justify='center'>
                                         <Anchor href="/" underline='never'>
                                             <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
                                         </Anchor>
@@ -136,21 +136,24 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                             />
                                         </Tooltip>
                                         {section === 'section1' &&
-                                            <NavbarSectionLinks sectionItems={navbarSection1Items} pathName={pathName} />
+                                            <Stack gap={10}>
+                                                <NavbarSectionLinks sectionItems={navbarSection1Items} pathName={pathName} />
+                                                <NavbarFooter />
+                                            </Stack>
                                         }
                                         {section === 'section2' &&
                                             <>
                                                 {data.isAuthenticated ? (
-                                                    <NavbarSectionLinks sectionItems={navbarSection2Items} pathName={pathName} />
+                                                    <Stack gap={10}>
+                                                        <NavbarSectionLinks sectionItems={navbarSection2Items} pathName={pathName} />
+                                                        <NavbarFooter />
+                                                    </Stack>
                                                 ) : (
                                                     <PasswordInputBlock />
                                                 )}
                                             </>
                                         }
                                     </Flex>
-                                </AppShell.Section>
-                                <AppShell.Section pt={10}>
-                                    <NavbarFooter />
                                 </AppShell.Section>
                             </Stack>
                         </>

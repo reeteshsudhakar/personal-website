@@ -11330,6 +11330,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-hot-toast: "npm:^2.4.1"
+    react-spotify-embed: "npm:^2.0.4"
     storybook: "npm:^7.5.2"
     storybook-dark-mode: "npm:^3.0.1"
     stylelint: "npm:^15.11.0"
@@ -13284,7 +13285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
+"react-dom@npm:18.2.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -13423,6 +13424,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-spotify-embed@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "react-spotify-embed@npm:2.0.4"
+  dependencies:
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+  checksum: a7c602879368edf87ccbbb1f1f3c8832a8396364a962952d3ae62ea0f0b5ddf6105c4cfd7d471755658753a2b4855acf3748e551094e9f648a581ee209499e1e
+  languageName: node
+  linkType: hard
+
 "react-style-singleton@npm:^2.2.1":
   version: 2.2.1
   resolution: "react-style-singleton@npm:2.2.1"
@@ -13468,7 +13479,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react@npm:18.2.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
