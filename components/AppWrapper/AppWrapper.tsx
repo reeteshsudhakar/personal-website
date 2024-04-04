@@ -25,7 +25,7 @@ import {
 } from "@tabler/icons-react";
 import { usePathname } from 'next/navigation';
 import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
-import { navbarSection1Items } from '@/utils/constants';
+import { navbarSection1Items, navbarSection2Items } from '@/utils/constants';
 import { NavbarFooter, NavbarSectionLinks, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
 import { Toaster } from 'react-hot-toast';
 import useSWR from 'swr';
@@ -141,7 +141,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                         {section === 'section2' &&
                                             <>
                                                 {data.isAuthenticated ? (
-                                                    <Text>Placeholder</Text>
+                                                    <NavbarSectionLinks sectionItems={navbarSection2Items} pathName={pathName} />
                                                 ) : (
                                                     <PasswordInputBlock />
                                                 )}

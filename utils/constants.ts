@@ -1,4 +1,4 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconCalendar, IconFile, IconForms, IconMail, IconNews, IconPrompt, IconSchool, IconWriting } from "@tabler/icons-react";
+import { IconApi, IconApiApp, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMoneybag, IconMovie, IconNews, IconPrompt, IconSchool, IconWriting } from "@tabler/icons-react";
 
 export const navbarBlurbs = [
     'Software Developer 💻',
@@ -53,7 +53,31 @@ export const navbarSection1Items = {
 }
 
 export const navbarSection2Items = {
+    'Dev': [
+        {
+            label: 'Movie Web Proxy', icon: IconApiApp, href: 'https://movies-proxy.reeteshsudhakar.com'
+        },
+        {
+            label: 'Personal API', icon: IconApi, href: 'https://api.reeteshsudhakar.com'
+        },
+    ],
 
+    'Finances': [
+        {
+            label: 'Capital One', icon: IconBuildingBank, href: 'https://myaccounts.capitalone.com/accountSummary'
+        },
+        {
+            label: 'Robinhood', icon: IconChartLine, href: 'https://robinhood.com'
+        },
+        {
+            label: 'TD Ameritrade', icon: IconMoneybag, href: 'https://invest.ameritrade.com/grid/p/site#r=home'
+        },
+    ],
+    'Personal': [
+        {
+            label: 'Movies', icon: IconMovie, href: 'https://movies.reeteshsudhakar.com'
+        }
+    ]
 }
 
 export const navbarFooterItems = {
