@@ -11,22 +11,17 @@ import {
     ScrollArea,
     Stack,
     Text,
-    SegmentedControl,
-    rem,
     Tooltip,
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery, useHotkeys, useOs } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
 import { VersionBadge } from '../VersionBadge/VersionBadge';
 import { useState, useEffect } from 'react';
-import {
-    IconGitBranch,
-    IconFingerprint,
-} from "@tabler/icons-react";
 import { usePathname } from 'next/navigation';
 import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
 import { navbarSection1Items, navbarSection2Items } from '@/utils/constants';
 import { NavbarFooter, NavbarSectionLinks, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
+import { NavbarToggleLarge, NavbarToggleSmall } from '../NavbarToggle/NavbarToggle';
 import { Toaster } from 'react-hot-toast';
 import useSWR from 'swr';
 
@@ -89,7 +84,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
             )}
             <AppShell.Navbar>
                 <Flex className={classes.navbarContent}>
-                    {isLargeScreen &&
+                    {isLargeScreen ? (
                         <>
                             <Stack>
                                 <AppShell.Section>
@@ -105,36 +100,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                 </AppShell.Section>
                                 <AppShell.Section component={ScrollArea} grow>
                                     <Flex direction={'column'} py={3}>
-                                        <Tooltip label={label} withArrow position={'top'} className={classes.tooltip}>
-                                            <SegmentedControl
-                                                classNames={{ root: classes.segmentControl, indicator: classes.indicator }}
-                                                value={section}
-                                                onChange={(value: any) => setSection(value)}
-                                                transitionTimingFunction="ease"
-                                                radius='md'
-                                                data={[
-                                                    {
-                                                        label: (
-                                                            <Center style={{ gap: 5 }}>
-                                                                <IconGitBranch style={{ width: rem(14), height: rem(14) }} />
-                                                                <Text size='sm'>Main</Text>
-                                                            </Center>
-                                                        ),
-                                                        value: 'section1'
-                                                    },
-                                                    {
-                                                        label: (
-                                                            <Center style={{ gap: 5 }}>
-                                                                <IconFingerprint style={{ width: rem(14), height: rem(14) }} />
-                                                                <Text size='sm'>Private</Text>
-                                                            </Center>
-                                                        ),
-                                                        value: 'section2'
-                                                    },
-                                                ]}
-                                                size='sm'
-                                            />
-                                        </Tooltip>
+                                        <NavbarToggleLarge section={section} setSection={setSection} label={label} />
                                         {section === 'section1' &&
                                             <Stack gap={10}>
                                                 <NavbarSectionLinks sectionItems={navbarSection1Items} pathName={pathName} />
@@ -157,6 +123,15 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                 </AppShell.Section>
                             </Stack>
                         </>
+                    ) : (
+                        <>
+                            <Stack>
+                                <Tooltip label={label} withArrow position={'top'} className={classes.tooltip}>
+                                    <NavbarToggleSmall section={section} setSection={setSection} label={label} />
+                                </Tooltip>
+                            </Stack>
+                        </>
+                    )
                     }
                 </Flex>
             </AppShell.Navbar>

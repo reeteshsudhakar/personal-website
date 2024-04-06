@@ -59,11 +59,9 @@ export default function PasswordInputBlock() {
                                 <IconArrowRight style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
                             </ActionIcon>
                         }
-
                     />
                 </form>
             </Box>
-
         </>
     );
 
