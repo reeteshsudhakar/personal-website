@@ -57,6 +57,10 @@ export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsPro
                     ))}
                 </Stack>
             ))}
+            <Stack p={15} gap={5}>
+                <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>Some of my favorite songs...</Text>
+                <SpotifyEmbed />
+            </Stack>
         </Flex>
     );
 };
@@ -64,10 +68,6 @@ export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsPro
 export function NavbarFooter() {
     return (
         <Stack justify='center' align='center' gap={'xs'}>
-            <Stack p={15} gap={5}>
-                <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>Some of my favorite songs...</Text>
-                <SpotifyEmbed />
-            </Stack>
             <Text size='xs'>{navbarFooterItems.text}</Text>
             <Group>
                 {navbarFooterItems.links.map((link, index) => (
@@ -87,6 +87,34 @@ export function NavbarTextBlurb() {
                 {navbarBlurbs.map((blurb, index) => (
                     <Text key={index} size='sm' ta={'center'} c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{blurb}</Text>
                 ))}
+            </Stack>
+        </Flex>
+    );
+}
+
+export function NavbarSectionLinksSmall({ sectionItems, pathName }: NavbarSectionsProps) {
+    return (
+        <Flex direction={'row'} wrap={'wrap'} justify={'center'}>
+            {Object.keys(sectionItems).map((section, index) => (
+                <Stack key={index} pt={15} gap={7} pl={25} pr={25}>
+                    <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{section}</Text>
+                    {sectionItems[section].map((item, index) => (
+                        <Anchor
+                            key={index}
+                            href={item.href}
+                            underline='never'
+                        >
+                            <Group className={pathName === item.href ? classes.activeLink : classes.link}>
+                                <NavbarIcon Icon={item.icon} size={20} />
+                                <Text c={'white'}>{item.label}</Text>
+                            </Group>
+                        </Anchor>
+                    ))}
+                </Stack>
+            ))}
+            <Stack p={15} gap={5}>
+                <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>Some of my favorite songs...</Text>
+                <SpotifyEmbed />
             </Stack>
         </Flex>
     );

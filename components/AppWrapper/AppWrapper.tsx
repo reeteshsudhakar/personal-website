@@ -11,7 +11,6 @@ import {
     ScrollArea,
     Stack,
     Text,
-    Tooltip,
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery, useHotkeys, useOs } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
@@ -20,7 +19,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
 import { navbarSection1Items, navbarSection2Items } from '@/utils/constants';
-import { NavbarFooter, NavbarSectionLinks, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
+import { NavbarFooter, NavbarSectionLinks, NavbarSectionLinksSmall, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
 import { NavbarToggleLarge, NavbarToggleSmall } from '../NavbarToggle/NavbarToggle';
 import { Toaster } from 'react-hot-toast';
 import useSWR from 'swr';
@@ -104,7 +103,6 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                         {section === 'section1' &&
                                             <Stack gap={10}>
                                                 <NavbarSectionLinks sectionItems={navbarSection1Items} pathName={pathName} />
-                                                <NavbarFooter />
                                             </Stack>
                                         }
                                         {section === 'section2' &&
@@ -112,7 +110,6 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                                 {data.isAuthenticated ? (
                                                     <Stack gap={10}>
                                                         <NavbarSectionLinks sectionItems={navbarSection2Items} pathName={pathName} />
-                                                        <NavbarFooter />
                                                     </Stack>
                                                 ) : (
                                                     <PasswordInputBlock />
@@ -121,14 +118,31 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                         }
                                     </Flex>
                                 </AppShell.Section>
+                                <AppShell.Section>
+                                    <NavbarFooter />
+                                </AppShell.Section>
                             </Stack>
                         </>
                     ) : (
                         <>
                             <Stack>
-                                <Tooltip label={label} withArrow position={'top'} className={classes.tooltip}>
-                                    <NavbarToggleSmall section={section} setSection={setSection} label={label} />
-                                </Tooltip>
+                                <NavbarToggleSmall section={section} setSection={setSection} label={label} />
+                                {section === 'section1' &&
+                                    <Stack gap={10}>
+                                        <NavbarSectionLinksSmall sectionItems={navbarSection1Items} pathName={pathName} />
+                                    </Stack>
+                                }
+                                {section === 'section2' &&
+                                    <>
+                                        {data.isAuthenticated ? (
+                                            <Stack gap={10}>
+                                                <NavbarSectionLinksSmall sectionItems={navbarSection2Items} pathName={pathName} />
+                                            </Stack>
+                                        ) : (
+                                            <PasswordInputBlock />
+                                        )}
+                                    </>
+                                }
                             </Stack>
                         </>
                     )
