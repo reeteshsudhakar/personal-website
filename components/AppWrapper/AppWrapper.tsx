@@ -1,52 +1,153 @@
 'use client'
 
-import { AppShell, Badge, Box, Burger, Button, Flex, Group, ScrollArea, Skeleton, Text, useComputedColorScheme } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import {
+    Anchor,
+    AppShell,
+    Burger,
+    Center,
+    Flex,
+    Group,
+    Loader,
+    ScrollArea,
+    Stack,
+    Text,
+} from '@mantine/core';
+import { useDisclosure, useMediaQuery, useHotkeys, useOs } from '@mantine/hooks';
 import classes from './AppWrapper.module.css';
-import { HeaderLinkButtons } from '../HeaderLinkButtons/HeaderLinkButtons';
 import { VersionBadge } from '../VersionBadge/VersionBadge';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
+import { navbarSection1Items, navbarSection2Items } from '@/utils/constants';
+import { NavbarFooter, NavbarSectionLinks, NavbarSectionLinksSmall, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
+import { NavbarToggleLarge, NavbarToggleSmall } from '../NavbarToggle/NavbarToggle';
+import { Toaster } from 'react-hot-toast';
+import useSWR from 'swr';
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export function AppWrapper({ children }: React.PropsWithChildren) {
     const [opened, { toggle }] = useDisclosure();
-    const dark = useComputedColorScheme('dark') === 'dark';
+    const [isMounted, setIsMounted] = useState(false);
+    const [section, setSection] = useState<'section1' | 'section2'>('section1');
+    const pathName = usePathname();
+    const { data, error } = useSWR('/api/auth-status', fetcher)
+
+    // Use hotkeys to switch sections
+    useHotkeys([['mod+j', () => setSection(section === 'section1' ? 'section2' : 'section1')]]);
+
+    // Use theme.breakpoints.sm to get the 'sm' breakpoint value from theme
+    const isLargeScreen = useMediaQuery('(min-width: 48em)');
+
+    // Effect to set mounted state after initial mount
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    const os = useOs();
+    let label = 'Toggle - ';
+    if (os === 'macos') {
+        label += '⌘ J';
+    } else if (os === 'windows' || os === 'linux') {
+        label += 'Ctrl-J';
+    }
+
+    if (!isMounted) {
+        return (
+            <Center className={classes.loader}>
+                <Loader color="teal" size="xl" type="dots" />
+            </Center>
+        );
+    }
 
     return (
         <AppShell
-            header={{ height: 60 }}
-            navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
-            padding="md"
+            header={!isLargeScreen ? { height: 60 } : undefined} // Only show header on small screens
+            navbar={{ width: 275, breakpoint: 'sm', collapsed: { mobile: !opened } }}
+            withBorder={false}
         >
-            <AppShell.Header>
-                <Flex className={classes.groupStyle}>
-                    {/* Left side elements */}
-                    <Group className={classes.leftGroupStyle}>
-                        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                        <Text
-                            fw={900}
-                            c={dark ? 'white' : 'black'}
-                        >
-                            Reetesh Sudhakar
-                        </Text>
+            <Toaster position="bottom-center" />
+            {!isLargeScreen && (
+                /* TODO: fix this so that the items are left, center, right */
+                <AppShell.Header>
+                    <Flex className={classes.header}>
+                        <Group gap='xs'>
+                            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+                            <Anchor href="/" underline='never'>
+                                <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
+                            </Anchor>
+                        </Group>
                         <VersionBadge />
-                    </Group>
-
-                    {/* Right side elements */}
-                    <Group gap='xs'>
-                        <HeaderLinkButtons />
-                    </Group>
+                    </Flex>
+                </AppShell.Header>
+            )}
+            <AppShell.Navbar>
+                <Flex className={classes.navbarContent}>
+                    {isLargeScreen ? (
+                        <>
+                            <Stack>
+                                <AppShell.Section>
+                                    <Group justify='center'>
+                                        <Anchor href="/" underline='never'>
+                                            <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
+                                        </Anchor>
+                                        <VersionBadge />
+                                    </Group>
+                                </AppShell.Section>
+                                <AppShell.Section>
+                                    <NavbarTextBlurb />
+                                </AppShell.Section>
+                                <AppShell.Section component={ScrollArea} grow>
+                                    <Flex direction={'column'} py={3}>
+                                        <NavbarToggleLarge section={section} setSection={setSection} label={label} />
+                                        {section === 'section1' &&
+                                            <Stack gap={10}>
+                                                <NavbarSectionLinks sectionItems={navbarSection1Items} pathName={pathName} />
+                                            </Stack>
+                                        }
+                                        {section === 'section2' &&
+                                            <>
+                                                {data.isAuthenticated ? (
+                                                    <Stack gap={10}>
+                                                        <NavbarSectionLinks sectionItems={navbarSection2Items} pathName={pathName} />
+                                                    </Stack>
+                                                ) : (
+                                                    <PasswordInputBlock />
+                                                )}
+                                            </>
+                                        }
+                                    </Flex>
+                                </AppShell.Section>
+                                <AppShell.Section>
+                                    <NavbarFooter />
+                                </AppShell.Section>
+                            </Stack>
+                        </>
+                    ) : (
+                        <>
+                            <Stack>
+                                <NavbarToggleSmall section={section} setSection={setSection} label={label} />
+                                {section === 'section1' &&
+                                    <Stack gap={10}>
+                                        <NavbarSectionLinksSmall sectionItems={navbarSection1Items} pathName={pathName} />
+                                    </Stack>
+                                }
+                                {section === 'section2' &&
+                                    <>
+                                        {data.isAuthenticated ? (
+                                            <Stack gap={10}>
+                                                <NavbarSectionLinksSmall sectionItems={navbarSection2Items} pathName={pathName} />
+                                            </Stack>
+                                        ) : (
+                                            <PasswordInputBlock />
+                                        )}
+                                    </>
+                                }
+                            </Stack>
+                        </>
+                    )
+                    }
                 </Flex>
-            </AppShell.Header>
-            <AppShell.Navbar p="md">
-                <AppShell.Section>Navbar header</AppShell.Section>
-                <AppShell.Section grow my="md" component={ScrollArea}>
-                    60 links in a scrollable section
-                    {Array(60)
-                        .fill(0)
-                        .map((_, index) => (
-                            <Skeleton key={index} h={28} mt="sm" animate={false} />
-                        ))}
-                </AppShell.Section>
-                <AppShell.Section>Navbar footer – always at the bottom</AppShell.Section>
             </AppShell.Navbar>
             <AppShell.Main>{children}</AppShell.Main>
         </AppShell >
