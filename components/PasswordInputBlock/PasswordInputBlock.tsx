@@ -36,7 +36,6 @@ export default function PasswordInputBlock() {
             setTimeout(() => {
                 window.location.reload();
             }, 1000);
-
         } else {
             toast.error('Authentication failed.');
         }

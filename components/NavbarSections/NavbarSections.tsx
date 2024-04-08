@@ -96,7 +96,7 @@ export function NavbarSectionLinksSmall({ sectionItems, pathName }: NavbarSectio
     return (
         <Flex direction={'row'} wrap={'wrap'} justify={'center'}>
             {Object.keys(sectionItems).map((section, index) => (
-                <Stack key={index} pt={15} gap={7} pl={25} pr={25}>
+                <Stack key={index} gap={7} pt={15} pl={25} pr={25}>
                     <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{section}</Text>
                     {sectionItems[section].map((item, index) => (
                         <Anchor
