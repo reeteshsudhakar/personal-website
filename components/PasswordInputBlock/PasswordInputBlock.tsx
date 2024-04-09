@@ -26,18 +26,31 @@ export default function PasswordInputBlock() {
             body: JSON.stringify({ password: form.values.password }),
         });
 
-        const data = await response.json();
+        if (response.ok) {
+            const data = await response.json();
 
-        if (data.authenticated) {
-            toast.success('Success! Redirecting...');
-            setTimeout(() => {
-                router.push('/dashboard');
-            }, 500);
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
+            if (data.authenticated) {
+                toast.success('Success! Redirecting...');
+                setTimeout(() => {
+                    router.push('/dashboard');
+                }, 500);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                // Handle the case where authentication fails but the server responds correctly
+                toast.error('Authentication failed.');
+            }
         } else {
-            toast.error('Authentication failed.');
+            // Handle HTTP error responses
+            try {
+                const errorData = await response.json();
+                // Display a more specific error message if the server provides one
+                toast.error(errorData.message || 'An error occurred. Try again.');
+            } catch (error) {
+                // Handle cases where the server response cannot be parsed as JSON
+                toast.error('An error occurred. Try again.');
+            }
         }
 
         form.reset();
