@@ -11,9 +11,9 @@ export function VersionBadge() {
                 <Badge
                     className={classes.root}
                     variant="light"
-                    color='green'
+                    color='#50B384'
                     rightSection={
-                        <Box mt={4} ml={-3} mr={-5} c={'green'}>
+                        <Box mt={4} ml={-3} mr={-5} c={'#50B384'}>
                             <IconChevronDown size={10} stroke={3} />
                         </Box>
                     }

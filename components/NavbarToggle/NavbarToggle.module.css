@@ -9,7 +9,5 @@
 }
 
 .indicator {
-    background-image: linear-gradient(to right,
-            var(--mantine-color-teal-filled),
-            var(--mantine-color-green-filled));
+    background-image: linear-gradient(to right, #0172AF, #50B384);
 }
