@@ -5,32 +5,8 @@ import classes from './IntroHero.module.css';
 import { useState, useEffect } from 'react';
 
 export function IntroHero() {
-    const [overlayOpacity, setOverlayOpacity] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const maxScroll = window.innerHeight;
-            const currentScroll = window.pageYOffset;
-            const opacity = currentScroll / maxScroll;
-            setOverlayOpacity(Math.min(opacity, 0.65)); // Cap opacity at 0.65
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
         <Center className={classes.wrapper}>
-
-            {/* <div style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
-                transition: 'background-color 0.5s ease'
-            }}></div> */}
-
-            <Overlay opacity={overlayOpacity} color='#000' />
 
             <Stack align='center' justify='center'>
                 <Text
