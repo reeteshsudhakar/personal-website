@@ -35,9 +35,25 @@ export function GetInTouch() {
     });
 
     async function handleSubmit() {
-        console.log(form.values);
-        toast.success('Message sent successfully!')
-        form.reset();
+        const templateParams = {
+            name: form.values.name,
+            email: form.values.email,
+            subject: form.values.subject,
+            message: form.values.message,
+        }
+
+        emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
+            templateParams,
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ''
+        )
+            .then((result) => {
+                toast.success('Message sent successfully!')
+                form.reset();
+            }, (error) => {
+                toast.error('Failed to send message!')
+            });
     }
 
     return (

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
+    "@emailjs/nodejs": "^2.2.0",
     "@mantine/core": "7.5.3",
     "@mantine/form": "^7.6.2",
     "@mantine/hooks": "7.5.3",

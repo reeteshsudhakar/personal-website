@@ -1608,6 +1608,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emailjs/nodejs@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@emailjs/nodejs@npm:2.2.0"
+  checksum: c56c63108cd9f45ed54937dc1a8257d249d8c9c96a23fed57c2a3a660894b7d7ec3e06f518fb93878162b2d02867b72890fcb22aa98b9d65b881886dc1947636
+  languageName: node
+  linkType: hard
+
 "@emotion/use-insertion-effect-with-fallbacks@npm:^1.0.0":
   version: 1.0.1
   resolution: "@emotion/use-insertion-effect-with-fallbacks@npm:1.0.1"
@@ -11289,6 +11296,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.23.2"
     "@emailjs/browser": "npm:^4.3.3"
+    "@emailjs/nodejs": "npm:^2.2.0"
     "@mantine/core": "npm:7.5.3"
     "@mantine/form": "npm:^7.6.2"
     "@mantine/hooks": "npm:7.5.3"
