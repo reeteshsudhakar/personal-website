@@ -32,7 +32,7 @@ export function WorkingOnHero() {
                             radius={'md'}
                             size='md'
                         >
-                            <Text size='l'>View my projects</Text>
+                            <Text size='l' fw={700}>View my projects</Text>
                         </Button>
                     </Anchor>
                     <Anchor href='/blog' underline='never'>
@@ -43,7 +43,7 @@ export function WorkingOnHero() {
                             radius={'md'}
                             size='md'
                         >
-                            <Text size='l'>Keep up with my blog!</Text>
+                            <Text size='l' fw={700}>Check out my blog!</Text>
                         </Button>
                     </Anchor>
                 </Group>

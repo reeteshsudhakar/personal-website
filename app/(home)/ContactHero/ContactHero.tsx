@@ -17,7 +17,7 @@ export function ContactHero() {
                     c='#FFFFFF'
                     p={'xl'}
                     ta='center'
-                    size='l'
+                    size='xl'
                 >
                     Whether it's about technology, finance, music, or absolute nonsense, I'm always up for a chat. Feel free to reach out through any of the methods below!
                 </Text>
@@ -26,11 +26,11 @@ export function ContactHero() {
                     <Anchor href='/contact' underline='never'>
                         <Button
                             variant='light'
-                            color='gray'
+                            color='#FFF'
                             leftSection={<IconForms />}
                             radius={'md'}
                         >
-                            <Text size='l'>Contact</Text>
+                            <Text size='l' fw={700}>Contact</Text>
                         </Button>
                     </Anchor>
                     <Anchor href='https://calendly.com/reesud6187/30min' underline='never' target='_blank'>
@@ -40,17 +40,17 @@ export function ContactHero() {
                             leftSection={<IconCalendar />}
                             radius={'md'}
                         >
-                            <Text size='l'>Schedule a meeting</Text>
+                            <Text size='l' fw={700}>Schedule a meeting</Text>
                         </Button>
                     </Anchor>
                     <Anchor href='mailto:reesud6187@gmail.com' underline='never' target='_blank'>
                         <Button
                             variant='light'
-                            color='gray'
+                            color='#FFF'
                             leftSection={<IconMail />}
                             radius={'md'}
                         >
-                            <Text size='l'>Email me!</Text>
+                            <Text size='l' fw={700}>Email me!</Text>
                         </Button>
                     </Anchor>
                     <Anchor href='https://instagram.com/reeteshsudhakar' underline='never' target='_blank'>
@@ -60,7 +60,7 @@ export function ContactHero() {
                             leftSection={<IconBrandInstagram />}
                             radius={'md'}
                         >
-                            <Text size='l'>Instagram</Text>
+                            <Text size='l' fw={700}>Instagram</Text>
                         </Button>
                     </Anchor>
                 </Group>

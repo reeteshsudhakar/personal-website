@@ -1,4 +1,4 @@
-import { IconApi, IconApiApp, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMoneybag, IconMovie, IconMusic, IconNews, IconPrompt, IconSchool, IconWriting } from "@tabler/icons-react";
+import { IconApi, IconApiApp, IconAt, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMapPin, IconMoneybag, IconMovie, IconMusic, IconNews, IconPhone, IconPrompt, IconSchool, IconSun, IconWriting } from "@tabler/icons-react";
 
 export const fullName = 'Reetesh Sudhakar';
 
@@ -115,3 +115,11 @@ export const spotifyURLs = [
     'https://open.spotify.com/track/2z7VITS30dBexE91V5QXWv?si=dc1e70546e20448c',
     'https://open.spotify.com/track/0suLmBuEbatdochI4tHduq?si=4df5367feaae49d8',
 ]
+
+/* Contact Form Information */
+export const formData = [
+    { title: 'Email', description: 'reesud6187@gmail.com', icon: IconAt },
+    { title: 'Phone', description: '+1 (971) 470-7750', icon: IconPhone },
+    { title: 'Location', description: 'Atlanta', icon: IconMapPin },
+    { title: 'Working hours', description: 'Always', icon: IconSun },
+];
