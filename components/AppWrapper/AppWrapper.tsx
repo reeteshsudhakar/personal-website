@@ -18,7 +18,7 @@ import { VersionBadge } from '../VersionBadge/VersionBadge';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
-import { navbarSection1Items, navbarSection2Items } from '@/utils/constants';
+import { navbarSection1Items, navbarSection2Items, fullName } from '@/utils/constants';
 import { NavbarFooter, NavbarSectionLinks, NavbarSectionLinksSmall, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
 import { NavbarToggleLarge, NavbarToggleSmall } from '../NavbarToggle/NavbarToggle';
 import { Toaster } from 'react-hot-toast';
@@ -74,7 +74,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                         <Group gap='xs'>
                             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
                             <Anchor href="/" underline='never'>
-                                <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
+                                <Text fw={900} c={'white'}>{fullName}</Text>
                             </Anchor>
                         </Group>
                         <VersionBadge />
@@ -89,7 +89,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                 <AppShell.Section>
                                     <Group justify='center'>
                                         <Anchor href="/" underline='never'>
-                                            <Text fw={900} c={'white'}>Reetesh Sudhakar</Text>
+                                            <Text fw={900} c={'white'}>{fullName}</Text>
                                         </Anchor>
                                         <VersionBadge />
                                     </Group>

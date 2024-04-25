@@ -68,7 +68,7 @@ export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsPro
 export function NavbarFooter() {
     return (
         <Stack justify='center' align='center' gap={'xs'}>
-            <Text size='xs'>{navbarFooterItems.text}</Text>
+            <Text size='xs' c='white'>{navbarFooterItems.text}</Text>
             <Group>
                 {navbarFooterItems.links.map((link, index) => (
                     <Anchor key={index} href={link.href}>

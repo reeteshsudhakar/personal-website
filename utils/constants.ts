@@ -1,5 +1,8 @@
 import { IconApi, IconApiApp, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMoneybag, IconMovie, IconMusic, IconNews, IconPrompt, IconSchool, IconWriting } from "@tabler/icons-react";
 
+export const fullName = 'Reetesh Sudhakar';
+
+/* Navbar Stuff */
 export const navbarBlurbs = [
     'Software Developer 💻',
     'Dog Lover 🐶',

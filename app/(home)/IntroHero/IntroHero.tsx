@@ -1,14 +1,12 @@
 'use client'
 
-import { Text, Center, Stack, Overlay } from '@mantine/core';
+import { Text, Center, Stack } from '@mantine/core';
 import classes from './IntroHero.module.css';
-import { useState, useEffect } from 'react';
 
 export function IntroHero() {
     return (
         <Center className={classes.wrapper}>
-
-            <Stack align='center' justify='center'>
+            <Stack align='center' justify='center' p={'lg'}>
                 <Text
                     className={classes.title}
                 >
@@ -23,7 +21,6 @@ export function IntroHero() {
                     Scroll to learn more ⬇️
                 </Text>
             </Stack>
-
         </Center>
     );
 }
