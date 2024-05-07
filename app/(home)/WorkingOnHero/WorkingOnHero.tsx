@@ -20,7 +20,7 @@ export function WorkingOnHero() {
                 >
                     I've been messing around with a lot of different things lately, technical and otherwise. Some notable things - a website for my a cappella group, this website,
                     a dashboard for my personal finances and daily news supercharged by AI, and some basic dev tools to self-host on my own website to make my daily life easier. I'm
-                    also carving out time to write more, and also work on an a cappella arrangement. Stay tuned for more!
+                    also carving out time to write more, and also work on an a cappella arrangement. Stay tuned to see if I finish any of these!
                 </Text>
 
                 <Group align='center' justify='center'>

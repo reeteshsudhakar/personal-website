@@ -16,9 +16,9 @@ export function IntroHero() {
                     c='#FFFFFF'
                     p={'sm'}
                     ta='center'
+                    size='xl'
                 >
-                    I'm a M.S. Computer Science student at Georgia Tech! I'm passionate about finance, technology, and music.
-                    Scroll to learn more ⬇️
+                    I'm a M.S. Computer Science student at the Georgia Institute of Technology! I'm passionate about finance, technology, and music. Scroll to learn more ⬇️
                 </Text>
             </Stack>
         </Center>
