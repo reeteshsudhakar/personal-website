@@ -31,7 +31,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
     const [isMounted, setIsMounted] = useState(false);
     const [section, setSection] = useState<'section1' | 'section2'>('section1');
     const pathName = usePathname();
-    const { data, error } = useSWR('/api/auth-status', fetcher)
+    const { data, error } = useSWR('/api/auth-status', fetcher);
 
     // Use hotkeys to switch sections
     useHotkeys([['mod+j', () => setSection(section === 'section1' ? 'section2' : 'section1')]]);

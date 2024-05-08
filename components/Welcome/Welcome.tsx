@@ -1,32 +1,30 @@
 'use client'
 
-import { Title, Text } from '@mantine/core';
+import { Title, Text, Center, Stack } from '@mantine/core';
 import classes from './Welcome.module.css';
 
 interface WelcomeProps {
-  pageTitle: string;
+    pageTitle: string;
 }
 
 export function Welcome(props: WelcomeProps) {
 
-  return (
-    <>
-      <Title className={classes.title} ta="center" mt={100}>
-        Hi, I'm{' '}
-        <Text inherit variant="gradient" component="span" gradient={{ from: 'green', to: 'cyan' }}>
-          Reetesh
-        </Text>
-      </Title>
-      <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        {/* This starter Next.js project includes a minimal setup for server side rendering, if you want
-        to learn more on Mantine + Next.js integration follow{' '}
-        <Anchor href="https://mantine.dev/guides/next/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit page.tsx file. */}
-
-        Right now, we're on the {props.pageTitle} page.
-      </Text>
-    </>
-  );
+    return (
+        <Center>
+            <Stack>
+                <Title className={classes.title} ta="center" mt={100}>
+                    Ruh{' '}
+                    <Text inherit variant="gradient" component="span" gradient={{ from: 'green', to: 'cyan' }}>
+                        Roh{' '}
+                    </Text>
+                    <Text inherit component='span'>
+                        🚧
+                    </Text>
+                </Title>
+                <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
+                    Right now, the {props.pageTitle} page is a work in progress. Stay tuned for updates!
+                </Text>
+            </Stack>
+        </Center>
+    );
 }

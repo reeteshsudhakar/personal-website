@@ -1,4 +1,48 @@
-import { IconApi, IconApiApp, IconAt, IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMantine, IconBrandNextjs, IconBuildingBank, IconCalendar, IconChartLine, IconFile, IconForms, IconMail, IconMapPin, IconMoneybag, IconMovie, IconMusic, IconNews, IconPhone, IconPrompt, IconSchool, IconSun, IconWriting } from "@tabler/icons-react";
+import {
+    IconApi,
+    IconApiApp,
+    IconAt,
+    IconBrandFacebook,
+    IconBrandGithub,
+    IconBrandInstagram,
+    IconBrandLinkedin,
+    IconBrandMantine,
+    IconBrandNextjs,
+    IconBuildingBank,
+    IconCalendar,
+    IconChartLine,
+    IconFile,
+    IconForms,
+    IconMail,
+    IconMapPin,
+    IconMoneybag,
+    IconMovie,
+    IconMusic,
+    IconNews,
+    IconPhone,
+    IconPrompt,
+    IconSchool,
+    IconSun,
+    IconWriting
+} from "@tabler/icons-react";
+import {
+    PythonOriginal,
+    JavaOriginal,
+    COriginal,
+    Html5Original,
+    Css3Original,
+    JavascriptOriginal,
+    ReactOriginal,
+    NextjsOriginal,
+    TypescriptOriginal,
+    PostgresqlOriginal,
+    DjangoPlain,
+    PycharmOriginal,
+    IntellijOriginal,
+    QtOriginal,
+    AnacondaOriginal,
+    GitOriginal,
+} from 'devicons-react';
 
 export const fullName = 'Reetesh Sudhakar';
 
@@ -230,4 +274,71 @@ export const experiences: ExperienceModalContent[] = [
         dates: 'Mar. 2020 - Aug. 2021',
         imagePath: '/logos/ohsu.png'
     }
+];
+
+export const skills = [
+    {
+        icon: PythonOriginal,
+        title: 'Python',
+    },
+    {
+        icon: JavaOriginal,
+        title: 'Java',
+    },
+    {
+        icon: COriginal,
+        title: 'C',
+    },
+    {
+        icon: Html5Original,
+        title: 'HTML',
+    },
+    {
+        icon: Css3Original,
+        title: 'CSS',
+    },
+    {
+        icon: JavascriptOriginal,
+        title: 'JavaScript',
+    },
+    {
+        icon: ReactOriginal,
+        title: 'React',
+    },
+    {
+        icon: NextjsOriginal,
+        title: 'Next.js',
+    },
+    {
+        icon: TypescriptOriginal,
+        title: 'TypeScript',
+    },
+    {
+        icon: PostgresqlOriginal,
+        title: 'PostgreSQL',
+    },
+    {
+        icon: DjangoPlain,
+        title: 'Django',
+    },
+    {
+        icon: PycharmOriginal,
+        title: 'PyCharm',
+    },
+    {
+        icon: IntellijOriginal,
+        title: 'IntelliJ',
+    },
+    {
+        icon: QtOriginal,
+        title: 'Qt C++',
+    },
+    {
+        icon: AnacondaOriginal,
+        title: 'Anaconda'
+    },
+    {
+        icon: GitOriginal,
+        title: 'Git'
+    },
 ];

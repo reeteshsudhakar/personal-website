@@ -6396,6 +6396,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:^2.2.1":
+  version: 2.5.1
+  resolution: "classnames@npm:2.5.1"
+  checksum: afff4f77e62cea2d79c39962980bf316bacb0d7c49e13a21adaadb9221e1c6b9d3cdb829d8bb1b23c406f4e740507f37e1dcf506f7e3b7113d17c5bab787aa69
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:^5.2.2":
   version: 5.3.3
   resolution: "clean-css@npm:5.3.3"
@@ -7338,6 +7345,15 @@ __metadata:
     detect: bin/detect-port.js
     detect-port: bin/detect-port.js
   checksum: f2b204ad3a9f8e8b53fea35fcc97469f31a8e3e786a2f59fbc886397e33b5f130c5f964bf001b9a64d990047c3824f6a439308461ff19801df04ab48a754639e
+  languageName: node
+  linkType: hard
+
+"devicons-react@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "devicons-react@npm:1.3.0"
+  peerDependencies:
+    react: "*"
+  checksum: b5c6234774d0cb33c1f6ca515f90e761f6d12838878c76f51fcb647411453eb7c37b96736172a074f0957de1e007012f7dad25b05bdfbf4cfebe36c2be836ae9
   languageName: node
   linkType: hard
 
@@ -11126,6 +11142,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.isnumber@npm:3.0.3":
+  version: 3.0.3
+  resolution: "lodash.isnumber@npm:3.0.3"
+  checksum: 2d01530513a1ee4f72dd79528444db4e6360588adcb0e2ff663db2b3f642d4bb3d687051ae1115751ca9082db4fdef675160071226ca6bbf5f0c123dbf0aa12d
+  languageName: node
+  linkType: hard
+
+"lodash.isstring@npm:4.0.1":
+  version: 4.0.1
+  resolution: "lodash.isstring@npm:4.0.1"
+  checksum: 09eaf980a283f9eef58ef95b30ec7fee61df4d6bf4aba3b5f096869cc58f24c9da17900febc8ffd67819b4e29de29793190e88dc96983db92d84c95fa85d1c92
+  languageName: node
+  linkType: hard
+
 "lodash.memoize@npm:4.x":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
@@ -11324,6 +11354,7 @@ __metadata:
     axios: "npm:^1.6.8"
     babel-loader: "npm:^9.1.3"
     cookie: "npm:^0.6.0"
+    devicons-react: "npm:^1.3.0"
     eslint: "npm:^8.53.0"
     eslint-config-airbnb: "npm:19.0.4"
     eslint-config-airbnb-typescript: "npm:^17.1.0"
@@ -11344,6 +11375,7 @@ __metadata:
     postcss-simple-vars: "npm:^7.0.1"
     prettier: "npm:^3.0.3"
     react: "npm:18.2.0"
+    react-devicon: "npm:^0.1.9"
     react-dom: "npm:18.2.0"
     react-hot-toast: "npm:^2.4.1"
     react-snowfall: "npm:^2.1.0"
@@ -12037,6 +12069,16 @@ __metadata:
   bin:
     nopt: bin/nopt.js
   checksum: 9bd7198df6f16eb29ff16892c77bcf7f0cc41f9fb5c26280ac0def2cf8cf319f3b821b3af83eba0e74c85807cc430a16efe0db58fe6ae1f41e69519f585b6aff
+  languageName: node
+  linkType: hard
+
+"normalize-css-unit@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "normalize-css-unit@npm:1.0.1"
+  dependencies:
+    lodash.isnumber: "npm:3.0.3"
+    lodash.isstring: "npm:4.0.1"
+  checksum: 5479dee77f3608ff137fd6b85c0aa248111fa1d06ed71b1ea458ea9dd72729d9977a9dc926eeb61ecc979913e8d8ce4653228e93d0c1b7570f8112a36656073b
   languageName: node
   linkType: hard
 
@@ -13025,7 +13067,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.3.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -13275,6 +13317,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-devicon@npm:^0.1.9":
+  version: 0.1.9
+  resolution: "react-devicon@npm:0.1.9"
+  dependencies:
+    normalize-css-unit: "npm:^1.0.0"
+    prop-types: "npm:^15.3.0"
+    react-svg-inline: "npm:^2.0.0"
+  peerDependencies:
+    react: ">= 15.3.0 < 16 || 16.x"
+    react-dom: ">= 15.3.0 < 16 || 16.x"
+  checksum: 5453fee581404f71935d0d980c24fb9f7f9db76f18b914439de7e4d1b70d0ac601d30f5e83aecc583dd0d8f6b444fed6411e1b1407da9861e3c05b7610cf2141
+  languageName: node
+  linkType: hard
+
 "react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -13484,6 +13540,18 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 6d66f3bdb65e1ec79089f80314da97c9a005087a04ee034255a5de129a4c0d9fd0bf99fa7bf642781ac2dc745ca687aae3de082bd8afdd0d117bc953241e15ad
+  languageName: node
+  linkType: hard
+
+"react-svg-inline@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "react-svg-inline@npm:2.1.1"
+  dependencies:
+    classnames: "npm:^2.2.1"
+    prop-types: "npm:^15.5.8"
+  peerDependencies:
+    react: ^0.14.9 || ^15.3.0 || ^16.0.0
+  checksum: 430d41987aae368e279b6321f1b096d7c19355a801dfdeaf3b7c9a5741b28520498aedd60e477a82748199957f6b9ffa261a641d6f0167023130627d97a54276
   languageName: node
   linkType: hard
 
