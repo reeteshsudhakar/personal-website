@@ -125,7 +125,7 @@ export const navbarSection2Items = {
     ],
     'Personal': [
         {
-            label: 'Movies', icon: IconMovie, href: 'https://movies.reeteshsudhakar.com'
+            label: 'Movie-Web (Dead)', icon: IconMovie, href: 'https://movies.reeteshsudhakar.com'
         }
     ]
 }
