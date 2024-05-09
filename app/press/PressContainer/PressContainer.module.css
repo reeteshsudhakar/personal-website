@@ -1,0 +1,25 @@
+.wrapper {
+    position: relative;
+    background-color: #f1f3fa;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.title {
+    font-weight: 800;
+    font-size: rem(50px);
+    padding-left: var(--mantine-spacing-md);
+    padding-right: var(--mantine-spacing-md);
+    color: #0172AF;
+    text-align: center;
+    font-family:
+        Greycliff CF,
+        var(--mantine-font-family);
+
+    @media (max-width: $mantine-breakpoint-xs) {
+        font-size: rem(28px);
+        text-align: left;
+    }
+}

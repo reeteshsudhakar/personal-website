@@ -1,9 +1,10 @@
-import { Welcome } from "@/components/Welcome/Welcome";
+import { Text } from "@mantine/core";
+import PressContainer from "./PressContainer/PressContainer";
 
 export default function HomePage() {
     return (
-        <>
-            <Welcome pageTitle='Press' />
-        </>
+        <PressContainer>
+            <Text>this is the child</Text>
+        </PressContainer>
     );
 }
