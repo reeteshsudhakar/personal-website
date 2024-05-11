@@ -11,7 +11,7 @@ export default function PressContainer({ children }: React.PropsWithChildren) {
             <Text
                 className={classes.title}
             >
-                Press
+                Press and Publications
             </Text>
 
             {children}
