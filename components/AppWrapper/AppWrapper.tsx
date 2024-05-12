@@ -124,7 +124,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                             </Stack>
                         </>
                     ) : (
-                        <>
+                        <ScrollArea>
                             <Stack>
                                 <NavbarToggleSmall section={section} setSection={setSection} label={label} />
                                 {section === 'section1' &&
@@ -144,7 +144,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                     </>
                                 }
                             </Stack>
-                        </>
+                        </ScrollArea>
                     )
                     }
                 </Flex>

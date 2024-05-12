@@ -342,3 +342,62 @@ export const skills = [
         title: 'Git'
     },
 ];
+
+export const pressArticles = [
+    {
+        source: 'Frontiers in Pharmacology',
+        title: 'ApoE isoform-dependent effects of xanthohumol on high fat diet-induced cognitive impairments and hippocampal metabolic pathways',
+        imagePath: '/press/frontiers-pharma-2022.jpg',
+        date: 'October 2022',
+        author: 'Kundu et al.',
+        href: 'https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2022.954980/full'
+    },
+    {
+        source: 'Frontiers in Aging Neuroscience',
+        title: 'Apolipoprotein E Isoform-Dependent Effects on Human Amyloid Precursor Protein/Aβ-Induced Behavioral Alterations and Cognitive Impairments and Insoluble Cortical Aβ42 Levels',
+        imagePath: '/press/frontiers-neuro-2022.jpg',
+        date: 'March 2022',
+        author: 'Holden et al.',
+        href: 'https://www.frontiersin.org/articles/10.3389/fnagi.2022.767558/full'
+    },
+    {
+        source: 'Frontiers in Physiology',
+        title: 'Effects of 5-Ion Beam Irradiation and Hindlimb Unloading on Metabolic Pathways in Plasma and Brain of Behaviorally Tested WAG/Rij Rats',
+        imagePath: '/press/frontiers-2021.jpg',
+        date: 'September 2021',
+        author: 'Raber et al.',
+        href: 'https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2021.746509/full'
+    },
+    {
+        source: 'KGW News',
+        title: 'Beaverton teens create online platform where young artists can perform',
+        imagePath: '/press/kgw-2020.png',
+        date: 'July 2020',
+        author: 'Brittany Falkers',
+        href: 'https://www.kgw.com/article/news/health/coronavirus/beaverton-teens-create-online-platform-for-your-artists-to-perform/283-b3070834-ccbd-42c1-9eff-990aa2880ae8'
+    },
+    {
+        source: 'Beaverton Valley Times',
+        title: 'Beaverton teens build platform for youth artists',
+        imagePath: '/press/bvt-2020.jpg',
+        date: 'July 2020',
+        author: 'Wade Evanson',
+        href: 'https://www.beavertonvalleytimes.com/news/beaverton-teens-build-platform-for-youth-artists/article_623a1eb8-1421-5be8-a6e1-55e62d4ac11b.html'
+    },
+    {
+        source: 'KOIN 6 News',
+        title: 'Westview HS teen provides platform for teen performers',
+        imagePath: '/press/koin-2020.jpg',
+        date: 'June 2020',
+        author: 'Jenny Hansson',
+        href: 'https://www.koin.com/news/education/westview-hs-teen-provides-platform-for-teen-performers/'
+    },
+    {
+        source: 'Beaverton Valley Times',
+        title: 'Showing up for science',
+        imagePath: '/press/bvt-2017.jpg',
+        date: 'May 2017',
+        author: 'Blair Stenvick',
+        href: 'https://www.beavertonvalleytimes.com/news/showing-up-for-science/article_a1850dde-9e99-5dd3-904d-556468d813c4.html'
+    }
+];
