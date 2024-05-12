@@ -33,9 +33,6 @@ export default function PasswordInputBlock() {
                 toast.success('Success! Redirecting...');
                 setTimeout(() => {
                     router.push('/dashboard');
-                }, 500);
-                setTimeout(() => {
-                    window.location.reload();
                 }, 1000);
             } else {
                 // Handle the case where authentication fails but the server responds correctly
