@@ -13,32 +13,33 @@ interface ArticleCardProps {
     href: string;
 }
 
-export function ArticleCard() {
+export function ArticleCard({ source, title, imagePath, date, author, href }: ArticleCardProps) {
     const isLargeScreen = useMediaQuery('(min-width: 36em)');
     return (
         <>
             {isLargeScreen ? (
-                <Anchor underline='never' target='_blank' href={''}>
+                <Anchor underline='never' target='_blank' href={href}>
                     <Card radius="md" p={0} className={classes.card} shadow={'lg'}>
                         <Group wrap="nowrap" gap={0}>
                             <Image
-                                src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-                                height={160}
+                                src={imagePath}
+                                h={200}
+                                w={250}
                             />
                             <div className={classes.body}>
                                 <Text tt="uppercase" c="dimmed" fw={700} size="xs">
-                                    technology
+                                    {source}
                                 </Text>
                                 <Text c='black' className={classes.title} mt="xs" mb="md">
-                                    The best laptop for Frontend engineers in 2022
+                                    {title}
                                 </Text>
                                 <Group wrap="nowrap" gap="xs">
-                                    <Text size="xs">Elsa Typechecker</Text>
+                                    <Text size="xs">{author}</Text>
                                     <Text size="xs" c="dimmed">
                                         •
                                     </Text>
                                     <Text size="xs" c="dimmed">
-                                        Feb 6th
+                                        {date}
                                     </Text>
                                 </Group>
                             </div>
@@ -47,27 +48,27 @@ export function ArticleCard() {
                 </Anchor>
 
             ) : (
-                <Anchor underline='never' target='_blank' href={''}>
+                <Anchor underline='never' target='_blank' href={href}>
                     <Card radius="md" p={0} className={classes.card} shadow={'lg'}>
                         <Stack gap={0}>
                             <Image
-                                src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                src={imagePath}
                                 height={160}
                             />
                             <div className={classes.body}>
                                 <Text tt="uppercase" c="dimmed" fw={700} size="xs">
-                                    technology
+                                    {source}
                                 </Text>
                                 <Text c='black' className={classes.title} mt="xs" mb="md">
-                                    The best laptop for Frontend engineers in 2022
+                                    {title}
                                 </Text>
                                 <Group wrap="nowrap" gap="xs">
-                                    <Text size="xs">Elsa Typechecker</Text>
+                                    <Text size="xs">{author}</Text>
                                     <Text size="xs" c="dimmed">
                                         •
                                     </Text>
                                     <Text size="xs" c="dimmed">
-                                        Feb 6th
+                                        {date}
                                     </Text>
                                 </Group>
                             </div>
@@ -77,31 +78,6 @@ export function ArticleCard() {
 
             )}
         </>
-    );
-}
-
-export function ArticleCardNew() {
-    return (
-        <Anchor underline='never' target='_blank' href={''}>
-            <Card radius="md" p={0} className={classes.card} shadow={'lg'}>
-                <Image
-                    src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWgefHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-                    height={160}
-                    className={classes.image}
-                />
-                <div className={classes.body}>
-                    <Text tt="uppercase" c="dimmed" fw={700} size="xs" className={classes.header}>
-                        technology
-                    </Text>
-                    <Text c='black' className={classes.title}>
-                        The best laptop for Frontend engineers in 2022
-                    </Text>
-                    <Text size="xs" className={classes.authorDate}>
-                        Elsa Typechecker • Feb 6th
-                    </Text>
-                </div>
-            </Card>
-        </Anchor>
     );
 }
 
