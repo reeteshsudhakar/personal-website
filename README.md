@@ -2,6 +2,8 @@
 
 This is my personal website! I built it using Next.js (app router) and Mantine. The public facing portion of my website is just a personal portfolio and highlights my experience. There's also a private portion of my website that requires authentication, utilizing [middleware](https://nextjs.org/docs/app/building-your-application/routing/middleware) and my own API endpoint to authenticate and protect pages. I used [email.js](https://www.emailjs.com) to set up the contact form. I also use this website to deploy/host projects and point to various APIs. Details about the template that this website was built on top of are below. 
 
+---
+
 # Mantine Next.js template
 
 This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
