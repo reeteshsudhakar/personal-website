@@ -2,10 +2,13 @@
 
 import { Text, Center, Stack } from '@mantine/core';
 import classes from './AboutHero.module.css';
+import { useMediaQuery } from '@mantine/hooks';
 
 export function AboutHero() {
+    const isLargeScreen = useMediaQuery('(min-width: 48em)');
+
     return (
-        <Center className={classes.wrapper}>
+        <Center className={isLargeScreen ? classes.wrapper : classes.wrapperSmall}>
             <Stack align='center' justify='center'>
                 <Text
                     className={classes.title}

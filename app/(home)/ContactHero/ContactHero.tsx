@@ -3,10 +3,13 @@
 import { Text, Center, Stack, Button, Group, Anchor } from '@mantine/core';
 import classes from './ContactHero.module.css';
 import { IconForms, IconCalendar, IconMail, IconBrandInstagram } from '@tabler/icons-react';
+import { useMediaQuery } from '@mantine/hooks';
 
 export function ContactHero() {
+    const isLargeScreen = useMediaQuery('(min-width: 48em)');
+
     return (
-        <Center className={classes.wrapper}>
+        <Center className={isLargeScreen ? classes.wrapper : classes.wrapperSmall}>
             <Stack align='center' justify='center'>
                 <Text
                     className={classes.title}
