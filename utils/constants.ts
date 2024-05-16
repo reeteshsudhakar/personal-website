@@ -201,6 +201,11 @@ export interface ExperienceModalContent {
     imagePath: string;
 }
 
+// Extending the ModalContent interface to include the open state
+export interface ExperienceModalData extends ExperienceModalContent {
+    open: boolean;
+}
+
 export const experiences: ExperienceModalContent[] = [
     {
         title: 'Software Engineer Intern',
