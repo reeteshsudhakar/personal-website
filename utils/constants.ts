@@ -10,6 +10,7 @@ import {
     IconBrandNextjs,
     IconBuildingBank,
     IconCalendar,
+    IconCertificate,
     IconChartLine,
     IconFile,
     IconForms,
@@ -46,7 +47,7 @@ import {
 
 export const fullName = 'Reetesh Sudhakar';
 
-/* Navbar Stuff */
+/* Top of Navbar Blurbs */
 export const navbarBlurbs = [
     'Software Developer 💻',
     'Dog Lover 🐶',
@@ -54,10 +55,11 @@ export const navbarBlurbs = [
     'Into Finance & Technology 📈',
 ];
 
+/* Navbar Section Links */
 export const navbarSection1Items = {
     'Professional': [
         {
-            label: 'Experience', icon: IconSchool, href: '/experience'
+            label: 'Experience', icon: IconCertificate, href: '/experience'
         },
         {
             label: 'Projects', icon: IconPrompt, href: '/projects'
@@ -120,16 +122,20 @@ export const navbarSection2Items = {
             label: 'Robinhood', icon: IconChartLine, href: 'https://robinhood.com'
         },
         {
-            label: 'TD Ameritrade', icon: IconMoneybag, href: 'https://invest.ameritrade.com/grid/p/site#r=home'
+            label: 'Charles Schwab', icon: IconMoneybag, href: 'https://client.schwab.com/Areas/Access/Login'
         },
     ],
     'Personal': [
+        {
+            label: 'B.S. Degree', icon: IconSchool, href: 'https://www.github.com/reeteshsudhakar/gatech-bs-degree'
+        },
         {
             label: 'Movie-Web (Dead)', icon: IconMovie, href: 'https://movies.reeteshsudhakar.com'
         }
     ]
 }
 
+/* Navbar Footer */
 export const navbarFooterItems = {
     text: 'Made by Reetesh Sudhakar with',
     links: [
@@ -162,12 +168,29 @@ export const spotifyURLs = [
 
 /* Contact Form Information */
 export const formData = [
-    { title: 'Email', description: 'reesud6187@gmail.com', icon: IconAt },
-    { title: 'Phone', description: '+1 (971) 470-7750', icon: IconPhone },
-    { title: 'Location', description: 'Atlanta', icon: IconMapPin },
-    { title: 'Working hours', description: 'Always', icon: IconSun },
+    {
+        title: 'Email',
+        description: 'reesud6187@gmail.com',
+        icon: IconAt
+    },
+    {
+        title: 'Phone',
+        description: '+1 (971) 470-7750',
+        icon: IconPhone
+    },
+    {
+        title: 'Location',
+        description: 'Atlanta',
+        icon: IconMapPin
+    },
+    {
+        title: 'Working hours',
+        description: 'Always',
+        icon: IconSun
+    },
 ];
 
+/* Experience Page Content */
 export interface ExperienceModalContent {
     title: string;
     company: string;
@@ -276,6 +299,7 @@ export const experiences: ExperienceModalContent[] = [
     }
 ];
 
+/* Skills Icon and Titles */
 export const skills = [
     {
         icon: PythonOriginal,
@@ -343,6 +367,8 @@ export const skills = [
     },
 ];
 
+
+/* Press Article Data */
 export const pressArticles = [
     {
         source: 'Frontiers in Pharmacology',
