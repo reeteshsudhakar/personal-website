@@ -367,7 +367,6 @@ export const skills = [
     },
 ];
 
-
 /* Press Article Data */
 export const pressArticles = [
     {
@@ -427,3 +426,20 @@ export const pressArticles = [
         href: 'https://www.beavertonvalleytimes.com/news/showing-up-for-science/article_a1850dde-9e99-5dd3-904d-556468d813c4.html'
     }
 ];
+
+export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom (some of which are still a major work-in-progress 😂). Feel free to explore the codebases and learn more about my endeavors below!'
+
+export interface ProjectCardData {
+    title: string;
+    description: string;
+    imagePath: string;
+    tech: {
+        icon: any;
+        name: string;
+    }[];
+    links?: {
+        label: string;
+        href: string;
+        icon?: any;
+    }[];
+}
