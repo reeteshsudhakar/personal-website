@@ -9,16 +9,6 @@
         box-shadow: var(--mantine-shadow-xl);
         transform: scale(1.02);
     }
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: rem(6px);
-        background-image: linear-gradient(0, #0172AF, #50B384);
-    }
 }
 
 .title {
@@ -31,4 +21,10 @@
 
 .body {
     padding: var(--mantine-spacing-md);
+}
+
+.image {
+    min-width: min(100%, 325px);
+    max-width: min(100%, 450px);
+    height: 100%;
 }

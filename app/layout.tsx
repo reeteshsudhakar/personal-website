@@ -1,6 +1,6 @@
 import '@mantine/core/styles.css';
 import React from 'react';
-import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { theme } from '../theme';
 import AppWrapper from '@/components/AppWrapper/AppWrapper';
 
@@ -14,7 +14,6 @@ export default function RootLayout({ children }: { children: any }) {
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript defaultColorScheme='dark' />
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
           name="viewport"
@@ -22,7 +21,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme} defaultColorScheme='dark'>
+        <MantineProvider theme={theme} forceColorScheme='dark'>
           <AppWrapper>
             {children}
           </AppWrapper>

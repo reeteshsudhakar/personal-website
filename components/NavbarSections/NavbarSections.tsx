@@ -6,6 +6,7 @@ import {
     Group,
     Stack,
     Text,
+    Tooltip,
 } from '@mantine/core';
 import { theme } from '../../theme';
 import classes from './NavbarSections.module.css';
@@ -71,9 +72,11 @@ export function NavbarFooter() {
             <Text size='xs' c='white'>{navbarFooterItems.text}</Text>
             <Group>
                 {navbarFooterItems.links.map((link, index) => (
-                    <Anchor key={index} href={link.href}>
-                        <NavbarIcon Icon={link.icon} size={25} />
-                    </Anchor>
+                    <Tooltip label={link.label} transitionProps={{ transition: 'pop', duration: 300 }}>
+                        <Anchor key={index} href={link.href}>
+                            <NavbarIcon Icon={link.icon} size={25} />
+                        </Anchor>
+                    </Tooltip>
                 ))}
             </Group>
         </Stack>

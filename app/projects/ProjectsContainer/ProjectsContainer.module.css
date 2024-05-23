@@ -5,6 +5,7 @@
     background-position: center;
     width: 100%;
     min-height: 100vh;
+    padding: var(--mantine-spacing-xl);
 }
 
 .title {
@@ -23,4 +24,8 @@
         font-size: rem(28px);
         text-align: left;
     }
+}
+
+.children {
+    max-width: rem(1000px);
 }

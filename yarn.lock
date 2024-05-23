@@ -1879,6 +1879,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/fontawesome-common-types@npm:6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/fontawesome-common-types@npm:6.5.2"
+  checksum: 12104e93a0056ad1077f7350826f52aa26465bb1d6b4ce75dab0307072a3871301ec750c3a34d89d05e7338c9b446fa2793150cf58a5167217021943ef877d77
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-svg-core@npm:^6.5.2":
+  version: 6.5.2
+  resolution: "@fortawesome/fontawesome-svg-core@npm:6.5.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": "npm:6.5.2"
+  checksum: 91695dd375623988d16e6f0dc69d20350ef3fa3296fe40aa08877aae7beaf64378134656a2227419fe648dcd27a81c03fe1fd9a6c87956d863164b0380ba77d0
+  languageName: node
+  linkType: hard
+
+"@fortawesome/react-fontawesome@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@fortawesome/react-fontawesome@npm:0.2.1"
+  dependencies:
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    "@fortawesome/fontawesome-svg-core": ~1 || ~6
+    react: ">=16.3"
+  checksum: 0ee2deceea96010788b73b1a2378af66ea4a228906f8402bdab1396571994afe1c2a10348358feb065127ebb8b3eb9875309c8d1fca384cef503b03d9336179a
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -11327,6 +11355,8 @@ __metadata:
     "@babel/core": "npm:^7.23.2"
     "@emailjs/browser": "npm:^4.3.3"
     "@emailjs/nodejs": "npm:^2.2.0"
+    "@fortawesome/fontawesome-svg-core": "npm:^6.5.2"
+    "@fortawesome/react-fontawesome": "npm:^0.2.1"
     "@mantine/core": "npm:7.5.3"
     "@mantine/form": "npm:^7.6.2"
     "@mantine/hooks": "npm:7.5.3"

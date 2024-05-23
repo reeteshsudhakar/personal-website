@@ -1,9 +1,11 @@
-import { Welcome } from "@/components/Welcome/Welcome";
+import ProjectsContainer from "./ProjectsContainer/ProjectsContainer";
+import { Stack, Text } from "@mantine/core";
+import { ProjectCardsSection } from "@/components/ProjectCard/ProjectCard";
 
 export default function HomePage() {
     return (
-        <>
-            <Welcome pageTitle='Projects' />
-        </>
+        <ProjectsContainer>
+            <ProjectCardsSection />
+        </ProjectsContainer>
     );
 }
