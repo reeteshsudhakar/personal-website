@@ -10,7 +10,7 @@ interface NavbarToggleProps {
 
 export function NavbarToggleSmall({ section, setSection, label }: NavbarToggleProps) {
     return (
-        <Tooltip label={label} withArrow position={'top'} className={classes.tooltip}>
+        <Tooltip label={label} withArrow position={'top'} className={classes.tooltip} transitionProps={{ transition: 'pop', duration: 300 }}>
             <SegmentedControl
                 classNames={{ root: classes.segmentControlSmall, indicator: classes.indicator }}
                 value={section}
@@ -45,7 +45,7 @@ export function NavbarToggleSmall({ section, setSection, label }: NavbarTogglePr
 
 export function NavbarToggleLarge({ section, setSection, label }: NavbarToggleProps) {
     return (
-        <Tooltip label={label} withArrow position={'top'} className={classes.tooltip}>
+        <Tooltip label={label} withArrow position={'top'} className={classes.tooltip} transitionProps={{ transition: 'pop', duration: 300 }}>
             <SegmentedControl
                 classNames={{ root: classes.segmentControlLarge, indicator: classes.indicator }}
                 value={section}

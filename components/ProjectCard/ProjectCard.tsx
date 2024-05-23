@@ -24,6 +24,7 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, description, date, imagePath, tech, links, index }: ProjectCardProps) {
     const isLargeScreen = useMediaQuery('(min-width: 60em)');
+    const placeholder = "https://placehold.co/300x300?text=" + title
 
     return (
         <>
@@ -36,6 +37,7 @@ function ProjectCard({ title, description, date, imagePath, tech, links, index }
                                 radius='xl'
                                 p='md'
                                 fit='contain'
+                                fallbackSrc={placeholder}
                             />
 
                         </div>
@@ -52,7 +54,7 @@ function ProjectCard({ title, description, date, imagePath, tech, links, index }
                             <Stack align='center' justify='center'>
                                 <Group>
                                     {tech.map((t) => (
-                                        <Tooltip label={t.name}>
+                                        <Tooltip label={t.name} transitionProps={{ transition: 'pop', duration: 300 }}>
                                             <Stack gap="xs">
                                                 <t.icon size={30} />
                                             </Stack>
@@ -98,16 +100,16 @@ function ProjectCard({ title, description, date, imagePath, tech, links, index }
                                 {description}
                             </Text>
                             <Stack align='center' justify='center'>
-                                <Group>
+                                <Group align='center' justify='center'>
                                     {tech.map((t) => (
-                                        <Tooltip label={t.name}>
+                                        <Tooltip label={t.name} transitionProps={{ transition: 'pop', duration: 300 }}>
                                             <Stack gap="xs">
                                                 <t.icon size={30} />
                                             </Stack>
                                         </Tooltip>
                                     ))}
                                 </Group>
-                                <Group>
+                                <Group align='center' justify='center'>
                                     {links?.map((link) => (
                                         <Anchor
                                             href={link.href}
@@ -134,7 +136,7 @@ function ProjectCard({ title, description, date, imagePath, tech, links, index }
 
 export function ProjectCardsSection() {
     return (
-        <Stack>
+        <Stack pt={'md'} gap='xl'>
             {projects.map((project, index) => (
                 <ProjectCard
                     title={project.title}

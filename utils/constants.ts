@@ -2,14 +2,17 @@ import {
     IconApi,
     IconApiApp,
     IconAt,
+    IconBike,
     IconBrandFacebook,
     IconBrandGithub,
     IconBrandInstagram,
     IconBrandLinkedin,
     IconBrandMantine,
     IconBrandNextjs,
+    IconBrandOpenai,
     IconBuildingBank,
     IconCalendar,
+    IconCar,
     IconCertificate,
     IconChartLine,
     IconFile,
@@ -23,7 +26,10 @@ import {
     IconPhone,
     IconPrompt,
     IconSchool,
+    IconSlideshow,
     IconSun,
+    IconVaccine,
+    IconWorldWww,
     IconWriting
 } from "@tabler/icons-react";
 import {
@@ -47,7 +53,16 @@ import {
     ScikitlearnOriginal,
     NumpyOriginal,
     PandasOriginal,
+    LatexOriginal,
+    JupyterOriginal,
+    SeleniumOriginal,
+    GooglecloudOriginal,
+    TensorflowOriginal,
+    KerasOriginal,
+    JunitOriginal,
+    VercelOriginal,
 } from 'devicons-react';
+import { hasRequestAnimationFrame } from "swr/dist/_internal";
 
 export const fullName = 'Reetesh Sudhakar';
 
@@ -147,6 +162,11 @@ export const navbarFooterItems = {
             label: 'Next.js',
             icon: IconBrandNextjs,
             href: 'https://nextjs.org'
+        },
+        {
+            label: 'DALL-E',
+            icon: IconBrandOpenai,
+            href: 'https://openai.com/dall-e'
         },
         {
             label: 'Mantine',
@@ -431,26 +451,26 @@ export const pressArticles = [
     }
 ];
 
-export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom (some of which are still a major work-in-progress 😂). Feel free to explore the codebases and learn more about my endeavors below!'
+export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom, some of which are still a major work-in-progress or private. Feel free to explore below! Currently, I\'m working on a semantic course search engine for my school, a website for my a cappella group, a second brain, among other things.'
 
 export const projects = [
+    // {
+    //     title: '',
+    //     description: '',
+    //     date: '',
+    //     imagePath: '',
+    //     tech: [],
+    //     links: []
+    // },
     {
-        title: 'Home Credit Risk Analysis',
-        description: 'A machine learning project aiming to analyze home credit risk, providing predictions on defaults for home loans. With housing markets facing uncertainty and limited credit histories hindering borrowers, this analysis helps ensure qualified applicants aren\’t unfairly denied while identifying likely defaulters early. Manual risk evaluations are inconsistent and time-consuming, necessitating automated, unbiased assessments.',
-        date: 'Dec. 2023',
-        imagePath: '/projects/CS-7641-Project.png',
+        title: 'Simulations: Vaccines, Traffic, and Citi Bike Shares in NYC',
+        description: 'A series of simulation experiments. The first explores the spread of infectious diseases and how to implement effective vaccination strategies. The second explores one-lane and two-lane traffic systems, analyzing the effects of various densities and dallying on traffic flow. The final experiment explores the bike share program in NYC, analyzing how to optimize bike availability and rider satisfaction from 2022 data. Detailed analyses below!',
+        date: 'May 2024',
+        imagePath: '/projects/CX-4230-Project.png',
         tech: [
             {
                 icon: PythonOriginal,
                 name: "Python"
-            },
-            {
-                icon: JekyllOriginal,
-                name: "Jekyll"
-            },
-            {
-                icon: ScikitlearnOriginal,
-                name: "Scikitlearn"
             },
             {
                 icon: NumpyOriginal,
@@ -460,23 +480,79 @@ export const projects = [
                 icon: PandasOriginal,
                 name: "Pandas"
             },
+            {
+                icon: LatexOriginal,
+                name: "LaTeX"
+            },
+            {
+                icon: JupyterOriginal,
+                name: "Jupyter Notebook"
+            }
         ],
         links: [
             {
                 label: 'Source Code',
-                href: 'github.com/reeteshsudhakar/CS-7641-Project',
+                href: 'github.com/reeteshsudhakar/CX-4230',
                 icon: IconBrandGithub
             },
             {
-                label: 'Report',
-                href: 'reeteshsudhakar.github.io/CS-7641-Project',
+                label: 'Contagion',
+                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-1/Writeup.pdf',
+                icon: IconVaccine
+            },
+            {
+                label: 'Traffic',
+                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-2/report/report.pdf',
+                icon: IconCar
+            },
+            {
+                label: 'Bike Share',
+                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-3/report/report.pdf',
+                icon: IconBike
+            }
+
+        ]
+    },
+    {
+        title: 'GT Delts Website',
+        description: 'I built a new website for my college fraternity. The previous website was outdated and not user-friendly, so I decided to build a new one from scratch. The website is built using Next.js for the pages, Chakra UI for the components, and Vercel for deployment. The website is live and accessible to the public.',
+        date: 'March 2024',
+        imagePath: '/projects/gt-delts-website.png',
+        tech: [
+            {
+                icon: NextjsOriginal,
+                name: "Next.js"
+            },
+            {
+                icon: ReactOriginal,
+                name: "React"
+            },
+            {
+                icon: TypescriptOriginal,
+                name: "TypeScript"
+            },
+            {
+                icon: VercelOriginal,
+                name: "Vercel"
+            }
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'https://www.github.com/reeteshsudhakar/gtdelts-website',
+                icon: IconBrandGithub
+            },
+            {
+                label: 'Website',
+                href: 'https://www.gtdelts.org',
+                icon: IconWorldWww
             }
         ]
     },
     {
         title: 'Home Credit Risk Analysis',
         description: 'A machine learning project aiming to analyze home credit risk, providing predictions on defaults for home loans. With housing markets facing uncertainty and limited credit histories hindering borrowers, this analysis helps ensure qualified applicants aren\’t unfairly denied while identifying likely defaulters early. Manual risk evaluations are inconsistent and time-consuming, necessitating automated, unbiased assessments.',
-        date: 'Dec. 2023',
+        date: 'December 2023',
         imagePath: '/projects/CS-7641-Project.png',
         tech: [
             {
@@ -509,7 +585,163 @@ export const projects = [
             {
                 label: 'Report',
                 href: 'reeteshsudhakar.github.io/CS-7641-Project',
+                icon: IconWorldWww
             }
         ]
-    }
+    },
+    {
+        title: 'Georgia Tech Semantic Course Search Engine',
+        description: 'Course discovery at Georgia Tech is quite strained, and our registration portal is difficult to use. I decided to create a semantic course search engine to help students find their desired courses easier. I scraped data from our course catalog, generated text embeddings for the course information using the OpenAI API, and created a Streamlit web application for course discovery. I plan on re-developing the application using Next.js, and an open-source embedding model in the future, so this is still in the works.',
+        date: 'June 2023',
+        imagePath: '/projects/gt-course-search.png',
+        tech: [
+            {
+                icon: IconBrandOpenai,
+                name: "OpenAI API"
+            },
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: IconMapPin,
+                name: "Streamlit"
+            }
+        ],
+        links: []
+    },
+    {
+        title: 'Instagram Caption Sentiment Analyzer',
+        description: 'Scraped 1500+ captions from Instagram posts using Selenium to provide sentiment analysis of users\’ accounts on a large scale with configurable sample sizes, normalized with NLTK Tokenize and regular expressions. Used natural language processing techniques with spaCy to isolate relevant information, generating sentiment analysis of scraped data using the Google Natural Language API to generate an average sentiment score from a given user. Code may be private for security purposes.',
+        date: 'January 2022',
+        imagePath: '/projects/instagram-caption-analyzer.png',
+        tech: [
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: SeleniumOriginal,
+                name: "Selenium"
+            },
+            {
+                icon: GooglecloudOriginal,
+                name: "Google Cloud - Natural Language API"
+            }
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'https://github.com/reeteshsudhakar/instagram-scraper',
+                icon: IconBrandGithub
+            },
+        ]
+    },
+    {
+        title: 'UTKFace Image Classifier',
+        description: 'This project involved the construction of a convolutional neural network (CNN) to make an image classification model of the popular UTKFace dataset to classify images based on a person\'s gender, age, and race. This project also involved some resource and notes compilation to provide an introduction to the dataset, neural networks, and image classification. This implementation achieved 80-90% accuracy on the UTKFace dataset based on different classification tasks.',
+        date: 'July 2022',
+        imagePath: '/projects/utk-image-classifier.png',
+        tech: [
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: TensorflowOriginal,
+                name: "Tensorflow"
+            },
+            {
+                icon: NumpyOriginal,
+                name: "NumPy"
+            },
+            {
+                icon: PandasOriginal,
+                name: "Pandas"
+            },
+            {
+                icon: JupyterOriginal,
+                name: "Jupyter Notebook"
+            },
+            {
+                icon: KerasOriginal,
+                name: "Keras"
+            }
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'https://github.com/reeteshsudhakar/utk-image-classifier',
+                icon: IconBrandGithub
+            },
+            {
+                label: 'Notes',
+                href: 'https://github.com/reeteshsudhakar/utk-image-classifier?tab=readme-ov-file#simple-introduction-to-convolutional-neural-networks'
+            }
+        ]
+    },
+    {
+        title: 'Drone Ingredient Delivery Simulator',
+        description: 'This project involved the construction of a simulation environment for a drone delivery service that delivers various cataloged ingrdients to various restaurants. Employing principles of object-oriented programming, this system was built using Java, with earlier iterations leveraging a command-line interface. The final iteration of this system included a GUI, built using JavaFX. This project was also accompanied by domain models, class diagrams, and sequence diagrams to highlight system functionality.',
+        date: 'July 2022',
+        imagePath: '/projects/drone-delivery-simulator.png',
+        tech: [
+            {
+                icon: JavaOriginal,
+                name: "Java"
+            },
+            {
+                icon: IntellijOriginal,
+                name: "IntelliJ"
+            },
+            {
+                icon: JunitOriginal,
+                name: "JUnit"
+            }
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation',
+                icon: IconBrandGithub
+            },
+            {
+                label: 'Report',
+                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/src/artifact-submissions/report-document-submission.pdf',
+                icon: IconFile
+            },
+            {
+                label: 'Presentation',
+                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/phase-iv-presentation.pdf',
+                icon: IconSlideshow
+            }
+        ]
+    },
+    {
+        title: 'Classic Games',
+        description: 'Some of my earliest endeavors in computer science and software development was just from implementing random games I saw in textbooks, or online (Blackjack, Tic-Tac-Toe, Snake). I followed along with various tutorials in Python and Java to implement these games either via the command-line or with a GUI. Note that some of these libraries are probably deprecated, and the code is not the best, but it was a fun learning experience!',
+        date: 'March 2022',
+        imagePath: '/projects/classic-games.png',
+        tech: [
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: JavaOriginal,
+                name: "Java"
+            },
+            {
+                icon: JupyterOriginal,
+                name: "Jupyter Notebook"
+            }
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'https://github.com/reeteshsudhakar/classic-games',
+                icon: IconBrandGithub
+            }
+        ]
+    },
 ]
