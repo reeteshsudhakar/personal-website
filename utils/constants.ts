@@ -43,6 +43,10 @@ import {
     QtOriginal,
     AnacondaOriginal,
     GitOriginal,
+    JekyllOriginal,
+    ScikitlearnOriginal,
+    NumpyOriginal,
+    PandasOriginal,
 } from 'devicons-react';
 
 export const fullName = 'Reetesh Sudhakar';
@@ -429,17 +433,83 @@ export const pressArticles = [
 
 export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom (some of which are still a major work-in-progress 😂). Feel free to explore the codebases and learn more about my endeavors below!'
 
-export interface ProjectCardData {
-    title: string;
-    description: string;
-    imagePath: string;
-    tech: {
-        icon: any;
-        name: string;
-    }[];
-    links?: {
-        label: string;
-        href: string;
-        icon?: any;
-    }[];
-}
+export const projects = [
+    {
+        title: 'Home Credit Risk Analysis',
+        description: 'A machine learning project aiming to analyze home credit risk, providing predictions on defaults for home loans. With housing markets facing uncertainty and limited credit histories hindering borrowers, this analysis helps ensure qualified applicants aren\’t unfairly denied while identifying likely defaulters early. Manual risk evaluations are inconsistent and time-consuming, necessitating automated, unbiased assessments.',
+        date: 'Dec. 2023',
+        imagePath: '/projects/CS-7641-Project.png',
+        tech: [
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: JekyllOriginal,
+                name: "Jekyll"
+            },
+            {
+                icon: ScikitlearnOriginal,
+                name: "Scikitlearn"
+            },
+            {
+                icon: NumpyOriginal,
+                name: "NumPy"
+            },
+            {
+                icon: PandasOriginal,
+                name: "Pandas"
+            },
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'github.com/reeteshsudhakar/CS-7641-Project',
+                icon: IconBrandGithub
+            },
+            {
+                label: 'Report',
+                href: 'reeteshsudhakar.github.io/CS-7641-Project',
+            }
+        ]
+    },
+    {
+        title: 'Home Credit Risk Analysis',
+        description: 'A machine learning project aiming to analyze home credit risk, providing predictions on defaults for home loans. With housing markets facing uncertainty and limited credit histories hindering borrowers, this analysis helps ensure qualified applicants aren\’t unfairly denied while identifying likely defaulters early. Manual risk evaluations are inconsistent and time-consuming, necessitating automated, unbiased assessments.',
+        date: 'Dec. 2023',
+        imagePath: '/projects/CS-7641-Project.png',
+        tech: [
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: JekyllOriginal,
+                name: "Jekyll"
+            },
+            {
+                icon: ScikitlearnOriginal,
+                name: "Scikitlearn"
+            },
+            {
+                icon: NumpyOriginal,
+                name: "NumPy"
+            },
+            {
+                icon: PandasOriginal,
+                name: "Pandas"
+            },
+        ],
+        links: [
+            {
+                label: 'Source Code',
+                href: 'github.com/reeteshsudhakar/CS-7641-Project',
+                icon: IconBrandGithub
+            },
+            {
+                label: 'Report',
+                href: 'reeteshsudhakar.github.io/CS-7641-Project',
+            }
+        ]
+    }
+]

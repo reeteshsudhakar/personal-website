@@ -1,6 +1,7 @@
 import ProjectsContainer from "./ProjectsContainer/ProjectsContainer";
 import { Stack, Text } from "@mantine/core";
 import { projectsPageBlurb } from "@/utils/constants";
+import { ProjectCardsSection } from "@/components/ProjectCard/ProjectCard";
 
 export default function HomePage() {
     return (
@@ -19,6 +20,7 @@ export default function HomePage() {
                 >
                     {projectsPageBlurb}
                 </Text>
+                <ProjectCardsSection />
             </Stack>
         </ProjectsContainer>
     );
