@@ -492,17 +492,17 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'github.com/reeteshsudhakar/CX-4230',
+                href: 'https://www.github.com/reeteshsudhakar/CX-4230',
                 icon: IconBrandGithub
             },
             {
                 label: 'Contagion',
-                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-1/Writeup.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/CX-4230/blob/main/project-1/Writeup.pdf',
                 icon: IconVaccine
             },
             {
                 label: 'Traffic',
-                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-2/report/report.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/CX-4230/blob/main/project-2/report/report.pdf',
                 icon: IconCar
             },
             {
@@ -579,12 +579,12 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'github.com/reeteshsudhakar/CS-7641-Project',
+                href: 'https://www.github.com/reeteshsudhakar/CS-7641-Project',
                 icon: IconBrandGithub
             },
             {
                 label: 'Report',
-                href: 'reeteshsudhakar.github.io/CS-7641-Project',
+                href: 'https://www.reeteshsudhakar.github.io/CS-7641-Project',
                 icon: IconWorldWww
             }
         ]
@@ -702,17 +702,17 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation',
+                href: 'https://www.github.com/reeteshsudhakar/drone-delivery-simulation',
                 icon: IconBrandGithub
             },
             {
                 label: 'Report',
-                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/src/artifact-submissions/report-document-submission.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/src/artifact-submissions/report-document-submission.pdf',
                 icon: IconFile
             },
             {
                 label: 'Presentation',
-                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/phase-iv-presentation.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/phase-iv-presentation.pdf',
                 icon: IconSlideshow
             }
         ]
@@ -739,7 +739,7 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'https://github.com/reeteshsudhakar/classic-games',
+                href: 'https://www.github.com/reeteshsudhakar/classic-games',
                 icon: IconBrandGithub
             }
         ]
