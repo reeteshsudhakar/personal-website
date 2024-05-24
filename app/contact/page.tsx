@@ -1,5 +1,5 @@
 import { GetInTouch } from "@/components/ContactForm/GetInTouch";
-import { Stack, Text, rem, Center } from "@mantine/core";
+import { Stack, Text, rem, Flex } from "@mantine/core";
 
 export default function HomePage() {
     return (

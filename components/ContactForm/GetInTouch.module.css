@@ -1,5 +1,5 @@
 .wrapper {
-  display: flex;
+
   background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-8));
   border-radius: var(--mantine-radius-lg);
   padding: rem(4px);
@@ -29,7 +29,7 @@
 .fieldInput {
   flex: 1;
 
-  & + & {
+  &+& {
     margin-left: var(--mantine-spacing-md);
 
     @media (max-width: $mantine-breakpoint-sm) {

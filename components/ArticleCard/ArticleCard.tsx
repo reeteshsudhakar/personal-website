@@ -13,7 +13,7 @@ interface ArticleCardProps {
     href: string;
 }
 
-export function ArticleCard({ source, title, imagePath, date, author, href }: ArticleCardProps) {
+export default function ArticleCard({ source, title, imagePath, date, author, href }: ArticleCardProps) {
     const isLargeScreen = useMediaQuery('(min-width: 36em)');
     return (
         <>
@@ -81,5 +81,3 @@ export function ArticleCard({ source, title, imagePath, date, author, href }: Ar
         </>
     );
 }
-
-export default ArticleCard;

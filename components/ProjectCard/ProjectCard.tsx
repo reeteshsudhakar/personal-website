@@ -8,7 +8,7 @@ import { projects } from '@/utils/constants';
 interface ProjectCardProps {
     title: string;
     description: string;
-    date: string
+    date: string;
     imagePath: string;
     tech: {
         icon: React.ElementType;
@@ -24,113 +24,84 @@ interface ProjectCardProps {
 
 function ProjectCard({ title, description, date, imagePath, tech, links, index }: ProjectCardProps) {
     const isLargeScreen = useMediaQuery('(min-width: 60em)');
-    const placeholder = "https://placehold.co/300x300?text=" + title
+    const placeholder = "https://placehold.co/300x300?text=" + title;
+
+    const renderCardLayout = () => {
+        const flexProps = {
+            flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
+            p: 'md'
+        };
+        const imageProps = {
+            src: imagePath,
+            radius: 'xl',
+            p: 'md',
+            objectFit: 'contain',
+            fallbackSrc: placeholder
+        };
+        const techContent = renderTechStack();
+        const linksContent = renderLinks();
+
+        if (isLargeScreen) {
+            return (
+                <Flex {...flexProps}>
+                    <div className={classes.image}><Image {...imageProps} /></div>
+                    <Stack className={classes.body}>
+                        {renderCardContent()}
+                        {techContent}
+                        {linksContent}
+                    </Stack>
+                </Flex>
+            );
+        } else {
+            return (
+                <Stack>
+                    <Image {...imageProps} />
+                    <Stack className={classes.body}>
+                        {renderCardContent()}
+                        {techContent}
+                        {linksContent}
+                    </Stack>
+                </Stack>
+            );
+        }
+    };
+
+    const renderCardContent = () => (
+        <>
+            <Text c="black" fw={700} size="md">{title}</Text>
+            <Text c="dimmed" fw={700} tt='uppercase' size='xs'>{date}</Text>
+            <Text fw={500} c='dimmed' mt="xs" mb="xs" size='sm'>{description}</Text>
+        </>
+    );
+
+    const renderTechStack = () => (
+        <Group>
+            {tech.map((t) => (
+                <Tooltip label={t.name} transitionProps={{ transition: 'pop', duration: 300 }}>
+                    <Stack gap="xs">
+                        <t.icon size={30} />
+                    </Stack>
+                </Tooltip>
+            ))}
+        </Group>
+    );
+
+    const renderLinks = () => (
+        <Group>
+            {links?.map((link) => (
+                <Anchor href={link.href} target='_blank'>
+                    <Button leftSection={link.icon ? <link.icon size={20} /> : null} variant='light' color='#0172AF'>
+                        {link.label}
+                    </Button>
+                </Anchor>
+            ))}
+        </Group>
+    );
 
     return (
-        <>
-            {isLargeScreen ? (
-                <Card radius="xl" p={0} className={classes.card} shadow={'lg'}>
-                    <Flex wrap='nowrap' direction={index % 2 == 0 ? 'row' : 'row-reverse'} p='md'>
-                        <div className={classes.image}>
-                            <Image
-                                src={imagePath}
-                                radius='xl'
-                                p='md'
-                                fit='contain'
-                                fallbackSrc={placeholder}
-                            />
-
-                        </div>
-                        <Stack className={classes.body}>
-                            <Text c="black" fw={700} size="md">
-                                {title}
-                            </Text>
-                            <Text c="dimmed" fw={700} tt='uppercase' size='xs'>
-                                {date}
-                            </Text>
-                            <Text fw={500} c='dimmed' mt="xs" mb="xs" size='sm'>
-                                {description}
-                            </Text>
-                            <Stack align='center' justify='center'>
-                                <Group>
-                                    {tech.map((t) => (
-                                        <Tooltip label={t.name} transitionProps={{ transition: 'pop', duration: 300 }}>
-                                            <Stack gap="xs">
-                                                <t.icon size={30} />
-                                            </Stack>
-                                        </Tooltip>
-                                    ))}
-                                </Group>
-                                <Group>
-                                    {links?.map((link) => (
-                                        <Anchor
-                                            href={link.href}
-                                            target='_blank'
-                                        >
-                                            <Button
-                                                leftSection={link.icon ? <link.icon size={20} /> : null}
-                                                variant='light'
-                                                color='#0172AF'
-                                            >
-                                                {link.label}
-                                            </Button>
-                                        </Anchor>
-                                    ))}
-                                </Group>
-                            </Stack>
-                        </Stack>
-                    </Flex>
-                </Card>
-            ) : (
-                <Card radius="xl" p={0} className={classes.card} shadow={'lg'}>
-                    <Stack>
-                        <Image
-                            src={imagePath}
-                            p={'md'}
-                            radius='xl'
-                        />
-                        <Stack className={classes.body}>
-                            <Text c="black" fw={700} size="md">
-                                {title}
-                            </Text>
-                            <Text c="dimmed" fw={700} tt='uppercase' size='xs'>
-                                {date}
-                            </Text>
-                            <Text fw={500} c='dimmed' mt="xs" mb="xs" size='sm'>
-                                {description}
-                            </Text>
-                            <Stack align='center' justify='center'>
-                                <Group align='center' justify='center'>
-                                    {tech.map((t) => (
-                                        <Tooltip label={t.name} transitionProps={{ transition: 'pop', duration: 300 }}>
-                                            <Stack gap="xs">
-                                                <t.icon size={30} />
-                                            </Stack>
-                                        </Tooltip>
-                                    ))}
-                                </Group>
-                                <Group align='center' justify='center'>
-                                    {links?.map((link) => (
-                                        <Anchor
-                                            href={link.href}
-                                            target='_blank'
-                                        >
-                                            <Button
-                                                leftSection={link.icon ? <link.icon size={20} /> : null}
-                                                variant='light'
-                                                color='#0172AF'
-                                            >
-                                                {link.label}
-                                            </Button>
-                                        </Anchor>
-                                    ))}
-                                </Group>
-                            </Stack>
-                        </Stack>
-                    </Stack>
-                </Card>
-            )}
-        </>
+        <Card radius="xl" p={0} className={classes.card} shadow={'lg'}>
+            {renderCardLayout()}
+        </Card>
     );
 }
 
@@ -149,5 +120,5 @@ export function ProjectCardsSection() {
                 />
             ))}
         </Stack>
-    )
+    );
 }
