@@ -19,11 +19,10 @@ export function WorkingOnHero() {
                 <Text
                     c='#FFFFFF'
                     p={'xl'}
-                    ta='justify'
+                    ta='center'
+                    size='xl'
                 >
-                    I've been messing around with a lot of different things lately, technical and otherwise. Some notable things - a website for my a cappella group, this website,
-                    a dashboard for my personal finances and daily news supercharged by AI, and some basic dev tools to self-host on my own website to make my daily life easier. I'm
-                    also carving out time to write more, and also work on an a cappella arrangement. Stay tuned to see if I finish any of these!
+                    Currently building a website for my a cappella group, this website, a second brain, and some basic dev tools to self-host that'll make my life easier. I'm also carving out time to write more. Stay tuned to see some progress on these!
                 </Text>
 
                 <Group align='center' justify='center'>
