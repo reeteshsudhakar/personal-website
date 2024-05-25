@@ -74,13 +74,7 @@ export const navbarBlurbs: string[] = [
 ];
 
 /* Navbar Section Links */
-interface NavbarSectionData {
-    label: string;
-    icon: React.ElementType;
-    href: string;
-}
-
-export const navbarSection1Items: { [key: string]: NavbarSectionData[] } = {
+export const navbarSection1Items = {
     'Professional': [
         {
             label: 'Experience', icon: IconCertificate, href: '/experience'
@@ -128,7 +122,7 @@ export const navbarSection1Items: { [key: string]: NavbarSectionData[] } = {
     ]
 }
 
-export const navbarSection2Items: { [key: string]: NavbarSectionData[] } = {
+export const navbarSection2Items = {
     'Dev': [
         {
             label: 'Movie Web Proxy', icon: IconApiApp, href: 'https://movies-proxy.reeteshsudhakar.com'
@@ -196,13 +190,7 @@ export const spotifyURLs: string[] = [
 ]
 
 /* Contact Form Information */
-interface FormData {
-    title: string;
-    description: string;
-    icon: React.ElementType;
-}
-
-export const formData: FormData[] = [
+export const formData = [
     {
         title: 'Email',
         description: 'reesud6187@gmail.com',
@@ -226,17 +214,7 @@ export const formData: FormData[] = [
 ];
 
 /* Experience Page Content */
-interface ExperienceModalContent {
-    title: string;
-    company: string;
-    companyLink: string;
-    location: string;
-    description: string;
-    dates: string;
-    imagePath: string;
-}
-
-export const experiences: ExperienceModalContent[] = [
+export const experiences = [
     {
         title: 'Software Engineer Intern',
         company: 'Chicago Trading Company',
@@ -398,16 +376,7 @@ export const skills = [
 ];
 
 /* Press Article Data */
-interface ArticleData {
-    source: string;
-    title: string;
-    imagePath: string;
-    date: string;
-    author: string;
-    href: string;
-}
-
-export const pressArticles: ArticleData[] = [
+export const pressArticles = [
     {
         source: 'Frontiers in Pharmacology',
         title: 'ApoE isoform-dependent effects of xanthohumol on high fat diet-induced cognitive impairments and hippocampal metabolic pathways',
@@ -469,23 +438,7 @@ export const pressArticles: ArticleData[] = [
 export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom, some of which are still a major work-in-progress or private. Feel free to explore below! Currently, I\'m working on a semantic course search engine for my school, a website for my a cappella group, a second brain, among other things.'
 
 /* Project Data */
-interface ProjectData {
-    title: string;
-    description: string;
-    date: string;
-    imagePath: string;
-    tech: {
-        icon: React.ElementType;
-        name: string;
-    }[];
-    links?: {
-        label: string;
-        href: string;
-        icon?: React.ElementType;
-    }[];
-}
-
-export const projects: ProjectData[] = [
+export const projects = [
     // {
     //     title: '',
     //     description: '',
