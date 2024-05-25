@@ -62,12 +62,11 @@ import {
     JunitOriginal,
     VercelOriginal,
 } from 'devicons-react';
-import { hasRequestAnimationFrame } from "swr/dist/_internal";
 
 export const fullName = 'Reetesh Sudhakar';
 
 /* Top of Navbar Blurbs */
-export const navbarBlurbs = [
+export const navbarBlurbs: string[] = [
     'Software Developer 💻',
     'Dog Lover 🐶',
     'Continuous Learner 🚀',
@@ -177,7 +176,7 @@ export const navbarFooterItems = {
 }
 
 /* TODO: refactor this to grab my 10 most listened songs from the past 30 days */
-export const spotifyURLs = [
+export const spotifyURLs: string[] = [
     'https://open.spotify.com/track/2bSk87AVkCIIC3Bcligq1z?si=390c4e8a27f94664',
     'https://open.spotify.com/track/0ZKKJTv21zJpNrKiL0LYyV?si=32711e55aca84341',
     'https://open.spotify.com/track/1zi7xx7UVEFkmKfv06H8x0?si=ba27c74684884cce',
@@ -215,22 +214,7 @@ export const formData = [
 ];
 
 /* Experience Page Content */
-export interface ExperienceModalContent {
-    title: string;
-    company: string;
-    companyLink: string;
-    location: string;
-    description: string;
-    dates: string;
-    imagePath: string;
-}
-
-// Extending the ModalContent interface to include the open state
-export interface ExperienceModalData extends ExperienceModalContent {
-    open: boolean;
-}
-
-export const experiences: ExperienceModalContent[] = [
+export const experiences = [
     {
         title: 'Software Engineer Intern',
         company: 'Chicago Trading Company',
@@ -453,6 +437,7 @@ export const pressArticles = [
 
 export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom, some of which are still a major work-in-progress or private. Feel free to explore below! Currently, I\'m working on a semantic course search engine for my school, a website for my a cappella group, a second brain, among other things.'
 
+/* Project Data */
 export const projects = [
     // {
     //     title: '',
@@ -492,17 +477,17 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'github.com/reeteshsudhakar/CX-4230',
+                href: 'https://www.github.com/reeteshsudhakar/CX-4230',
                 icon: IconBrandGithub
             },
             {
                 label: 'Contagion',
-                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-1/Writeup.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/CX-4230/blob/main/project-1/Writeup.pdf',
                 icon: IconVaccine
             },
             {
                 label: 'Traffic',
-                href: 'https://github.com/reeteshsudhakar/CX-4230/blob/main/project-2/report/report.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/CX-4230/blob/main/project-2/report/report.pdf',
                 icon: IconCar
             },
             {
@@ -579,12 +564,12 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'github.com/reeteshsudhakar/CS-7641-Project',
+                href: 'https://www.github.com/reeteshsudhakar/CS-7641-Project',
                 icon: IconBrandGithub
             },
             {
                 label: 'Report',
-                href: 'reeteshsudhakar.github.io/CS-7641-Project',
+                href: 'https://www.reeteshsudhakar.github.io/CS-7641-Project',
                 icon: IconWorldWww
             }
         ]
@@ -702,17 +687,17 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation',
+                href: 'https://www.github.com/reeteshsudhakar/drone-delivery-simulation',
                 icon: IconBrandGithub
             },
             {
                 label: 'Report',
-                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/src/artifact-submissions/report-document-submission.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/src/artifact-submissions/report-document-submission.pdf',
                 icon: IconFile
             },
             {
                 label: 'Presentation',
-                href: 'https://github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/phase-iv-presentation.pdf',
+                href: 'https://www.github.com/reeteshsudhakar/drone-delivery-simulation/blob/main/phase-4/phase-iv-presentation.pdf',
                 icon: IconSlideshow
             }
         ]
@@ -739,7 +724,7 @@ export const projects = [
         links: [
             {
                 label: 'Source Code',
-                href: 'https://github.com/reeteshsudhakar/classic-games',
+                href: 'https://www.github.com/reeteshsudhakar/classic-games',
                 icon: IconBrandGithub
             }
         ]

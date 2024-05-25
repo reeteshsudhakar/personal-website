@@ -13,7 +13,7 @@ interface ArticleCardProps {
     href: string;
 }
 
-export function ArticleCard({ source, title, imagePath, date, author, href }: ArticleCardProps) {
+export default function ArticleCard({ source, title, imagePath, date, author, href }: ArticleCardProps) {
     const isLargeScreen = useMediaQuery('(min-width: 36em)');
     return (
         <>
@@ -25,6 +25,7 @@ export function ArticleCard({ source, title, imagePath, date, author, href }: Ar
                                 src={imagePath}
                                 h={200}
                                 w={250}
+                                fallbackSrc='https://placehold.co/250x200?text=Image+Unavailable'
                             />
                             <div className={classes.body}>
                                 <Text tt="uppercase" c="dimmed" fw={700} size="xs">
@@ -80,5 +81,3 @@ export function ArticleCard({ source, title, imagePath, date, author, href }: Ar
         </>
     );
 }
-
-export default ArticleCard;

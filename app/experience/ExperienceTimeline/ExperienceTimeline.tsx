@@ -3,8 +3,23 @@
 import { useState } from 'react';
 import { Modal, Timeline, Text, Stack, Anchor, Title, Image } from '@mantine/core';
 import classes from './ExperienceTimeline.module.css';
-import { ExperienceModalData, ExperienceModalContent, experiences } from '@/utils/constants';
+import { experiences } from '@/utils/constants';
 import Snowfall from 'react-snowfall';
+
+interface ExperienceModalContent {
+    title: string;
+    company: string;
+    companyLink: string;
+    location: string;
+    description: string;
+    dates: string;
+    imagePath: string;
+}
+
+// Extending the ModalContent interface to include the open state
+interface ExperienceModalData extends ExperienceModalContent {
+    open: boolean;
+}
 
 export function ExperienceTimeline() {
     // manage open/close and detailed content of the modal

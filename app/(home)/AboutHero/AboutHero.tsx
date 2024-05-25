@@ -18,11 +18,10 @@ export function AboutHero() {
                 <Text
                     c='#FFFFFF'
                     p={'xl'}
-                    ta='justify'
+                    ta='center'
+                    size='xl'
                 >
-                    I recently completed my B.S. in Computer Science at Georgia Tech, with specializations in Artificial Intelligence and Modeling & Simulation.
-                    I’m originally from Portland, OR. This summer, I’ll be a Software Engineer Intern at <Text span fw={700} c="#b08fcb">Chicago Trading Company. </Text>
-                    My main interests lie in backend development, creating development tools to aid business and engineering teams, and data-driven solutions.
+                    I recently completed my B.S. in Computer Science at Georgia Tech. This summer, I’ll be a Software Engineer Intern at <Text span fw={700} c="#b08fcb">Chicago Trading Company. </Text>I'm into full-stack development, and I love working with data. I'm also a huge fan of music!
                 </Text>
             </Stack>
         </Center>

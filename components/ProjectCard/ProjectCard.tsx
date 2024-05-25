@@ -30,7 +30,7 @@ function ProjectCard({ title, description, date, imagePath, tech, links, index }
         <>
             {isLargeScreen ? (
                 <Card radius="xl" p={0} className={classes.card} shadow={'lg'}>
-                    <Flex wrap='nowrap' direction={index % 2 == 0 ? 'row' : 'row-reverse'} p='md'>
+                    <Flex wrap='nowrap' direction={index % 2 == 0 ? 'row' : 'row-reverse'} p='md' align='center'>
                         <div className={classes.image}>
                             <Image
                                 src={imagePath}
@@ -39,7 +39,6 @@ function ProjectCard({ title, description, date, imagePath, tech, links, index }
                                 fit='contain'
                                 fallbackSrc={placeholder}
                             />
-
                         </div>
                         <Stack className={classes.body}>
                             <Text c="black" fw={700} size="md">
@@ -151,3 +150,4 @@ export function ProjectCardsSection() {
         </Stack>
     )
 }
+

@@ -1,4 +1,4 @@
-import { Stack, Text } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import PressContainer from "./PressContainer/PressContainer";
 import ArticleCard from "@/components/ArticleCard/ArticleCard";
 import { pressArticles } from "@/utils/constants";
