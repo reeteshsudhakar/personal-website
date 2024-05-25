@@ -62,12 +62,11 @@ import {
     JunitOriginal,
     VercelOriginal,
 } from 'devicons-react';
-import { hasRequestAnimationFrame } from "swr/dist/_internal";
 
 export const fullName = 'Reetesh Sudhakar';
 
 /* Top of Navbar Blurbs */
-export const navbarBlurbs = [
+export const navbarBlurbs: string[] = [
     'Software Developer 💻',
     'Dog Lover 🐶',
     'Continuous Learner 🚀',
@@ -75,7 +74,13 @@ export const navbarBlurbs = [
 ];
 
 /* Navbar Section Links */
-export const navbarSection1Items = {
+interface NavbarSectionData {
+    label: string;
+    icon: React.ElementType;
+    href: string;
+}
+
+export const navbarSection1Items: { [key: string]: NavbarSectionData[] } = {
     'Professional': [
         {
             label: 'Experience', icon: IconCertificate, href: '/experience'
@@ -123,7 +128,7 @@ export const navbarSection1Items = {
     ]
 }
 
-export const navbarSection2Items = {
+export const navbarSection2Items: { [key: string]: NavbarSectionData[] } = {
     'Dev': [
         {
             label: 'Movie Web Proxy', icon: IconApiApp, href: 'https://movies-proxy.reeteshsudhakar.com'
@@ -177,7 +182,7 @@ export const navbarFooterItems = {
 }
 
 /* TODO: refactor this to grab my 10 most listened songs from the past 30 days */
-export const spotifyURLs = [
+export const spotifyURLs: string[] = [
     'https://open.spotify.com/track/2bSk87AVkCIIC3Bcligq1z?si=390c4e8a27f94664',
     'https://open.spotify.com/track/0ZKKJTv21zJpNrKiL0LYyV?si=32711e55aca84341',
     'https://open.spotify.com/track/1zi7xx7UVEFkmKfv06H8x0?si=ba27c74684884cce',
@@ -191,7 +196,13 @@ export const spotifyURLs = [
 ]
 
 /* Contact Form Information */
-export const formData = [
+interface FormData {
+    title: string;
+    description: string;
+    icon: React.ElementType;
+}
+
+export const formData: FormData[] = [
     {
         title: 'Email',
         description: 'reesud6187@gmail.com',
@@ -215,7 +226,7 @@ export const formData = [
 ];
 
 /* Experience Page Content */
-export interface ExperienceModalContent {
+interface ExperienceModalContent {
     title: string;
     company: string;
     companyLink: string;
@@ -223,11 +234,6 @@ export interface ExperienceModalContent {
     description: string;
     dates: string;
     imagePath: string;
-}
-
-// Extending the ModalContent interface to include the open state
-export interface ExperienceModalData extends ExperienceModalContent {
-    open: boolean;
 }
 
 export const experiences: ExperienceModalContent[] = [
@@ -392,7 +398,16 @@ export const skills = [
 ];
 
 /* Press Article Data */
-export const pressArticles = [
+interface ArticleData {
+    source: string;
+    title: string;
+    imagePath: string;
+    date: string;
+    author: string;
+    href: string;
+}
+
+export const pressArticles: ArticleData[] = [
     {
         source: 'Frontiers in Pharmacology',
         title: 'ApoE isoform-dependent effects of xanthohumol on high fat diet-induced cognitive impairments and hippocampal metabolic pathways',
@@ -453,7 +468,24 @@ export const pressArticles = [
 
 export const projectsPageBlurb = 'A big part of how I\'ve grown as a software engineer has been from pursuing projects, whether in an academic or personal setting. The following projects are just random pursuits of mine that I\'ve worked on in my free time or in the classroom, some of which are still a major work-in-progress or private. Feel free to explore below! Currently, I\'m working on a semantic course search engine for my school, a website for my a cappella group, a second brain, among other things.'
 
-export const projects = [
+/* Project Data */
+interface ProjectData {
+    title: string;
+    description: string;
+    date: string;
+    imagePath: string;
+    tech: {
+        icon: React.ElementType;
+        name: string;
+    }[];
+    links?: {
+        label: string;
+        href: string;
+        icon?: React.ElementType;
+    }[];
+}
+
+export const projects: ProjectData[] = [
     // {
     //     title: '',
     //     description: '',
