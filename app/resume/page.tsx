@@ -1,6 +1,12 @@
 "use client";
 
 import { useMediaQuery } from "@mantine/hooks";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Résumé | Reetesh Sudhakar",
+    description: "My one-page résumé!",
+};
 
 export default function HomePage() {
     const isLargeScreen = useMediaQuery("(min-width: 48em)");
