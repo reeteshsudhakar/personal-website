@@ -1,5 +1,3 @@
-"use client";
-
 import { Welcome } from "@/components/Welcome/Welcome";
 import { Metadata } from "next";
 

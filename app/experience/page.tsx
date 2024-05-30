@@ -1,5 +1,3 @@
-"use client";
-
 import ExperienceTimeline from "./ExperienceTimeline/ExperienceTimeline";
 import { Stack } from "@mantine/core";
 import SkillsSection from "./skills/SkillsSection";
