@@ -2,11 +2,17 @@ import { Stack } from "@mantine/core";
 import PressContainer from "./PressContainer/PressContainer";
 import ArticleCard from "@/components/ArticleCard/ArticleCard";
 import { pressArticles } from "@/utils/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Press | Reetesh Sudhakar",
+    description: "A compilation of relevant publications and press about me!",
+};
 
 export default function HomePage() {
     return (
         <PressContainer>
-            <Stack pb={'xl'}>
+            <Stack pb={"xl"}>
                 {pressArticles.map((article) => (
                     <ArticleCard
                         key={article.title}
