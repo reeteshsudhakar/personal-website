@@ -13,6 +13,7 @@ import {
     IconBuildingBank,
     IconCalendar,
     IconCar,
+    IconCashBanknote,
     IconCertificate,
     IconChartLine,
     IconFile,
@@ -29,6 +30,7 @@ import {
     IconSlideshow,
     IconSun,
     IconVaccine,
+    IconWallet,
     IconWorldWww,
     IconWriting
 } from "@tabler/icons-react";
@@ -134,7 +136,13 @@ export const navbarSection2Items = {
 
     'Finances': [
         {
+            label: 'Bank of America', icon: IconCashBanknote, href: 'https://www.bankofamerica.com'
+        },
+        {
             label: 'Capital One', icon: IconBuildingBank, href: 'https://myaccounts.capitalone.com/accountSummary'
+        },
+        {
+            label: 'Chase', icon: IconWallet, href: 'https://www.chase.com'
         },
         {
             label: 'Robinhood', icon: IconChartLine, href: 'https://robinhood.com'
