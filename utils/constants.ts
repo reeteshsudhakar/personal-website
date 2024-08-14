@@ -26,6 +26,7 @@ import {
     IconNews,
     IconPhone,
     IconPrompt,
+    IconQuote,
     IconSchool,
     IconSlideshow,
     IconSun,
@@ -120,6 +121,11 @@ export const navbarSection1Items = {
         },
         {
             label: 'Calendly', icon: IconCalendar, href: 'https://calendly.com/reesud6187/30min'
+        }
+    ],
+    'Random': [
+        {
+            label: "Quotes", icon: IconQuote, href: '/quote'
         }
     ]
 }
