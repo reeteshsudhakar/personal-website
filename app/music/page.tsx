@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "A summary of my journey and experience with music, in a few of its countless forms!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <>
             <Welcome pageTitle="Music" />

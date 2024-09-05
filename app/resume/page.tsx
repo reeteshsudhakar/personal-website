@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "My one-page résumé!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <>
             <ResumeView />

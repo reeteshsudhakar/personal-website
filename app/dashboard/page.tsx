@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "My personal dashboard for all of the things happening important to me!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <>
             <Welcome pageTitle="Dashboard" />

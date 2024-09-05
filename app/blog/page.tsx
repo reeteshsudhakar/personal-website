@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "A blog comprised of my thoughts, experiments, and ramblings.",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <>
             <Welcome pageTitle="Blog" />

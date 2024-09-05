@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "A compilation of relevant publications and press about me!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <PressContainer>
             <Stack pb={"xl"}>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "A summary of my professional experience and skillset!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <Stack align="center" justify="center" p={"xl"}>
             <ExperienceTimeline />
