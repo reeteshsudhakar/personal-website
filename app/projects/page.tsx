@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: "Descriptions about my various endeavors into various projects that I'm passionate about!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <ProjectsContainer>
             <ProjectCardsSection />

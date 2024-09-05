@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "The home page for my personal website!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <>
             <IntroHero />

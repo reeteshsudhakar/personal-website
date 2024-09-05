@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: "A page to get in touch with me!",
 };
 
-export default function HomePage() {
+export default function Page() {
     return (
         <Stack p={"xl"} gap={"xl"} pt={"5rem"}>
             <Text ta="center" size={rem(75)} c={"white"} component="span" fw={700}>
