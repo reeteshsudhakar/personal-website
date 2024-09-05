@@ -1,0 +1,34 @@
+{
+    "github": {
+        "href": "https://www.github.com/reeteshsudhakar",
+        "title": "Ree's GitHub Profile"
+    },
+    "linkedin": {
+        "href": "https://www.linkedin.com/in/reeteshsudhakar",
+        "title": "Ree's LinkedIn Profile"
+    }, 
+    "email": {
+        "href": "mailto:reesud6187@gmail.com",
+        "title": "Your Mailbox to Reach Ree"
+    },
+    "source": {
+        "href": "https://www.github.com/reeteshsudhakar/personal-website",
+        "title": "Source Code on GitHub"
+    },
+    "deploy": {
+        "href": "https://vercel.com/reeteshsudhakars-projects/reeteshsudhakar.com",
+        "title": "Vercel Deployment for this site"
+    },
+    "instagram": {
+        "href": "https://www.instagram.com/reeteshsudhakar",
+        "title": "Ree's Instagram Profile"
+    },
+    "venmo": {
+        "href": "https://account.venmo.com/u/reesudhakar",
+        "title": "Ree's Venmo"
+    },
+    "contact": {
+        "href": "./contact.vcf",
+        "title": "Ree's Contact Card"
+    }
+}
