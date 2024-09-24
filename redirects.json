@@ -27,7 +27,7 @@
         "href": "https://account.venmo.com/u/reesudhakar",
         "title": "Ree's Venmo"
     },
-    "contact": {
+    "me": {
         "href": "./contact.vcf",
         "title": "Ree's Contact Card"
     },
