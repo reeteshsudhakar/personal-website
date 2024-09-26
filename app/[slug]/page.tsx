@@ -3,7 +3,7 @@
 import { notFound } from "next/navigation";
 import redirects from "../../redirects.json";
 import { useEffect } from "react";
-import { Center, Title } from "@mantine/core";
+import { Center, Title, Text } from "@mantine/core";
 
 // Define a simplified type for the redirect data
 type RedirectData = {
@@ -46,7 +46,7 @@ export default function RedirectPage({ params }: RedirectPageProps) {
 
     return (
         <Center style={{ paddingTop: 50, flexDirection: "column" }}>
-            <Title order={1} c={"white"}>
+            <Title order={1} c={"white"} ta="center" p={"md"}>
                 Redirecting to {redirectData.title}...
             </Title>
         </Center>
