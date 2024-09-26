@@ -24,6 +24,7 @@ import {
     IconMovie,
     IconMusic,
     IconNews,
+    IconOld,
     IconPhone,
     IconPrompt,
     IconQuote,
@@ -155,6 +156,9 @@ export const navbarSection2Items = {
         },
         {
             label: 'Charles Schwab', icon: IconMoneybag, href: 'https://client.schwab.com/Areas/Access/Login'
+        },
+        {
+            label: 'Fidelity', icon: IconOld, href: 'https://digital.fidelity.com/ftgw/digital/portfolio/summary'
         },
     ],
     'Personal': [
