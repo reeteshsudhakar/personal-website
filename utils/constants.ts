@@ -518,7 +518,7 @@ export const projects = [
     },
     {
         title: 'GT Delts Website',
-        description: 'I built a new website for my college fraternity. The previous website was outdated and not user-friendly, so I decided to build a new one from scratch. The website is built using Next.js for the pages, Chakra UI for the components, and Vercel for deployment. The website is live and accessible to the public.',
+        description: 'I built a new website for my college fraternity. The previous website was outdated and not user-friendly, so I decided to build a new one from scratch. The website was built using Next.js for the pages, Chakra UI for the components, and Vercel for deployment. Now that I\'m graduated, I passed on the code-base and the current members handle the deployment and use the code I wrote just as an inspiration!',
         date: 'March 2024',
         imagePath: '/projects/gt-delts-website.png',
         tech: [
@@ -545,11 +545,11 @@ export const projects = [
                 href: 'https://www.github.com/reeteshsudhakar/gtdelts-website',
                 icon: IconBrandGithub
             },
-            {
-                label: 'Website',
-                href: 'https://www.gtdelts.org',
-                icon: IconWorldWww
-            }
+            // {
+            //     label: 'Website',
+            //     href: 'https://www.gtdelts.org',
+            //     icon: IconWorldWww
+            // }
         ]
     },
     {
