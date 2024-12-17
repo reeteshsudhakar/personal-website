@@ -228,22 +228,22 @@ export const formData = [
 /* Experience Page Content */
 export const experiences = [
     {
-        title: 'Software Engineer Intern',
-        company: 'Chicago Trading Company',
-        companyLink: 'https://www.chicagotrading.com/',
-        location: 'Chicago, IL',
-        description: 'This summer, I\'ll be a Software Engineer Intern at Chicago Trading Company, a proprietary market-making firm with floor and electronic operations in the derivatives market. They provide pricing and liquidity on all U.S. derivatives exchanges.',
-        dates: 'May 2024 - Aug. 2024',
-        imagePath: '/logos/ctc.jpg'
-    },
-    {
-        title: 'Undergraduate Teaching Assistant',
+        title: 'Head Graduate Teaching Assistant',
         company: 'College of Computing @ Georgia Tech',
         companyLink: 'https://sci.cc.gatech.edu',
         location: 'Atlanta, GA',
-        description: 'Currently a teaching assistant for CS 3600: Introduction to Artificial Intelligence. Previously a teaching assistant for CS 2340: Objects and Design.',
-        dates: 'Aug. 2023 - Present',
+        description: 'Currently the head teaching assistant for CS 3600: Introduction to Artificial Intelligence, with enrollment of 1000+. Managing content development (assignments, discussions, exams), preparing exercises, moderating thousands student discussions, and leading staff of 25. Working to eliminate historical plagiarism by redesigning assignments and detecting peer-to-peer plagiarism with a staff-facing pipeline, leveraging Stanford\'s MOSS tool.',
+        dates: 'May 2024 - Present',
         imagePath: '/logos/gt.jpeg'
+    },
+    {
+        title: 'Incoming Associate Engineer | Former SWE Intern',
+        company: 'Chicago Trading Company',
+        companyLink: 'https://www.chicagotrading.com/',
+        location: 'Chicago, IL',
+        description: 'After graduation, I\'ll be an Associate Engineer at Chicago Trading Company, a proprietary market-making firm with floor and electronic operations in the derivatives market. They provide pricing and liquidity on all U.S. derivatives exchanges.',
+        dates: 'Starting Aug. 2025 | May 2024 - Aug. 2024',
+        imagePath: '/logos/ctc.jpg'
     },
     {
         title: 'Vice President - Special Projects',
@@ -253,6 +253,15 @@ export const experiences = [
         description: 'I\’m currently training teachers in standardized debate curriculum to bring speech and debate to the classroom — most recently in middle schools in Northern California! Previously, I implemented and mapped 20+ curriculum targets in accordance with 100+ Common Core State Standards. I also introduced Middle School Public Debate curriculum to teachers and instructors nationwide to offer debate as a formal course in elementary/middle schools, while also helping develop proposal to introduce comprehensive debate curriculum to CA school districts.',
         dates: 'Aug. 2020 - Present',
         imagePath: '/logos/fda.png'
+    },
+    {
+        title: 'Undergraduate Teaching Assistant',
+        company: 'College of Computing @ Georgia Tech',
+        companyLink: 'https://sci.cc.gatech.edu',
+        location: 'Atlanta, GA',
+        description: 'Currently a teaching assistant for CS 3600: Introduction to Artificial Intelligence. Previously a teaching assistant for CS 2340: Objects and Design.',
+        dates: 'Aug. 2023 - May 2024',
+        imagePath: '/logos/gt.jpeg'
     },
     {
         title: 'Director of Member Development',
