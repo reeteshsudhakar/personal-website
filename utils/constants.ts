@@ -21,7 +21,6 @@ import {
     IconMail,
     IconMapPin,
     IconMoneybag,
-    IconMovie,
     IconMusic,
     IconNews,
     IconOld,
@@ -65,6 +64,7 @@ import {
     KerasOriginal,
     JunitOriginal,
     VercelOriginal,
+    D3jsOriginal,
 } from 'devicons-react';
 
 export const fullName = 'Reetesh Sudhakar';
@@ -134,9 +134,6 @@ export const navbarSection1Items = {
 export const navbarSection2Items = {
     'Dev': [
         {
-            label: 'Movie Web Proxy', icon: IconApiApp, href: 'https://movies-proxy.reeteshsudhakar.com'
-        },
-        {
             label: 'Personal API', icon: IconApi, href: 'https://api.reeteshsudhakar.com'
         },
     ],
@@ -165,9 +162,6 @@ export const navbarSection2Items = {
         {
             label: 'B.S. Degree', icon: IconSchool, href: 'https://www.github.com/reeteshsudhakar/gatech-bs-degree'
         },
-        {
-            label: 'Movie-Web (Dead)', icon: IconMovie, href: 'https://movies.reeteshsudhakar.com'
-        }
     ]
 }
 
@@ -466,6 +460,49 @@ export const projects = [
     //     links: []
     // },
     {
+        title: 'Political Data Explorer: Migrations, Operating Expenses, and PAC Donations',
+        description: 'This project explores state-to-state migrations, Congressional campaign operating expenses, and donations from Political Action Committees and juxtaposes them with United States electoral results. Through a series of interactive visualizations built using D3, we can analyze the relationships between these datasets and how they may influence political outcomes. The project pulls millions of data points from OpenSecrets, the Federal Election Commission, the MIT Election Lab, and the US Census Bureau from 2012 - 2022. You can view the project below!',
+        date: 'December 2024',
+        imagePath: '/projects/cse-6242-project.png',
+        tech: [
+            {
+                icon: PythonOriginal,
+                name: "Python"
+            },
+            {
+                icon: JupyterOriginal,
+                name: "Jupyter Notebook"
+            },
+            {
+                icon: D3jsOriginal,
+                name: "D3.js"
+            },
+            {
+                icon: NextjsOriginal,
+                name: "Next.js"
+            },
+            {
+                icon: ReactOriginal,
+                name: "React"
+            },
+            {
+                icon: TypescriptOriginal,
+                name: "TypeScript"
+            },
+            {
+                icon: VercelOriginal,
+                name: "Vercel"
+            }
+        ],
+        links: [
+            {
+                label: 'Website',
+                href: 'https://election-vis.reeteshsudhakar.com',
+                icon: IconWorldWww
+            },
+        ]
+    },
+    {
         title: 'Simulations: Vaccines, Traffic, and Citi Bike Shares in NYC',
         description: 'A series of simulation experiments. The first explores the spread of infectious diseases and how to implement effective vaccination strategies. The second explores one-lane and two-lane traffic systems, analyzing the effects of various densities and dallying on traffic flow. The final experiment explores the bike share program in NYC, analyzing how to optimize bike availability and rider satisfaction from 2022 data. Detailed analyses below!',
         date: 'May 2024',
@@ -585,11 +622,6 @@ export const projects = [
                 href: 'https://www.github.com/reeteshsudhakar/CS-7641-Project',
                 icon: IconBrandGithub
             },
-            {
-                label: 'Report',
-                href: 'https://www.reeteshsudhakar.github.io/CS-7641-Project',
-                icon: IconWorldWww
-            }
         ]
     },
     {
