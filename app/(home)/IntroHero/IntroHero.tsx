@@ -9,19 +9,11 @@ export function IntroHero() {
 
     return (
         <Center className={isLargeScreen ? classes.wrapper : classes.wrapperSmall}>
-            <Stack align='center' justify='center' p={'lg'}>
-                <Text
-                    className={classes.title}
-                >
-                    Hi! I'm Reetesh.
-                </Text>
-                <Text
-                    c='#FFFFFF'
-                    p={'sm'}
-                    ta='center'
-                    size='xl'
-                >
-                    I'm a M.S. Computer Science student at the Georgia Institute of Technology! I'm passionate about finance, technology, and music. Scroll to learn more ⬇️
+            <Stack align="center" justify="center" p={"lg"}>
+                <Text className={classes.title}>Hi! I'm Reetesh.</Text>
+                <Text c="#FFFFFF" p={"sm"} ta="center" size="xl">
+                    I'm a recent Computer Science graduate from Georgia Tech! I'm passionate about finance, technology,
+                    and music (and most importantly, I love dogs 🐶). Scroll to learn more ⬇️
                 </Text>
             </Stack>
         </Center>

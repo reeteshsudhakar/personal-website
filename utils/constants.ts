@@ -120,9 +120,9 @@ export const navbarSection1Items = {
         {
             label: 'LinkedIn', icon: IconBrandLinkedin, href: 'https://www.linkedin.com/in/reeteshsudhakar/'
         },
-        {
-            label: 'Calendly', icon: IconCalendar, href: 'https://calendly.com/reesud6187/30min'
-        }
+        // {
+        //     label: 'Calendly', icon: IconCalendar, href: 'https://calendly.com/reesud6187/30min'
+        // }
     ],
     'Random': [
         {
@@ -228,15 +228,6 @@ export const formData = [
 /* Experience Page Content */
 export const experiences = [
     {
-        title: 'Head Graduate Teaching Assistant',
-        company: 'College of Computing @ Georgia Tech',
-        companyLink: 'https://sci.cc.gatech.edu',
-        location: 'Atlanta, GA',
-        description: 'Currently the head teaching assistant for CS 3600: Introduction to Artificial Intelligence, with enrollment of 1000+. Managing content development (assignments, discussions, exams), preparing exercises, moderating thousands student discussions, and leading staff of 25. Working to eliminate historical plagiarism by redesigning assignments and detecting peer-to-peer plagiarism with a staff-facing pipeline, leveraging Stanford\'s MOSS tool.',
-        dates: 'May 2024 - Present',
-        imagePath: '/logos/gt.jpeg'
-    },
-    {
         title: 'Incoming Associate Engineer | Former SWE Intern',
         company: 'Chicago Trading Company',
         companyLink: 'https://www.chicagotrading.com/',
@@ -244,6 +235,15 @@ export const experiences = [
         description: 'After graduation, I\'ll be an Associate Engineer at Chicago Trading Company, a proprietary market-making firm with floor and electronic operations in the derivatives market. They provide pricing and liquidity on all U.S. derivatives exchanges.',
         dates: 'Starting Aug. 2025 | May 2024 - Aug. 2024',
         imagePath: '/logos/ctc.jpg'
+    },
+    {
+        title: 'Head Graduate Teaching Assistant',
+        company: 'College of Computing @ Georgia Tech',
+        companyLink: 'https://sci.cc.gatech.edu',
+        location: 'Atlanta, GA',
+        description: 'Head teaching assistant for CS 3600: Introduction to Artificial Intelligence, with enrollment of 1000+. Managing content development (assignments, discussions, exams), preparing exercises, moderating thousands student discussions, and leading staff of over 40. Working to eliminate historical plagiarism by redesigning assignments and detecting peer-to-peer plagiarism with a staff-facing pipeline, leveraging Stanford\'s MOSS tool.',
+        dates: 'May 2024 - May 2025',
+        imagePath: '/logos/gt.jpeg'
     },
     {
         title: 'Vice President - Special Projects',
