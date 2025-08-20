@@ -1,4 +1,4 @@
-import { Welcome } from "@/components/Welcome/Welcome";
+import Placeholder from "@/components/Placeholder/Placeholder";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
-            <Welcome pageTitle="Blog" />
+            <Placeholder />
         </>
     );
 }

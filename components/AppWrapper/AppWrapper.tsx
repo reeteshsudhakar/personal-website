@@ -17,10 +17,13 @@ import classes from './AppWrapper.module.css';
 import { VersionBadge } from '../VersionBadge/VersionBadge';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import PasswordInputBlock from '../PasswordInputBlock/PasswordInputBlock';
-import { navbarSection1Items, navbarSection2Items, fullName } from '@/utils/constants';
-import { NavbarFooter, NavbarSectionLinks, NavbarSectionLinksSmall, NavbarTextBlurb } from '../NavbarSections/NavbarSections';
-import { NavbarToggleLarge, NavbarToggleSmall } from '../NavbarToggle/NavbarToggle';
+import { navbarSection1Items, fullName } from "@/utils/constants";
+import {
+    NavbarFooter,
+    NavbarSectionLinks,
+    NavbarSectionLinksSmall,
+    NavbarTextBlurb,
+} from "../NavbarSections/NavbarSections";
 import { Toaster } from 'react-hot-toast';
 import useSWR from 'swr';
 
@@ -63,7 +66,7 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
     return (
         <AppShell
             header={!isLargeScreen ? { height: 60 } : undefined} // Only show header on small screens
-            navbar={{ width: 275, breakpoint: 'sm', collapsed: { mobile: !opened } }}
+            navbar={{ width: 275, breakpoint: "sm", collapsed: { mobile: !opened } }}
             withBorder={false}
         >
             <Toaster position="bottom-center" />
@@ -71,10 +74,12 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                 /* TODO: fix this so that the items are left, center, right */
                 <AppShell.Header>
                     <Flex className={classes.header}>
-                        <Group gap='xs'>
+                        <Group gap="xs">
                             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                            <Anchor href="/" underline='never'>
-                                <Text fw={900} c={'white'}>{fullName}</Text>
+                            <Anchor href="/" underline="never">
+                                <Text fw={900} c={"white"}>
+                                    {fullName}
+                                </Text>
                             </Anchor>
                         </Group>
                         <VersionBadge />
@@ -87,9 +92,11 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                         <>
                             <Stack>
                                 <AppShell.Section>
-                                    <Group justify='center'>
-                                        <Anchor href="/" underline='never'>
-                                            <Text fw={900} c={'white'}>{fullName}</Text>
+                                    <Group justify="center">
+                                        <Anchor href="/" underline="never">
+                                            <Text fw={900} c={"white"}>
+                                                {fullName}
+                                            </Text>
                                         </Anchor>
                                         <VersionBadge />
                                     </Group>
@@ -98,24 +105,13 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                     <NavbarTextBlurb />
                                 </AppShell.Section>
                                 <AppShell.Section component={ScrollArea} grow>
-                                    <Flex direction={'column'} py={3}>
-                                        <NavbarToggleLarge section={section} setSection={setSection} label={label} />
-                                        {section === 'section1' &&
-                                            <Stack gap={10}>
-                                                <NavbarSectionLinks sectionItems={navbarSection1Items} pathName={pathName} />
-                                            </Stack>
-                                        }
-                                        {section === 'section2' &&
-                                            <>
-                                                {data.isAuthenticated ? (
-                                                    <Stack gap={10}>
-                                                        <NavbarSectionLinks sectionItems={navbarSection2Items} pathName={pathName} />
-                                                    </Stack>
-                                                ) : (
-                                                    <PasswordInputBlock />
-                                                )}
-                                            </>
-                                        }
+                                    <Flex direction={"column"} py={3}>
+                                        <Stack gap={10}>
+                                            <NavbarSectionLinks
+                                                sectionItems={navbarSection1Items}
+                                                pathName={pathName}
+                                            />
+                                        </Stack>
                                     </Flex>
                                 </AppShell.Section>
                                 <AppShell.Section>
@@ -126,31 +122,16 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                     ) : (
                         <ScrollArea>
                             <Stack>
-                                <NavbarToggleSmall section={section} setSection={setSection} label={label} />
-                                {section === 'section1' &&
-                                    <Stack gap={10}>
-                                        <NavbarSectionLinksSmall sectionItems={navbarSection1Items} pathName={pathName} />
-                                    </Stack>
-                                }
-                                {section === 'section2' &&
-                                    <>
-                                        {data.isAuthenticated ? (
-                                            <Stack gap={10}>
-                                                <NavbarSectionLinksSmall sectionItems={navbarSection2Items} pathName={pathName} />
-                                            </Stack>
-                                        ) : (
-                                            <PasswordInputBlock />
-                                        )}
-                                    </>
-                                }
+                                <Stack gap={10}>
+                                    <NavbarSectionLinksSmall sectionItems={navbarSection1Items} pathName={pathName} />
+                                </Stack>
                             </Stack>
                         </ScrollArea>
-                    )
-                    }
+                    )}
                 </Flex>
             </AppShell.Navbar>
             <AppShell.Main>{children}</AppShell.Main>
-        </AppShell >
+        </AppShell>
     );
 }
 

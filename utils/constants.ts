@@ -122,40 +122,6 @@ export const navbarSection1Items = {
     ]
 }
 
-export const navbarSection2Items = {
-    'Dev': [
-        {
-            label: 'Personal API', icon: IconApi, href: 'https://api.reeteshsudhakar.com'
-        },
-    ],
-
-    'Finances': [
-        {
-            label: 'Bank of America', icon: IconCashBanknote, href: 'https://www.bankofamerica.com'
-        },
-        {
-            label: 'Capital One', icon: IconBuildingBank, href: 'https://myaccounts.capitalone.com/accountSummary'
-        },
-        {
-            label: 'Chase', icon: IconWallet, href: 'https://www.chase.com'
-        },
-        {
-            label: 'Robinhood', icon: IconChartLine, href: 'https://robinhood.com'
-        },
-        {
-            label: 'Charles Schwab', icon: IconMoneybag, href: 'https://client.schwab.com/Areas/Access/Login'
-        },
-        {
-            label: 'Fidelity', icon: IconOld, href: 'https://digital.fidelity.com/ftgw/digital/portfolio/summary'
-        },
-    ],
-    'Personal': [
-        {
-            label: 'B.S. Degree', icon: IconSchool, href: 'https://www.github.com/reeteshsudhakar/gatech-bs-degree'
-        },
-    ]
-}
-
 /* Navbar Footer */
 export const navbarFooterItems = {
     text: 'Made by Reetesh Sudhakar with',
