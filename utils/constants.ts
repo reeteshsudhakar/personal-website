@@ -1,6 +1,5 @@
 import {
     IconApi,
-    IconApiApp,
     IconAt,
     IconBike,
     IconBrandFacebook,
@@ -11,14 +10,12 @@ import {
     IconBrandNextjs,
     IconBrandOpenai,
     IconBuildingBank,
-    IconCalendar,
     IconCar,
     IconCashBanknote,
     IconCertificate,
     IconChartLine,
     IconFile,
     IconForms,
-    IconMail,
     IconMapPin,
     IconMoneybag,
     IconMusic,
@@ -115,14 +112,8 @@ export const navbarSection1Items = {
             label: 'Contact', icon: IconForms, href: '/contact'
         },
         {
-            label: 'Email', icon: IconMail, href: 'mailto:reesud6187@gmail.com'
-        },
-        {
             label: 'LinkedIn', icon: IconBrandLinkedin, href: 'https://www.linkedin.com/in/reeteshsudhakar/'
         },
-        // {
-        //     label: 'Calendly', icon: IconCalendar, href: 'https://calendly.com/reesud6187/30min'
-        // }
     ],
     'Random': [
         {
@@ -173,11 +164,6 @@ export const navbarFooterItems = {
             label: 'Next.js',
             icon: IconBrandNextjs,
             href: 'https://nextjs.org'
-        },
-        {
-            label: 'DALL-E',
-            icon: IconBrandOpenai,
-            href: 'https://openai.com/dall-e'
         },
         {
             label: 'Mantine',

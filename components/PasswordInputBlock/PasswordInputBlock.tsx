@@ -7,11 +7,11 @@ import { toast } from 'react-hot-toast';
 export default function PasswordInputBlock() {
     const form = useForm({
         initialValues: {
-            password: '',
+            password: "",
         },
 
         validate: {
-            password: (value) => (value !== '' ? null : 'Password cannot be empty'),
+            password: (value: string) => (value !== "" ? null : "Password cannot be empty"),
         },
     });
 
