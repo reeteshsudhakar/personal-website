@@ -1,5 +1,4 @@
 import {
-    IconApi,
     IconAt,
     IconBike,
     IconBrandFacebook,
@@ -9,26 +8,19 @@ import {
     IconBrandMantine,
     IconBrandNextjs,
     IconBrandOpenai,
-    IconBuildingBank,
     IconCar,
-    IconCashBanknote,
     IconCertificate,
-    IconChartLine,
     IconFile,
     IconForms,
     IconMapPin,
-    IconMoneybag,
     IconMusic,
     IconNews,
-    IconOld,
     IconPhone,
     IconPrompt,
     IconQuote,
-    IconSchool,
     IconSlideshow,
     IconSun,
     IconVaccine,
-    IconWallet,
     IconWorldWww,
     IconWriting
 } from "@tabler/icons-react";
@@ -71,7 +63,6 @@ export const navbarBlurbs: string[] = [
     'Software Developer 💻',
     'Dog Lover 🐶',
     'Continuous Learner 🚀',
-    'Into Finance & Technology 📈',
 ];
 
 /* Navbar Section Links */
@@ -87,7 +78,7 @@ export const navbarSection1Items = {
             label: 'Résumé', icon: IconFile, href: '/resume'
         },
         {
-            label: 'GitHub Portfolio', icon: IconBrandGithub, href: 'https://www.github.com/reeteshsudhakar'
+            label: 'GitHub', icon: IconBrandGithub, href: 'https://www.github.com/reeteshsudhakar'
         }
     ],
     'Personal Life': [

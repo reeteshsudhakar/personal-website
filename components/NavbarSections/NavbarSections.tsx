@@ -8,10 +8,10 @@ import {
     Text,
     Tooltip,
 } from '@mantine/core';
-import { theme } from '../../theme';
-import classes from './NavbarSections.module.css';
-import { navbarFooterItems, navbarBlurbs } from '@/utils/constants';
-import { SpotifyEmbed } from '../SpotifyEmbed/SpotifyEmbed';
+import { theme } from "@/theme";
+import classes from "./NavbarSections.module.css";
+import { navbarFooterItems, navbarBlurbs } from "@/utils/constants";
+import { SpotifyEmbed } from "@/components/SpotifyEmbed/SpotifyEmbed";
 
 interface NavbarItem {
     label: string;
@@ -37,42 +37,43 @@ function NavbarIcon({ Icon, size }: NavbarIconProps) {
     return <Icon size={size} color="white" />;
 }
 
-
 export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsProps) {
     return (
-        <Flex direction={'column'}>
+        <Flex direction={"column"}>
             {Object.keys(sectionItems).map((section, index) => (
                 <Stack key={index} pt={15} gap={7} pl={25} pr={25}>
-                    <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{section}</Text>
+                    <Text size="xs" c={theme.colors?.dark ? theme.colors.dark[0] : "white"}>
+                        {section}
+                    </Text>
                     {sectionItems[section].map((item, index) => (
-                        <Anchor
-                            key={index}
-                            href={item.href}
-                            underline='never'
-                        >
+                        <Anchor key={index} href={item.href} underline="never">
                             <Group className={pathName === item.href ? classes.activeLink : classes.link}>
                                 <NavbarIcon Icon={item.icon} size={20} />
-                                <Text c={'white'}>{item.label}</Text>
+                                <Text c={"white"}>{item.label}</Text>
                             </Group>
                         </Anchor>
                     ))}
                 </Stack>
             ))}
             <Stack p={15} gap={5}>
-                <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>Some of my favorite songs...</Text>
+                <Text size="xs" c={theme.colors?.dark ? theme.colors.dark[0] : "white"}>
+                    Some of my favorite songs...
+                </Text>
                 <SpotifyEmbed />
             </Stack>
         </Flex>
     );
-};
+}
 
 export function NavbarFooter() {
     return (
-        <Stack justify='center' align='center' gap={'xs'}>
-            <Text size='xs' c='white'>{navbarFooterItems.text}</Text>
+        <Stack justify="center" align="center" gap={"xs"}>
+            <Text size="xs" c="white">
+                {navbarFooterItems.text}
+            </Text>
             <Group>
                 {navbarFooterItems.links.map((link, index) => (
-                    <Tooltip label={link.label} transitionProps={{ transition: 'pop', duration: 300 }}>
+                    <Tooltip key={index} label={link.label} transitionProps={{ transition: "pop", duration: 300 }}>
                         <Anchor key={index} href={link.href}>
                             <NavbarIcon Icon={link.icon} size={25} />
                         </Anchor>

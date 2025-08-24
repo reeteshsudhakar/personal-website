@@ -1,6 +1,6 @@
 'use client'
 
-import { type HTMLAttributes, useState, useEffect, use } from "react";
+import { type HTMLAttributes } from "react";
 import { spotifyURLs } from "@/utils/constants";
 
 interface SpotifyProps extends HTMLAttributes<HTMLIFrameElement> {
