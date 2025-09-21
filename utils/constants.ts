@@ -62,7 +62,6 @@ export const fullName = 'Reetesh Sudhakar';
 export const navbarBlurbs: string[] = [
     'Software Developer 💻',
     'Dog Lover 🐶',
-    'Continuous Learner 🚀',
 ];
 
 /* Navbar Section Links */
