@@ -1,73 +1,68 @@
-'use client'
+"use client";
 
-import { Text, Center, Stack, Button, Group, Anchor } from '@mantine/core';
-import classes from './ContactHero.module.css';
-import { IconForms, IconCalendar, IconMail, IconBrandInstagram } from '@tabler/icons-react';
-import { useMediaQuery } from '@mantine/hooks';
+import Link from "next/link";
+import { FileText, Mail, Instagram } from "lucide-react";
+import { useMediaQuery } from "@/lib/use-media-query";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function ContactHero() {
-    const isLargeScreen = useMediaQuery('(min-width: 48em)');
+    const isLargeScreen = useMediaQuery("(min-width: 48em)");
 
     return (
-        <Center className={isLargeScreen ? classes.wrapper : classes.wrapperSmall}>
-            <Stack align='center' justify='center'>
-                <Text
-                    className={classes.title}
-                >
-                    Let's get in touch!
-                </Text>
-                <Text
-                    c='#FFFFFF'
-                    p={'xl'}
-                    ta='center'
-                    size='xl'
-                >
-                    Whether it's about technology, finance, music, or absolute nonsense, I'm always up for a chat. Feel free to reach out through any of the methods below!
-                </Text>
-
-                <Group align='center' justify='center' p={'md'}>
-                    <Anchor href='/contact' underline='never'>
+        <div
+            className={cn(
+                "relative flex w-full items-center justify-center bg-black bg-cover bg-center transition-opacity",
+                isLargeScreen ? "h-screen" : "h-[calc(100vh-60px)]",
+            )}
+            style={{ backgroundImage: "url('/heros/contact-hero-background.png')" }}
+        >
+            <div className="relative z-10 flex flex-col items-center justify-center px-4">
+                <h2 className="px-4 text-center text-[28px] font-extrabold text-white xs:text-left md:text-5xl">
+                    Let&apos;s get in touch!
+                </h2>
+                <p className="max-w-3xl px-6 py-8 text-center text-xl text-white">
+                    Whether it&apos;s about technology, finance, music, or absolute nonsense, I&apos;m always up for a
+                    chat. Feel free to reach out through any of the methods below!
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-3 p-4">
+                    <Link href="/contact" className="no-underline">
                         <Button
-                            variant='light'
-                            color='#FFF'
-                            leftSection={<IconForms />}
-                            radius={'md'}
+                            variant="default"
+                            size="default"
+                            className="gap-2 bg-teal-600 font-bold text-white hover:bg-teal-700"
                         >
-                            <Text size='l' fw={700}>Contact</Text>
+                            <FileText className="size-4" />
+                            Contact
                         </Button>
-                    </Anchor>
-                    <Anchor href='https://calendly.com/reesud6187/30min' underline='never' target='_blank'>
+                    </Link>
+                    <a href="mailto:reesud6187@gmail.com" className="no-underline">
                         <Button
-                            variant='filled'
-                            color='teal'
-                            leftSection={<IconCalendar />}
-                            radius={'md'}
+                            variant="secondary"
+                            size="default"
+                            className="gap-2 bg-white/20 font-bold text-white hover:bg-white/30"
                         >
-                            <Text size='l' fw={700}>Schedule a meeting</Text>
+                            <Mail className="size-4" />
+                            Email me!
                         </Button>
-                    </Anchor>
-                    <Anchor href='mailto:reesud6187@gmail.com' underline='never' target='_blank'>
+                    </a>
+                    <a
+                        href="https://instagram.com/reeteshsudhakar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="no-underline"
+                    >
                         <Button
-                            variant='light'
-                            color='#FFF'
-                            leftSection={<IconMail />}
-                            radius={'md'}
+                            variant="secondary"
+                            size="default"
+                            className="gap-2 bg-gradient-to-br from-pink-500 to-yellow-500 font-bold text-white hover:opacity-90"
                         >
-                            <Text size='l' fw={700}>Email me!</Text>
+                            <Instagram className="size-4" />
+                            Instagram
                         </Button>
-                    </Anchor>
-                    <Anchor href='https://instagram.com/reeteshsudhakar' underline='never' target='_blank'>
-                        <Button
-                            variant='gradient'
-                            gradient={{ deg: 206, from: 'pink', to: 'yellow' }}
-                            leftSection={<IconBrandInstagram />}
-                            radius={'md'}
-                        >
-                            <Text size='l' fw={700}>Instagram</Text>
-                        </Button>
-                    </Anchor>
-                </Group>
-            </Stack>
-        </Center>
+                    </a>
+                </div>
+            </div>
+        </div>
     );
 }

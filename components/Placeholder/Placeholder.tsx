@@ -1,25 +1,16 @@
 "use client";
 
-import { Title, Text, Center, Stack } from "@mantine/core";
-import classes from "./Placeholder.module.css";
-
 export default function Placeholder() {
     return (
-        <Center>
-            <Stack>
-                <Title className={classes.title} ta="center" mt={100}>
-                    Ruh{" "}
-                    <Text inherit variant="gradient" component="span" gradient={{ from: "green", to: "cyan" }}>
-                        Roh{" "}
-                    </Text>
-                    <Text inherit component="span">
-                        🚧
-                    </Text>
-                </Title>
-                <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-                    Right now, this page is a work in progress. Stay tuned for updates!
-                </Text>
-            </Stack>
-        </Center>
+        <div className="flex min-h-[50vh] flex-col items-center justify-center px-4 pt-24 text-center md:pt-32">
+            <h1 className="text-5xl font-black tracking-tight text-foreground md:text-[100px] md:tracking-[-2px]">
+                Ruh{" "}
+                <span className="bg-gradient-to-r from-green-500 to-cyan-500 bg-clip-text text-transparent">Roh</span>{" "}
+                <span>🚧</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-[580px] text-lg text-muted-foreground">
+                Right now, this page is a work in progress. Stay tuned for updates!
+            </p>
+        </div>
     );
 }

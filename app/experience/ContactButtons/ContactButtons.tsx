@@ -1,55 +1,67 @@
-import { Group, Anchor, Button, Text } from "@mantine/core";
-import { IconForms, IconCalendar, IconMail, IconBrandInstagram } from "@tabler/icons-react";
+"use client";
+
+import Link from "next/link";
+import { FileText, Calendar, Mail, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function ContactButtons() {
     return (
-        <>
-            <Text c='white' size='xl' ta='center' fw={600}>
+        <div className="flex flex-col items-center gap-4 py-8">
+            <p className="text-center text-xl font-semibold text-white">
                 Got questions for me? Feel free to reach out!
-            </Text>
-
-            <Group align='center' justify='center' p={'md'}>
-                <Anchor href='/contact' underline='never'>
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 p-4">
+                <Link href="/contact" className="no-underline">
                     <Button
-                        variant='light'
-                        color='#FFF'
-                        leftSection={<IconForms />}
-                        radius={'md'}
+                        variant="secondary"
+                        size="default"
+                        className="gap-2 bg-white/20 font-bold text-white hover:bg-white/30"
                     >
-                        <Text size='l' fw={700}>Contact</Text>
+                        <FileText className="size-4" />
+                        Contact
                     </Button>
-                </Anchor>
-                <Anchor href='https://calendly.com/reesud6187/30min' underline='never' target='_blank'>
+                </Link>
+                <a
+                    href="https://calendly.com/reesud6187/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="no-underline"
+                >
                     <Button
-                        variant='filled'
-                        color='teal'
-                        leftSection={<IconCalendar />}
-                        radius={'md'}
+                        variant="default"
+                        size="default"
+                        className="gap-2 bg-teal-600 font-bold text-white hover:bg-teal-700"
                     >
-                        <Text size='l' fw={700}>Schedule a meeting</Text>
+                        <Calendar className="size-4" />
+                        Schedule a meeting
                     </Button>
-                </Anchor>
-                <Anchor href='mailto:reesud6187@gmail.com' underline='never' target='_blank'>
+                </a>
+                <a href="mailto:reesud6187@gmail.com" className="no-underline">
                     <Button
-                        variant='light'
-                        color='#FFF'
-                        leftSection={<IconMail />}
-                        radius={'md'}
+                        variant="secondary"
+                        size="default"
+                        className="gap-2 bg-white/20 font-bold text-white hover:bg-white/30"
                     >
-                        <Text size='l' fw={700}>Email me!</Text>
+                        <Mail className="size-4" />
+                        Email me!
                     </Button>
-                </Anchor>
-                <Anchor href='https://instagram.com/reeteshsudhakar' underline='never' target='_blank'>
+                </a>
+                <a
+                    href="https://instagram.com/reeteshsudhakar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="no-underline"
+                >
                     <Button
-                        variant='gradient'
-                        gradient={{ deg: 206, from: 'pink', to: 'yellow' }}
-                        leftSection={<IconBrandInstagram />}
-                        radius={'md'}
+                        variant="secondary"
+                        size="default"
+                        className="gap-2 bg-gradient-to-br from-pink-500 to-yellow-500 font-bold text-white hover:opacity-90"
                     >
-                        <Text size='l' fw={700}>Instagram</Text>
+                        <Instagram className="size-4" />
+                        Instagram
                     </Button>
-                </Anchor>
-            </Group>
-        </>
+                </a>
+            </div>
+        </div>
     );
 }

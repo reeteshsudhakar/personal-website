@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+# Run from repo root so ESLint/Stylelint find their configs
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+# Type-check the whole project (catches cross-file type errors)
+npm run typecheck
+
+# Lint and format only staged files (extra memory for ESLint on many files)
+NODE_OPTIONS="--max-old-space-size=4096" npx lint-staged

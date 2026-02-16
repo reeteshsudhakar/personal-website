@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { Paper, Text, Center, Group, Grid } from "@mantine/core";
-import { skills } from "@/utils/constants";
-import classes from "./SkillCard.module.css";
+import { skills } from "@/lib/constants";
+import { Card } from "@/components/ui/card";
 
 interface SkillCardIconProps {
     Icon: React.ElementType;
@@ -16,20 +15,19 @@ function SkillCardIcon({ Icon, size }: SkillCardIconProps) {
 
 function SkillCards() {
     return (
-        <Grid justify="center" align="center">
+        <div className="grid grid-cols-2 place-items-center gap-4 sm:grid-cols-[repeat(2,minmax(0,5fr))] md:grid-cols-3 lg:grid-cols-6">
             {skills.map((skill) => (
-                <Grid.Col span={{ xs: 6, sm: 5, md: 4, lg: 2 }} key={skill.title}>
-                    <Paper shadow="sm" radius="md" p={"lg"} className={classes.card}>
-                        <Center style={{ flexGrow: 1, justifyContent: "center" }}>
-                            <SkillCardIcon Icon={skill.icon} size={75} />
-                        </Center>
-                        <Text fw={700} ta="center" style={{ padding: "10px 0" }}>
-                            {skill.title}
-                        </Text>
-                    </Paper>
-                </Grid.Col>
+                <Card
+                    key={skill.title}
+                    className="flex h-[150px] w-[150px] flex-col justify-between bg-black p-4 transition-transform duration-100 hover:scale-105 hover:shadow-xl"
+                >
+                    <div className="flex flex-1 items-center justify-center">
+                        <SkillCardIcon Icon={skill.icon} size={75} />
+                    </div>
+                    <p className="py-2.5 text-center font-bold">{skill.title}</p>
+                </Card>
             ))}
-        </Grid>
+        </div>
     );
 }
 

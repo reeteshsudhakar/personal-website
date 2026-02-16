@@ -1,20 +1,10 @@
-import { Center, Stack, Text } from "@mantine/core";
-import classes from "./PressContainer.module.css";
-
 export default function PressContainer({ children }: React.PropsWithChildren) {
     return (
-        <Stack
-            align='center'
-            p={'xl'}
-            className={classes.wrapper}
-        >
-            <Text
-                className={classes.title}
-            >
+        <div className="relative flex w-full flex-col items-center p-8 min-h-screen bg-[#f1f3fa]">
+            <h1 className="px-4 text-center text-[28px] font-extrabold text-[#0172AF] xs:text-left md:text-5xl">
                 Press and Publications
-            </Text>
-
+            </h1>
             {children}
-        </Stack>
-    )
+        </div>
+    );
 }

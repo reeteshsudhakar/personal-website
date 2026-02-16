@@ -1,5 +1,4 @@
 import ExperienceTimeline from "./ExperienceTimeline/ExperienceTimeline";
-import { Stack } from "@mantine/core";
 import SkillsSection from "./skills/SkillsSection";
 import { ContactButtons } from "./ContactButtons/ContactButtons";
 import { Metadata } from "next";
@@ -11,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <Stack align="center" justify="center" p={"xl"}>
+        <div className="flex flex-col items-center justify-center px-4 py-8">
             <ExperienceTimeline />
             <SkillsSection />
             <ContactButtons />
-        </Stack>
+        </div>
     );
 }
