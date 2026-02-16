@@ -3,7 +3,6 @@
 import { notFound } from "next/navigation";
 import redirects from "@/redirects.json";
 import { useEffect, useState } from "react";
-import { Center, Title } from "@mantine/core";
 
 type RedirectData = {
     href: string;
@@ -15,6 +14,17 @@ type Redirects = {
 };
 
 const redirectsTyped: Redirects = redirects;
+
+const ALLOWED_REDIRECT_PROTOCOLS = ["https:", "http:", "mailto:"];
+
+function isSafeRedirect(href: string): boolean {
+    try {
+        const url = new URL(href, "https://dummy");
+        return ALLOWED_REDIRECT_PROTOCOLS.includes(url.protocol);
+    } catch {
+        return false;
+    }
+}
 
 type RedirectPageProps = {
     params: Promise<{
@@ -32,13 +42,13 @@ export default function RedirectPage({ params }: RedirectPageProps) {
                 const { slug } = await params;
                 const data = redirectsTyped[slug];
 
-                if (!data) {
+                if (!data || !isSafeRedirect(data.href)) {
                     notFound();
                 }
 
                 setRedirectData(data);
                 setIsLoading(false);
-            } catch (error) {
+            } catch {
                 notFound();
             }
         };
@@ -58,19 +68,15 @@ export default function RedirectPage({ params }: RedirectPageProps) {
 
     if (isLoading) {
         return (
-            <Center style={{ paddingTop: 50, flexDirection: "column" }}>
-                <Title order={1} c={"white"} ta="center" p={"md"}>
-                    Loading...
-                </Title>
-            </Center>
+            <div className="flex flex-col items-center pt-12">
+                <h1 className="p-4 text-center text-3xl font-bold text-white">Loading...</h1>
+            </div>
         );
     }
 
     return (
-        <Center style={{ paddingTop: 50, flexDirection: "column" }}>
-            <Title order={1} c={"white"} ta="center" p={"md"}>
-                Redirecting to {redirectData?.title}...
-            </Title>
-        </Center>
+        <div className="flex flex-col items-center pt-12">
+            <h1 className="p-4 text-center text-3xl font-bold text-white">Redirecting to {redirectData?.title}...</h1>
+        </div>
     );
 }

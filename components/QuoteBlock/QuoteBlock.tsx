@@ -1,80 +1,86 @@
 "use client";
 
-import { Center, Loader, Container, Title, Group, Badge, Anchor, Text } from "@mantine/core";
-import { useState, useEffect } from "react";
+import { useState, useTransition } from "react";
+import Link from "next/link";
+import { RefreshCw } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { getNewQuote } from "@/app/quote/actions";
+import type { Quote } from "@/lib/quotes";
 
-type Quote = {
-    body: string;
-    author: string;
-    url: string;
-    tags: string[];
+type QuoteBlockProps = {
+    initialQuote: Quote | null;
 };
 
-const QuoteComponent = () => {
-    const [quote, setQuote] = useState<Quote | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+const QuoteComponent = ({ initialQuote }: QuoteBlockProps) => {
+    const [quote, setQuote] = useState<Quote | null>(initialQuote);
+    const [isPending, startTransition] = useTransition();
 
-    useEffect(() => {
-        const fetchQuote = async () => {
-            try {
-                const response = await fetch("/api/quotes");
-                if (!response.ok) {
-                    throw new Error("Failed to fetch quote");
-                }
-                const data: Quote = await response.json();
-                setQuote(data);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
+    const handleRefresh = () => {
+        startTransition(async () => {
+            const nextQuote = await getNewQuote();
+            if (nextQuote) setQuote(nextQuote);
+        });
+    };
 
-        fetchQuote();
-    }, []);
-
-    if (loading) {
+    if (!quote) {
         return (
-            <Center style={{ height: "100vh" }}>
-                <Loader size="xl" />
-            </Center>
-        );
-    }
-
-    if (error || !quote) {
-        return (
-            <Center style={{ height: "100vh" }}>
-                <Text>Failed to load the quote. Please try again.</Text>
-            </Center>
+            <div className="flex min-h-screen flex-col items-center justify-center gap-4">
+                <p className="text-foreground">Failed to load the quote.</p>
+                <Button variant="outline" onClick={handleRefresh} disabled={isPending}>
+                    {isPending ? <Spinner className="size-5" /> : "Try again"}
+                </Button>
+            </div>
         );
     }
 
     return (
-        <Center style={{ height: "100vh" }}>
-            <Container size="md" style={{ textAlign: "center" }}>
-                <Title order={1} style={{ fontSize: "2rem", marginBottom: "1rem", color: "white" }}>
-                    {quote.body}
-                </Title>
-                <Text fw={700} style={{ marginBottom: "1rem" }}>
-                    {quote.author}
-                </Text>
+        <>
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleRefresh}
+                disabled={isPending}
+                className="fixed top-4 right-4 z-10 text-white hover:bg-white/10"
+                aria-label="Fetch new quote"
+            >
+                {isPending ? <Spinner className="size-5" /> : <RefreshCw className="size-5" />}
+            </Button>
+            <div className="flex min-h-screen items-center justify-center px-4 text-center">
+                <div className="mx-auto max-w-2xl">
+                    {isPending && quote ? (
+                        <div className="flex items-center justify-center py-12">
+                            <Spinner className="size-10 text-primary" />
+                        </div>
+                    ) : quote ? (
+                        <>
+                            <h1 className="mb-4 text-2xl font-semibold text-white">{quote.body}</h1>
+                            <p className="mb-4 font-bold text-foreground">{quote.author}</p>
 
-                {quote.tags.length > 0 && (
-                    <Group p="xs" align="center" justify="center" style={{ marginBottom: "1rem" }}>
-                        {quote.tags.map((tag, index) => (
-                            <Badge key={index} color="#50B384" variant="filled">
-                                {tag}
-                            </Badge>
-                        ))}
-                    </Group>
-                )}
+                            {quote.tags.length > 0 && (
+                                <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
+                                    {quote.tags.map((tag, index) => (
+                                        <Badge key={index} className="bg-[#50B384]">
+                                            {tag}
+                                        </Badge>
+                                    ))}
+                                </div>
+                            )}
 
-                <Anchor href={quote.url} target="_blank" rel="noopener noreferrer">
-                    View Source
-                </Anchor>
-            </Container>
-        </Center>
+                            <Link
+                                href={quote.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary underline underline-offset-2 hover:opacity-90"
+                            >
+                                View Source
+                            </Link>
+                        </>
+                    ) : null}
+                </div>
+            </div>
+        </>
     );
 };
 

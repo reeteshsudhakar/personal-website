@@ -1,17 +1,10 @@
-import React from 'react';
-import {
-    Anchor,
-    Box,
-    Flex,
-    Group,
-    Stack,
-    Text,
-    Tooltip,
-} from '@mantine/core';
-import { theme } from "@/theme";
-import classes from "./NavbarSections.module.css";
-import { navbarFooterItems, navbarBlurbs } from "@/utils/constants";
-import { SpotifyEmbed } from "@/components/SpotifyEmbed/SpotifyEmbed";
+"use client";
+
+import React, { useRef, useState, useCallback, useLayoutEffect } from "react";
+import Link from "next/link";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { navbarFooterItems, navbarBlurbs } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 interface NavbarItem {
     label: string;
@@ -26,6 +19,7 @@ interface SectionItems {
 interface NavbarSectionsProps {
     sectionItems: SectionItems;
     pathName?: string | null;
+    onLinkClick?: () => void;
 }
 
 interface NavbarIconProps {
@@ -34,92 +28,149 @@ interface NavbarIconProps {
 }
 
 function NavbarIcon({ Icon, size }: NavbarIconProps) {
-    return <Icon size={size} color="white" />;
+    return <Icon size={size} className="text-white" />;
 }
 
 export function NavbarSectionLinks({ sectionItems, pathName }: NavbarSectionsProps) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const pillRef = useRef<HTMLDivElement>(null);
+    const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+    useLayoutEffect(() => {
+        const pill = pillRef.current;
+        const container = containerRef.current;
+        if (!pill || !container) return;
+
+        if (hoveredIndex === null) {
+            pill.style.visibility = "hidden";
+            return;
+        }
+
+        const el = rowRefs.current[hoveredIndex];
+        if (!el) {
+            pill.style.visibility = "hidden";
+            return;
+        }
+
+        const containerRect = container.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        pill.style.top = `${elRect.top - containerRect.top}px`;
+        pill.style.height = `${elRect.height}px`;
+        pill.style.visibility = "visible";
+    }, [hoveredIndex]);
+
+    let flatIndex = 0;
     return (
-        <Flex direction={"column"}>
-            {Object.keys(sectionItems).map((section, index) => (
-                <Stack key={index} pt={15} gap={7} pl={25} pr={25}>
-                    <Text size="xs" c={theme.colors?.dark ? theme.colors.dark[0] : "white"}>
-                        {section}
-                    </Text>
-                    {sectionItems[section].map((item, index) => (
-                        <Anchor key={index} href={item.href} underline="never">
-                            <Group className={pathName === item.href ? classes.activeLink : classes.link}>
-                                <NavbarIcon Icon={item.icon} size={20} />
-                                <Text c={"white"}>{item.label}</Text>
-                            </Group>
-                        </Anchor>
-                    ))}
-                </Stack>
+        <div ref={containerRef} className="relative flex flex-col px-3">
+            {/* Moving hover pill - position updated via ref to avoid re-render jitter */}
+            <div
+                ref={pillRef}
+                className="pointer-events-none absolute left-2 right-2 rounded-md bg-white/10 transition-all duration-200 ease-out"
+                style={{ visibility: "hidden" }}
+                aria-hidden
+            />
+            {Object.keys(sectionItems).map((section, sectionIndex) => (
+                <div key={sectionIndex} className="space-y-2 pt-4 first:pt-0">
+                    <p className="text-xs text-white/90">{section}</p>
+                    {sectionItems[section].map((item, i) => {
+                        const index = flatIndex++;
+                        const isActive = pathName === item.href;
+                        return (
+                            <Link
+                                key={i}
+                                href={item.href}
+                                className="no-underline"
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
+                            >
+                                <div
+                                    ref={(el) => {
+                                        rowRefs.current[index] = el;
+                                    }}
+                                    className={cn(
+                                        "relative z-[1] flex items-center gap-2 rounded-md px-2 py-1.5 text-white transition-colors",
+                                        isActive && "bg-[#50B384]",
+                                    )}
+                                >
+                                    <NavbarIcon Icon={item.icon} size={20} />
+                                    <span>{item.label}</span>
+                                </div>
+                            </Link>
+                        );
+                    })}
+                </div>
             ))}
-            <Stack p={15} gap={5}>
-                <Text size="xs" c={theme.colors?.dark ? theme.colors.dark[0] : "white"}>
-                    Some of my favorite songs...
-                </Text>
-                <SpotifyEmbed />
-            </Stack>
-        </Flex>
+        </div>
     );
 }
 
 export function NavbarFooter() {
     return (
-        <Stack justify="center" align="center" gap={"xs"}>
-            <Text size="xs" c="white">
-                {navbarFooterItems.text}
-            </Text>
-            <Group>
+        <div className="flex flex-col items-center justify-center gap-2">
+            <p className="text-xs text-white">{navbarFooterItems.text}</p>
+            <div className="flex items-center gap-2">
                 {navbarFooterItems.links.map((link, index) => (
-                    <Tooltip key={index} label={link.label} transitionProps={{ transition: "pop", duration: 300 }}>
-                        <Anchor key={index} href={link.href}>
-                            <NavbarIcon Icon={link.icon} size={25} />
-                        </Anchor>
+                    <Tooltip key={index}>
+                        <TooltipTrigger asChild>
+                            <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white transition-opacity duration-150 hover:opacity-80"
+                            >
+                                <NavbarIcon Icon={link.icon} size={25} />
+                            </a>
+                        </TooltipTrigger>
+                        <TooltipContent side="top">{link.label}</TooltipContent>
                     </Tooltip>
                 ))}
-            </Group>
-        </Stack>
+            </div>
+        </div>
     );
 }
 
-export function NavbarTextBlurb() {
+export function NavbarTextBlurb({ align = "center" }: { align?: "left" | "center" }) {
     return (
-        <Flex className={classes.navbarTextBlurb}>
-            <Stack gap='xs' py={3}>
+        <div
+            className={cn(
+                "flex gap-4",
+                align === "center" && "items-center justify-center",
+                align === "left" && "items-start justify-start",
+            )}
+        >
+            <div className={cn("space-y-1 py-1", align === "center" && "text-center", align === "left" && "text-left")}>
                 {navbarBlurbs.map((blurb, index) => (
-                    <Text key={index} size='sm' ta={'center'} c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{blurb}</Text>
+                    <p key={index} className="text-sm text-white/90">
+                        {blurb}
+                    </p>
                 ))}
-            </Stack>
-        </Flex>
+            </div>
+        </div>
     );
 }
 
-export function NavbarSectionLinksSmall({ sectionItems, pathName }: NavbarSectionsProps) {
+export function NavbarSectionLinksSmall({ sectionItems, pathName, onLinkClick }: NavbarSectionsProps) {
     return (
-        <Flex direction={'row'} wrap={'wrap'} justify={'center'}>
+        <div className="flex flex-col px-0">
             {Object.keys(sectionItems).map((section, index) => (
-                <Stack key={index} gap={7} pt={15} pl={25} pr={25}>
-                    <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>{section}</Text>
-                    {sectionItems[section].map((item, index) => (
-                        <Anchor
-                            key={index}
-                            href={item.href}
-                            underline='never'
-                        >
-                            <Group className={pathName === item.href ? classes.activeLink : classes.link}>
+                <div key={index} className="space-y-2 pt-3 first:pt-0">
+                    <p className="text-xs text-white/90">{section}</p>
+                    {sectionItems[section].map((item, i) => (
+                        <Link key={i} href={item.href} className="no-underline" onClick={onLinkClick}>
+                            <div
+                                className={cn(
+                                    "flex items-center gap-2 rounded-md py-1.5 pl-0 pr-2 text-white transition-colors duration-150 hover:bg-white/10",
+                                    pathName === item.href && "bg-[#50B384]",
+                                )}
+                            >
                                 <NavbarIcon Icon={item.icon} size={20} />
-                                <Text c={'white'}>{item.label}</Text>
-                            </Group>
-                        </Anchor>
+                                <span>{item.label}</span>
+                            </div>
+                        </Link>
                     ))}
-                </Stack>
+                </div>
             ))}
-            <Stack p={15} gap={5}>
-                <Text size='xs' c={theme.colors?.dark ? theme.colors.dark[0] : 'white'}>Some of my favorite songs...</Text>
-                <SpotifyEmbed />
-            </Stack>
-        </Flex>
+        </div>
     );
 }

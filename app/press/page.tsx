@@ -1,7 +1,6 @@
-import { Stack } from "@mantine/core";
 import PressContainer from "./PressContainer/PressContainer";
 import ArticleCard from "@/components/ArticleCard/ArticleCard";
-import { pressArticles } from "@/utils/constants";
+import { pressArticles } from "@/lib/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <PressContainer>
-            <Stack pb={"xl"}>
+            <div className="flex flex-col gap-6 pb-8">
                 {pressArticles.map((article) => (
                     <ArticleCard
                         key={article.title}
@@ -24,7 +23,7 @@ export default function Page() {
                         href={article.href}
                     />
                 ))}
-            </Stack>
+            </div>
         </PressContainer>
     );
 }
