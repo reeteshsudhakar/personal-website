@@ -107,7 +107,7 @@
   --sidebar-ring: oklch(0.439 0 0deg);
 }
 
-/* Project card images: force rounded corners to match card (Next.js Image fill) */
+/* Match card radius for project images (Image fill) */
 [data-project-image] img {
   border-radius: var(--radius-xl);
 }

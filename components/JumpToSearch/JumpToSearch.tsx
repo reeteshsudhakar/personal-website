@@ -13,6 +13,7 @@ import {
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import redirectsData from "@/redirects.json";
+import { TOOLS_LIST } from "@/lib/tools";
 
 type SectionItems = Record<string, { label: string; href: string; icon: React.ElementType }[]>;
 
@@ -123,6 +124,25 @@ export function JumpToSearch({ sectionItems, onNavigate }: { sectionItems: Secti
                                 <span className="font-medium">/{item.slug}</span>
                                 <span className="truncate text-muted-foreground">{item.label}</span>
                                 <span className="ml-auto text-xs text-muted-foreground">Dynamic</span>
+                            </CommandItem>
+                        ))}
+                    </CommandGroup>
+                    <CommandGroup heading="Dev tools">
+                        <CommandItem
+                            value="tools home index"
+                            onSelect={() => handleSelect("/tools")}
+                            keywords={["tools", "home", "index"]}
+                        >
+                            Tools
+                        </CommandItem>
+                        {TOOLS_LIST.map((tool) => (
+                            <CommandItem
+                                key={tool.id}
+                                value={`${tool.title} ${tool.description} ${tool.id}`}
+                                onSelect={() => handleSelect(tool.href)}
+                                keywords={[tool.title, tool.description, tool.id]}
+                            >
+                                {tool.title}
                             </CommandItem>
                         ))}
                     </CommandGroup>

@@ -18,6 +18,7 @@ import {
     IconQuote,
     IconSlideshow,
     IconSun,
+    IconTool,
     IconVaccine,
     IconWorldWww,
 } from "@tabler/icons-react";
@@ -122,6 +123,13 @@ export const navbarSection1Items = {
             label: "Quotes",
             icon: IconQuote,
             href: "/quote",
+        },
+    ],
+    Dev: [
+        {
+            label: "Tools",
+            icon: IconTool,
+            href: "/tools",
         },
     ],
 };

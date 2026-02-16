@@ -5,7 +5,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Experience | Reetesh Sudhakar",
-    description: "A summary of my professional experience and skillset!",
+    description: "A summary of my professional experience.",
+    openGraph: {
+        title: "Experience | Reetesh Sudhakar",
+        description: "A summary of my professional experience.",
+        type: "website",
+    },
 };
 
 export default function Page() {

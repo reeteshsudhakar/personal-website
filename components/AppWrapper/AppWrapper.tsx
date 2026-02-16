@@ -12,6 +12,7 @@ import {
     NavbarTextBlurb,
 } from "@/components/NavbarSections/NavbarSections";
 import { JumpToSearch } from "@/components/JumpToSearch/JumpToSearch";
+import { ToolsCommandPalette } from "@/components/ToolsCommandPalette/ToolsCommandPalette";
 import { Toaster } from "@/components/ui/sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -38,12 +39,14 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
         );
     }
 
+    const isToolsRoute = pathName?.startsWith("/tools");
+
     return (
         <div className="flex min-h-screen">
             <Toaster position="bottom-center" />
 
-            {/* Mobile header */}
-            {!isLargeScreen && (
+            {/* Mobile header - only show if not on tools route */}
+            {!isLargeScreen && !isToolsRoute && (
                 <header className="fixed top-0 left-0 right-0 z-30 flex h-14 items-center justify-between border-b border-border bg-black px-4">
                     <div className="flex items-center gap-2">
                         <Sheet open={open} onOpenChange={setOpen}>
@@ -74,10 +77,14 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                                             {fullName}
                                         </Link>
                                         <NavbarTextBlurb align="left" />
-                                        <JumpToSearch
-                                            sectionItems={navbarSection1Items}
-                                            onNavigate={() => setOpen(false)}
-                                        />
+                                        {pathName?.startsWith("/tools") ? (
+                                            <ToolsCommandPalette />
+                                        ) : (
+                                            <JumpToSearch
+                                                sectionItems={navbarSection1Items}
+                                                onNavigate={() => setOpen(false)}
+                                            />
+                                        )}
                                         <NavbarSectionLinksSmall
                                             sectionItems={navbarSection1Items}
                                             pathName={pathName}
@@ -106,8 +113,8 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                 </header>
             )}
 
-            {/* Desktop sidebar */}
-            {isLargeScreen && (
+            {/* Desktop sidebar - only show if not on tools route */}
+            {isLargeScreen && !isToolsRoute && (
                 <aside className="fixed left-0 top-0 z-20 flex h-full w-[220px] flex-col border-r border-border bg-black py-4">
                     <div className="flex flex-col items-center gap-4 px-3">
                         <Link
@@ -123,7 +130,11 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
                             {fullName}
                         </Link>
                         <NavbarTextBlurb />
-                        <JumpToSearch sectionItems={navbarSection1Items} />
+                        {pathName?.startsWith("/tools") ? (
+                            <ToolsCommandPalette />
+                        ) : (
+                            <JumpToSearch sectionItems={navbarSection1Items} />
+                        )}
                     </div>
                     <ScrollArea className="min-h-0 flex-1 px-2">
                         <div className="flex flex-col py-3">
@@ -138,8 +149,8 @@ export function AppWrapper({ children }: React.PropsWithChildren) {
 
             {/* Main content */}
             <main
-                className={`min-h-screen flex-1 ${!isLargeScreen ? "pt-14" : ""}`}
-                style={isLargeScreen ? { marginLeft: 220 } : undefined}
+                className={`min-h-screen flex-1 ${!isLargeScreen && !isToolsRoute ? "pt-14" : ""}`}
+                style={isLargeScreen && !isToolsRoute ? { marginLeft: 220 } : undefined}
             >
                 {children}
             </main>
