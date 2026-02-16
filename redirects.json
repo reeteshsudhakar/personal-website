@@ -34,5 +34,9 @@
     "bscs": {
         "href": "https://www.github.com/reeteshsudhakar/gatech-bs-degree",
         "title": "Ree's BSCS on GitHub"
+    },
+    "mscs": {
+        "href": "https://www.github.com/reeteshsudhakar/gatech-ms-degree",
+        "title": "Ree's MSCS on GitHub"
     }
 }
