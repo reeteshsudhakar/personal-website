@@ -5,7 +5,14 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Press | Reetesh Sudhakar",
-    description: "A compilation of relevant publications and press about me!",
+    description:
+        "A compilation of relevant publications, press articles, and media coverage featuring my work and research.",
+    openGraph: {
+        title: "Press | Reetesh Sudhakar",
+        description:
+            "A compilation of relevant publications, press articles, and media coverage featuring my work and research.",
+        type: "website",
+    },
 };
 
 export default function Page() {
