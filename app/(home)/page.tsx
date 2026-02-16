@@ -5,7 +5,7 @@ import { ContactHero } from "./_components/Hero/ContactHero/ContactHero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Home | Reetesh Sudhakar",
+    title: "Home",
     description:
         "Software Engineer at Chicago Trading Company and recent Georgia Tech graduate. Passionate about finance, technology, music, and most importantly, dogs.",
     openGraph: {

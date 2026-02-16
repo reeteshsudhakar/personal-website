@@ -4,7 +4,7 @@ import { ContactButtons } from "./ContactButtons/ContactButtons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Experience | Reetesh Sudhakar",
+    title: "Experience",
     description: "A summary of my professional experience.",
     openGraph: {
         title: "Experience | Reetesh Sudhakar",

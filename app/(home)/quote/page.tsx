@@ -3,7 +3,7 @@ import { getQuote } from "@/lib/quotes";
 import QuoteBlock from "@/components/QuoteBlock/QuoteBlock";
 
 export const metadata: Metadata = {
-    title: "Quotes | Reetesh Sudhakar",
+    title: "Quotes",
     description: "A collection of inspirational quotes randomly pulled from the internet.",
     openGraph: {
         title: "Quotes | Reetesh Sudhakar",
