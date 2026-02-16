@@ -4,7 +4,7 @@ import { pressArticles } from "@/lib/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Press | Reetesh Sudhakar",
+    title: "Press",
     description:
         "A compilation of relevant publications, press articles, and media coverage featuring my work and research.",
     openGraph: {

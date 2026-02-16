@@ -3,7 +3,7 @@ import { ProjectCardsSection } from "@/components/ProjectCard/ProjectCard";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Projects | Reetesh Sudhakar",
+    title: "Projects",
     description:
         "A collection of my software engineering projects, including web applications, data visualizations, machine learning models, and more.",
     openGraph: {

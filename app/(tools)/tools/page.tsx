@@ -4,7 +4,7 @@ import { TOOLS_LIST } from "@/lib/tools";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-    title: "Dev Tools | Reetesh Sudhakar",
+    title: "Dev Tools",
     description: "A collection of handy developer tools.",
     openGraph: {
         title: "Dev Tools | Reetesh Sudhakar",

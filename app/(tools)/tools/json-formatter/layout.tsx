@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "JSON Formatter & Validator | Dev Tools | Reetesh Sudhakar",
+    title: "JSON Formatter & Validator | Dev Tools",
     description:
         "Validate, format, and analyze JSON with syntax highlighting, real-time validation, and detailed metrics. Includes formatter, validator, and minifier.",
     openGraph: {

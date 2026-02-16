@@ -10,13 +10,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     if (!redirectData) {
         return {
-            title: "Redirect | Reetesh Sudhakar",
+            title: "Redirect",
             description: "Redirecting...",
         };
     }
 
     return {
-        title: `Redirect to ${redirectData.title} | Reetesh Sudhakar`,
+        title: `Redirect to ${redirectData.title}`,
         description: `Redirecting to ${redirectData.title}`,
         robots: {
             index: false,
