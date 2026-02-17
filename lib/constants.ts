@@ -12,6 +12,7 @@ import {
     IconFile,
     IconForms,
     IconMapPin,
+    IconMoneybag,
     IconNews,
     IconPhone,
     IconPrompt,
@@ -118,6 +119,11 @@ export const navbarSection1Items = {
             label: "Election Viz",
             icon: IconSlideshow,
             href: "https://election-vis.reeteshsudhakar.com",
+        },
+        {
+            label: "Home Credit Analysis",
+            icon: IconMoneybag,
+            href: "https://ml-credit-project.reeteshsudhakar.com",
         },
         {
             label: "Quotes",
@@ -605,11 +611,6 @@ export const projects = [
                 href: "https://www.github.com/reeteshsudhakar/gtdelts-website",
                 icon: IconBrandGithub,
             },
-            // {
-            //     label: 'Website',
-            //     href: 'https://www.gtdelts.org',
-            //     icon: IconWorldWww
-            // }
         ],
     },
     {
@@ -645,6 +646,11 @@ export const projects = [
                 label: "Source Code",
                 href: "https://www.github.com/reeteshsudhakar/CS-7641-Project",
                 icon: IconBrandGithub,
+            },
+            {
+                label: "Website",
+                href: "https://ml-credit-project.reeteshsudhakar.com",
+                icon: IconWorldWww,
             },
         ],
     },
