@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { CopyButton } from "@/components/CopyButton/CopyButton";
+import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { cn } from "@/lib/utils";
 
 export default function UrlEncoderPage() {
@@ -25,17 +24,11 @@ export default function UrlEncoderPage() {
           })();
 
     return (
-        <div className="mx-auto max-w-4xl px-4 py-10">
-            <Link
-                href="/tools"
-                className="mb-6 inline-block text-sm text-muted-foreground underline-offset-2 hover:text-foreground"
-            >
-                ← Back to tools
-            </Link>
-            <h1 className="mb-1 text-2xl font-bold text-foreground">URL Encoder & Decoder</h1>
-            <p className="mb-6 text-muted-foreground">
-                Encode strings to URL-safe format or decode URL-encoded strings back to normal text.
-            </p>
+        <div className="mx-auto max-w-5xl px-4 py-10">
+            <ToolPageHeader
+                title="URL Encoder & Decoder"
+                description="Encode strings to URL-safe format or decode URL-encoded strings back to normal text."
+            />
 
             <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">

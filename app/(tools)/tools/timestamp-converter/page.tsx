@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CopyButton } from "@/components/CopyButton/CopyButton";
+import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { cn } from "@/lib/utils";
 
 type EpochUnit = "seconds" | "milliseconds" | "microseconds" | "nanoseconds";
@@ -141,18 +141,11 @@ export default function TimestampConverterPage() {
     }, [dateInput, timeInput, timezone]);
 
     return (
-        <div className="mx-auto max-w-4xl px-4 py-10">
-            <Link
-                href="/tools"
-                className="mb-6 inline-block text-sm text-muted-foreground underline-offset-2 hover:text-foreground"
-            >
-                ← Back to tools
-            </Link>
-            <h1 className="mb-1 text-2xl font-bold text-foreground">Timestamp Converter</h1>
-            <p className="mb-6 text-muted-foreground">
-                Convert between epoch timestamps and human-readable date/time. Supports seconds, milliseconds,
-                microseconds, and nanoseconds.
-            </p>
+        <div className="mx-auto max-w-5xl px-4 py-10">
+            <ToolPageHeader
+                title="Timestamp Converter"
+                description="Convert between epoch timestamps and human-readable date/time. Supports seconds, milliseconds, microseconds, and nanoseconds."
+            />
             <div className="flex flex-col gap-6">
                 <div className="rounded-md border border-border/50 bg-muted/20 p-3">
                     <div className="mb-2 flex items-center justify-between">
