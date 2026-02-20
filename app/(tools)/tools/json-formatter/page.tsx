@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import CodeMirror from "@uiw/react-codemirror";
@@ -9,6 +8,7 @@ import { json } from "@codemirror/lang-json";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { cn } from "@/lib/utils";
 
 function tryParseJson(str: string): { ok: true; value: unknown } | { ok: false; error: string; line?: number } {
@@ -166,17 +166,11 @@ export default function JsonFormatterPage() {
 
     return (
         <div className="mx-auto max-w-7xl px-4 py-10">
-            <Link
-                href="/tools"
-                className="mb-6 inline-block text-sm text-muted-foreground underline-offset-2 hover:text-foreground"
-            >
-                ← Back to tools
-            </Link>
-            <h1 className="mb-1 text-2xl font-bold text-foreground">JSON Formatter & Validator</h1>
-            <div className="mb-6 flex items-center justify-between">
-                <p className="text-muted-foreground">
-                    Paste JSON below. It validates as you type; use Format to pretty-print or Flatten to minify.
-                </p>
+            <ToolPageHeader
+                title="JSON Formatter & Validator"
+                description="Paste JSON below. It validates as you type; use Format to pretty-print or Flatten to minify."
+            />
+            <div className="mb-6 flex items-center justify-end">
                 {metrics && (
                     <Button
                         variant="ghost"
