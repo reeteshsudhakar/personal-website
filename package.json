@@ -10,6 +10,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "next lint && npm run lint:stylelint",
     "lint:stylelint": "stylelint '**/*.css' --cache",
+    "commitlint": "commitlint --edit",
+    "release": "semantic-release",
     "prettier:check": "prettier --check \"**/*.{ts,tsx}\"",
     "prettier:write": "prettier --write \"**/*.{ts,tsx}\"",
     "prepare": "husky"
@@ -60,7 +62,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
     "@next/eslint-plugin-next": "^14.0.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.4",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/node": "^20.8.10",
     "@types/react": "18.2.34",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
@@ -79,6 +89,7 @@
     "lint-staged": "^15.4.3",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
+    "semantic-release": "^25.0.3",
     "stylelint": "^15.11.0",
     "stylelint-config-standard-scss": "^11.1.0",
     "typescript": "5.2.2"
