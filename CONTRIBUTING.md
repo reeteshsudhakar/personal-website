@@ -32,6 +32,16 @@ Releases are automated with `semantic-release` on pushes to `master`.
 
 - `CI` workflow (`.github/workflows/ci.yml`) runs on pull requests.
 - `Release` workflow (`.github/workflows/release.yml`) runs on pushes to `master`.
+- `Vercel Preview` workflow (`.github/workflows/vercel-preview.yml`) deploys PR previews and updates a PR comment with the preview URL.
+  - It runs for non-draft PRs from this repository (not forks), because it requires repository secrets.
+- `Vercel Production` workflow (`.github/workflows/vercel-production.yml`) deploys production when a GitHub release is published.
+- Both Vercel workflows also create GitHub Deployment records so deployments appear in the repository Deployments tab.
+
+Required repository secrets for Vercel workflows:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
 
 ## Push Guardrails
 
