@@ -6,7 +6,9 @@ import { CopyButton } from "@/components/CopyButton/CopyButton";
 import { Button } from "@/components/ui/button";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { ToolCodeEditor } from "@/components/ToolCodeEditor/ToolCodeEditor";
+import { ShareLinkButton } from "@/components/ShareLinkButton/ShareLinkButton";
 import { downloadTextFile } from "@/lib/download-text-file";
+import { useToolUrlState } from "@/lib/use-tool-url-state";
 
 type ParsedCurl = {
     method: string;
@@ -135,9 +137,13 @@ function toFetchSnippet(parsed: ParsedCurl): string {
 }
 
 export default function CurlToFetchPage() {
-    const [curlInput, setCurlInput] = useState(
-        "curl -X POST https://api.example.com/users -H 'Content-Type: application/json' -d '{\"name\":\"Reetesh\"}'",
-    );
+    const defaultInput =
+        "curl -X POST https://api.example.com/users -H 'Content-Type: application/json' -d '{\"name\":\"Reetesh\"}'";
+    const { state, setState, isQueryTooLarge } = useToolUrlState({
+        defaults: { input: defaultInput },
+        paramMap: { input: "i" },
+    });
+    const curlInput = state.input;
     const [copiedId, setCopiedId] = useState<string | null>(null);
 
     const result = useMemo(() => {
@@ -162,6 +168,22 @@ export default function CurlToFetchPage() {
                 <span className="font-mono">-d</span>, <span className="font-mono">--data-raw</span>, and{" "}
                 <span className="font-mono">--url</span>.
             </p>
+            <div className="mb-4 flex justify-end">
+                <ShareLinkButton
+                    disabled={isQueryTooLarge}
+                    requireSensitiveConfirmation
+                    title={
+                        isQueryTooLarge
+                            ? "Input is too large to include in the URL. Reduce input size to share."
+                            : "Copy a link with the current tool state"
+                    }
+                />
+            </div>
+            {isQueryTooLarge && (
+                <p className="mb-4 text-sm text-amber-600 dark:text-amber-500">
+                    Input is too large for URL sharing. The link keeps the last smaller state.
+                </p>
+            )}
 
             <div className="grid gap-6 md:grid-cols-2">
                 <div className="flex flex-col gap-2">
@@ -174,7 +196,7 @@ export default function CurlToFetchPage() {
                     <ToolCodeEditor
                         id="curl-input"
                         value={curlInput}
-                        onChange={setCurlInput}
+                        onChange={(value) => setState({ input: value })}
                         language="text"
                         height="320px"
                     />

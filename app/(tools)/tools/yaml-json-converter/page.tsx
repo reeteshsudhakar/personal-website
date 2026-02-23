@@ -8,7 +8,9 @@ import { CopyButton } from "@/components/CopyButton/CopyButton";
 import { Button } from "@/components/ui/button";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { ToolCodeEditor } from "@/components/ToolCodeEditor/ToolCodeEditor";
+import { ShareLinkButton } from "@/components/ShareLinkButton/ShareLinkButton";
 import { downloadTextFile } from "@/lib/download-text-file";
+import { useToolUrlState } from "@/lib/use-tool-url-state";
 
 type Mode = "yaml-to-json" | "json-to-yaml";
 
@@ -18,8 +20,12 @@ const SAMPLE_INPUTS: Record<Mode, string> = {
 };
 
 export default function YamlJsonConverterPage() {
-    const [mode, setMode] = useState<Mode>("yaml-to-json");
-    const [input, setInput] = useState(SAMPLE_INPUTS["yaml-to-json"]);
+    const { state, setState, isQueryTooLarge } = useToolUrlState({
+        defaults: { mode: "yaml-to-json", input: SAMPLE_INPUTS["yaml-to-json"] },
+        paramMap: { mode: "m", input: "i" },
+    });
+    const mode = state.mode === "json-to-yaml" ? "json-to-yaml" : "yaml-to-json";
+    const input = state.input;
     const [copiedId, setCopiedId] = useState<string | null>(null);
 
     const result = useMemo(() => {
@@ -53,6 +59,22 @@ export default function YamlJsonConverterPage() {
             <p className="mb-4 text-sm text-muted-foreground">
                 Multi-document YAML and unsupported tags may not map cleanly to JSON.
             </p>
+            <div className="mb-4 flex justify-end">
+                <ShareLinkButton
+                    disabled={isQueryTooLarge}
+                    requireSensitiveConfirmation
+                    title={
+                        isQueryTooLarge
+                            ? "Input is too large to include in the URL. Reduce input size to share."
+                            : "Copy a link with the current tool state"
+                    }
+                />
+            </div>
+            {isQueryTooLarge && (
+                <p className="mb-4 text-sm text-amber-600 dark:text-amber-500">
+                    Input is too large for URL sharing. The link keeps the last smaller state.
+                </p>
+            )}
 
             <div className="mb-6 flex flex-col gap-2">
                 <Label className="text-sm font-medium">Conversion Mode</Label>
@@ -62,8 +84,10 @@ export default function YamlJsonConverterPage() {
                     onValueChange={(value) => {
                         if (!value) return;
                         const nextMode = value as Mode;
-                        setMode(nextMode);
-                        setInput(SAMPLE_INPUTS[nextMode]);
+                        setState({
+                            mode: nextMode,
+                            input: SAMPLE_INPUTS[nextMode],
+                        });
                     }}
                     className="w-fit"
                 >
@@ -83,7 +107,7 @@ export default function YamlJsonConverterPage() {
                     <ToolCodeEditor
                         id="yaml-json-input"
                         value={input}
-                        onChange={setInput}
+                        onChange={(value) => setState((prev) => ({ ...prev, input: value }))}
                         language={inputLanguage}
                         height="360px"
                     />

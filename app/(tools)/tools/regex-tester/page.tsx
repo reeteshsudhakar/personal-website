@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
+import { ShareLinkButton } from "@/components/ShareLinkButton/ShareLinkButton";
+import { useToolUrlState } from "@/lib/use-tool-url-state";
 
 type MatchView = {
     index: number;
@@ -14,9 +16,15 @@ type MatchView = {
 };
 
 export default function RegexTesterPage() {
-    const [pattern, setPattern] = useState("\\b[a-zA-Z_][a-zA-Z0-9_]*\\b");
-    const [flags, setFlags] = useState("g");
-    const [testText, setTestText] = useState("const user_id = 42;\nconst isActive = true;");
+    const { state, setState, isQueryTooLarge } = useToolUrlState({
+        defaults: {
+            pattern: "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+            flags: "g",
+            testText: "const user_id = 42;\nconst isActive = true;",
+        },
+        paramMap: { pattern: "p", flags: "f", testText: "t" },
+    });
+    const { pattern, flags, testText } = state;
 
     const result = useMemo(() => {
         if (!pattern) return { error: "", matches: [] as MatchView[] };
@@ -65,6 +73,22 @@ export default function RegexTesterPage() {
                 Enter a pattern and flags (like <span className="font-mono">gim</span>), then paste test text. With{" "}
                 <span className="font-mono">g</span>, it shows all matches; without it, only the first match.
             </p>
+            <div className="mb-4 flex justify-end">
+                <ShareLinkButton
+                    disabled={isQueryTooLarge}
+                    requireSensitiveConfirmation
+                    title={
+                        isQueryTooLarge
+                            ? "Input is too large to include in the URL. Reduce input size to share."
+                            : "Copy a link with the current tool state"
+                    }
+                />
+            </div>
+            {isQueryTooLarge && (
+                <p className="mb-4 text-sm text-amber-600 dark:text-amber-500">
+                    Input is too large for URL sharing. The link keeps the last smaller state.
+                </p>
+            )}
 
             <div className="mb-6 grid gap-4 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
@@ -74,7 +98,7 @@ export default function RegexTesterPage() {
                     <Input
                         id="regex-pattern"
                         value={pattern}
-                        onChange={(event) => setPattern(event.target.value)}
+                        onChange={(event) => setState((prev) => ({ ...prev, pattern: event.target.value }))}
                         placeholder="\\w+"
                         className="font-mono text-sm"
                     />
@@ -86,7 +110,7 @@ export default function RegexTesterPage() {
                     <Input
                         id="regex-flags"
                         value={flags}
-                        onChange={(event) => setFlags(event.target.value)}
+                        onChange={(event) => setState((prev) => ({ ...prev, flags: event.target.value }))}
                         placeholder="gim"
                         className="font-mono text-sm"
                     />
@@ -100,7 +124,7 @@ export default function RegexTesterPage() {
                 <Textarea
                     id="regex-test-text"
                     value={testText}
-                    onChange={(event) => setTestText(event.target.value)}
+                    onChange={(event) => setState((prev) => ({ ...prev, testText: event.target.value }))}
                     className="min-h-[220px] font-mono text-sm"
                 />
             </div>
