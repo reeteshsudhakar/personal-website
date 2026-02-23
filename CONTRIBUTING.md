@@ -27,3 +27,12 @@ Releases are automated with `semantic-release` on pushes to `master`.
 - `fix` and `perf` -> patch version bump
 - `feat!` or `BREAKING CHANGE:` -> major version bump
 - Other types are valid for commit clarity but usually do not trigger a release unless marked as breaking
+
+## CI and Merge Flow
+
+- `CI` workflow (`.github/workflows/ci.yml`) runs on pull requests.
+- `Release` workflow (`.github/workflows/release.yml`) runs on pushes to `master`.
+
+## Push Guardrails
+
+A Husky `pre-push` hook blocks direct pushes from the local `master` branch.
