@@ -21,7 +21,7 @@ Common supported types include:
 
 ## Release Rules
 
-Releases are automated with `semantic-release` on pushes to `main`.
+Releases are automated with `semantic-release` on pushes to `master`.
 
 - `feat` -> minor version bump
 - `fix` and `perf` -> patch version bump
