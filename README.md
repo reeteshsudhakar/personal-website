@@ -16,7 +16,7 @@ Commit messages are validated locally via a Husky `commit-msg` hook and `commitl
 
 ## Release Automation
 
-Releases are automated with `semantic-release` on pushes to `main`.
+Releases are automated with `semantic-release` on pushes to `master`.
 
 - Tags are created as `vX.Y.Z`
 - GitHub Releases are generated automatically

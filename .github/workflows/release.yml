@@ -3,7 +3,7 @@ name: Release
 on:
     push:
         branches:
-            - main
+            - master
     workflow_dispatch:
 
 permissions:
@@ -14,17 +14,29 @@ permissions:
 jobs:
     release:
         runs-on: ubuntu-latest
+        env:
+            NODE_VERSION: "24"
+            NPM_VERSION: "10.8.2"
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
               with:
                   fetch-depth: 0
 
             - name: Setup Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
-                  node-version: 20
+                  node-version: ${{ env.NODE_VERSION }}
                   cache: npm
+                  package-manager-cache: false
+
+            - name: Setup npm
+              run: npm install -g npm@${{ env.NPM_VERSION }}
+
+            - name: Print tool versions
+              run: |
+                  node --version
+                  npm --version
 
             - name: Install dependencies
               run: npm ci
