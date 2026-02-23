@@ -1,0 +1,127 @@
+name: Vercel Preview
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+    contents: read
+    pull-requests: write
+    deployments: write
+
+jobs:
+    deploy-preview:
+        if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository && secrets.VERCEL_TOKEN != '' && secrets.VERCEL_ORG_ID != '' && secrets.VERCEL_PROJECT_ID != '' }}
+        runs-on: ubuntu-latest
+        env:
+            NODE_VERSION: "24"
+            NPM_VERSION: "10.8.2"
+            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Setup Node
+              uses: actions/setup-node@v6
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: npm
+                  package-manager-cache: false
+
+            - name: Setup npm
+              run: npm install -g npm@${{ env.NPM_VERSION }}
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Install Vercel CLI
+              run: npm install --global vercel@latest
+
+            - name: Pull Vercel Environment Information
+              run: vercel pull --yes --environment=preview --token=${{ env.VERCEL_TOKEN }}
+
+            - name: Build Project Artifacts
+              run: vercel build --token=${{ env.VERCEL_TOKEN }}
+
+            - name: Deploy Preview to Vercel
+              id: deploy
+              run: |
+                  output="$(vercel deploy --prebuilt --token=${{ env.VERCEL_TOKEN }} --yes)"
+                  url="$(echo "$output" | grep -Eo 'https://[^ ]+\.vercel\.app' | tail -n 1)"
+                  if [ -z "$url" ]; then
+                    echo "Could not determine preview URL from Vercel output."
+                    echo "$output"
+                    exit 1
+                  fi
+                  echo "url=$url" >> "$GITHUB_OUTPUT"
+
+            - name: Create GitHub Deployment (Preview)
+              id: gh_deployment
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const environment = `preview/pr-${context.payload.pull_request.number}`;
+                      const deployment = await github.rest.repos.createDeployment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        ref: context.payload.pull_request.head.sha,
+                        environment,
+                        description: "Vercel preview deployment",
+                        auto_merge: false,
+                        required_contexts: [],
+                        transient_environment: true,
+                        production_environment: false
+                      });
+                      core.setOutput("deployment_id", String(deployment.data.id));
+
+            - name: Set GitHub Deployment Status (Preview)
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const deploymentId = Number("${{ steps.gh_deployment.outputs.deployment_id }}");
+                      await github.rest.repos.createDeploymentStatus({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        deployment_id: deploymentId,
+                        state: "success",
+                        environment_url: "${{ steps.deploy.outputs.url }}",
+                        log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                        description: "Preview deployment is ready"
+                      });
+
+            - name: Comment Preview URL on PR
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const marker = "<!-- vercel-preview-url -->";
+                      const url = "${{ steps.deploy.outputs.url }}";
+                      const body = `${marker}
+                      ### Vercel Preview
+                      [Open Preview](${url})
+                      `;
+                      const { owner, repo } = context.repo;
+                      const issue_number = context.issue.number;
+                      const comments = await github.paginate(github.rest.issues.listComments, {
+                        owner,
+                        repo,
+                        issue_number,
+                        per_page: 100
+                      });
+                      const existing = comments.find((c) => c.body && c.body.includes(marker));
+                      if (existing) {
+                        await github.rest.issues.updateComment({
+                          owner,
+                          repo,
+                          comment_id: existing.id,
+                          body
+                        });
+                      } else {
+                        await github.rest.issues.createComment({
+                          owner,
+                          repo,
+                          issue_number,
+                          body
+                        });
+                      }
