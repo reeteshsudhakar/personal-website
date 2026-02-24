@@ -27,6 +27,7 @@ Releases are automated with `semantic-release` on pushes to `master`.
 - `fix` and `perf` -> patch version bump
 - `feat!` or `BREAKING CHANGE:` -> major version bump
 - Other types are valid for commit clarity but usually do not trigger a release unless marked as breaking
+- Releases are published as Git tags + GitHub Releases.
 
 ## CI and Merge Flow
 
