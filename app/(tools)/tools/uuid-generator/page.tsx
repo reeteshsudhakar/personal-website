@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { CopyButton } from "@/components/CopyButton/CopyButton";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
-import { downloadTextFile } from "@/lib/download-text-file";
+import { downloadTextFile } from "@/lib/tools";
 
 function makeUuid(): string {
     if (typeof crypto !== "undefined" && "randomUUID" in crypto) {

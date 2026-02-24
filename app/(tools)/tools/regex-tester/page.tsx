@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { ShareLinkButton } from "@/components/ShareLinkButton/ShareLinkButton";
-import { useToolUrlState } from "@/lib/use-tool-url-state";
+import { useToolUrlState } from "@/lib/tools";
 
 type MatchView = {
     index: number;

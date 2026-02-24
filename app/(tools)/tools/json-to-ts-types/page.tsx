@@ -7,7 +7,7 @@ import { CopyButton } from "@/components/CopyButton/CopyButton";
 import { Button } from "@/components/ui/button";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { ToolCodeEditor } from "@/components/ToolCodeEditor/ToolCodeEditor";
-import { downloadTextFile } from "@/lib/download-text-file";
+import { downloadTextFile } from "@/lib/tools";
 
 function isIdentifier(value: string): boolean {
     return /^[$A-Z_a-z][$\w]*$/.test(value);
