@@ -1,13 +1,26 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { TOOLS_LIST } from "@/lib/tools";
+import { TOOLS_LIST, getRecentToolIds } from "@/lib/tools";
 
 export function ToolsIndexClient() {
     const [query, setQuery] = useState("");
+    const [recentToolIds, setRecentToolIds] = useState<string[]>([]);
+
+    useEffect(() => {
+        setRecentToolIds(getRecentToolIds());
+    }, []);
+
+    const recentTools = useMemo(
+        () =>
+            recentToolIds
+                .map((id) => TOOLS_LIST.find((tool) => tool.id === id))
+                .filter((tool): tool is (typeof TOOLS_LIST)[number] => Boolean(tool)),
+        [recentToolIds],
+    );
 
     const filteredTools = useMemo(() => {
         const normalizedQuery = query.trim().toLowerCase();
@@ -17,6 +30,7 @@ export function ToolsIndexClient() {
             [tool.title, tool.description, tool.id, tool.href].join(" ").toLowerCase().includes(normalizedQuery),
         );
     }, [query]);
+    const hasSearchQuery = query.trim().length > 0;
 
     return (
         <div className="mx-auto max-w-7xl px-4 py-10">
@@ -30,6 +44,26 @@ export function ToolsIndexClient() {
                     aria-label="Search tools"
                 />
             </div>
+            {!hasSearchQuery && recentTools.length > 0 && (
+                <>
+                    <h2 className="mb-3 text-lg font-semibold text-foreground">Recently Used</h2>
+                    <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {recentTools.map((tool) => (
+                            <Link key={tool.id} href={tool.href} className="no-underline">
+                                <Card className="h-full border-[#0172AF]/30 transition-colors hover:bg-accent/50 dark:border-[#50B384]/30">
+                                    <CardHeader>
+                                        <CardTitle className="text-[#0172AF] dark:text-[#50B384]">
+                                            {tool.title}
+                                        </CardTitle>
+                                        <CardDescription>{tool.description}</CardDescription>
+                                    </CardHeader>
+                                </Card>
+                            </Link>
+                        ))}
+                    </div>
+                </>
+            )}
+            <h2 className="mb-3 text-lg font-semibold text-foreground">All Tools</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
                 {filteredTools.map((tool) => (
                     <Link key={tool.id} href={tool.href} className="no-underline">

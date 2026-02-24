@@ -1,4 +1,9 @@
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { TOOLS_LIST, recordRecentToolVisit } from "@/lib/tools";
 
 type ToolPageHeaderProps = {
     title: string;
@@ -6,6 +11,14 @@ type ToolPageHeaderProps = {
 };
 
 export function ToolPageHeader({ title, description }: ToolPageHeaderProps) {
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const currentTool = TOOLS_LIST.find((tool) => tool.href === pathname);
+        if (!currentTool) return;
+        recordRecentToolVisit(currentTool.id);
+    }, [pathname]);
+
     return (
         <>
             <Link

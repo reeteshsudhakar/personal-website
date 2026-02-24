@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ToolPageHeader } from "@/components/ToolPageHeader/ToolPageHeader";
 import { ToolCodeEditor } from "@/components/ToolCodeEditor/ToolCodeEditor";
 import { ShareLinkButton } from "@/components/ShareLinkButton/ShareLinkButton";
-import { downloadTextFile } from "@/lib/download-text-file";
-import { useToolUrlState } from "@/lib/use-tool-url-state";
+import { downloadTextFile, useToolUrlState } from "@/lib/tools";
 
 type ParsedCurl = {
     method: string;
