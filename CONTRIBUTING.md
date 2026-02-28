@@ -32,11 +32,12 @@ Releases are automated with `semantic-release` on pushes to `master`.
 ## CI and Merge Flow
 
 - `CI` workflow (`.github/workflows/ci.yml`) runs on pull requests.
-- `Release` workflow (`.github/workflows/release.yml`) runs on pushes to `master`.
+- `Release` workflow (`.github/workflows/release.yml`) runs on pushes to `master`, publishes semantic releases, and deploys production to Vercel when a new release is published.
 - `Vercel Preview` workflow (`.github/workflows/vercel-preview.yml`) deploys PR previews and updates a PR comment with the preview URL.
   - It runs for non-draft PRs from this repository (not forks), because it requires repository secrets.
-- `Vercel Production` workflow (`.github/workflows/vercel-production.yml`) deploys production when a GitHub release is published.
+- `Vercel Production` workflow (`.github/workflows/vercel-production.yml`) is a manual fallback deploy by release tag (`workflow_dispatch`).
 - Both Vercel workflows also create GitHub Deployment records so deployments appear in the repository Deployments tab.
+- Vercel workflows set `NEXT_PUBLIC_APP_VERSION` from Git metadata (PR/SHA for previews, release tag for production), so `package.json` version is not the deployment source of truth.
 
 Required repository secrets for Vercel workflows:
 
