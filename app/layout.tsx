@@ -1,9 +1,26 @@
 import "@/app/globals.css";
 import React from "react";
+import { IBM_Plex_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import AppWrapper from "@/components/AppWrapper/AppWrapper";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Metadata } from "next";
+
+const bodyFont = Plus_Jakarta_Sans({
+    subsets: ["latin"],
+    variable: "--font-body",
+});
+
+const displayFont = Space_Grotesk({
+    subsets: ["latin"],
+    variable: "--font-display",
+});
+
+const monoFont = IBM_Plex_Mono({
+    subsets: ["latin"],
+    weight: ["400", "500", "600"],
+    variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
     title: {
@@ -51,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
                 />
             </head>
-            <body>
+            <body className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable}`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <TooltipProvider>
                         <AppWrapper>{children}</AppWrapper>

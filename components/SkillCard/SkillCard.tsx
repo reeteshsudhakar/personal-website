@@ -19,12 +19,16 @@ function SkillCards() {
             {skills.map((skill) => (
                 <Card
                     key={skill.title}
-                    className="flex h-[150px] w-[150px] flex-col justify-between bg-black p-4 transition-transform duration-100 hover:scale-105 hover:shadow-xl"
+                    className="flex h-[160px] w-[150px] overflow-hidden bg-black p-0 transition-transform duration-100 hover:scale-105 hover:shadow-xl"
                 >
-                    <div className="flex flex-1 items-center justify-center">
-                        <SkillCardIcon Icon={skill.icon} size={75} />
+                    <div className="flex h-full flex-col">
+                        <div className="flex flex-1 items-center justify-center px-4 pt-4">
+                            <SkillCardIcon Icon={skill.icon} size={70} />
+                        </div>
+                        <div className="px-3 pb-4 pt-2">
+                            <p className="text-center font-bold leading-tight">{skill.title}</p>
+                        </div>
                     </div>
-                    <p className="py-2.5 text-center font-bold">{skill.title}</p>
                 </Card>
             ))}
         </div>
