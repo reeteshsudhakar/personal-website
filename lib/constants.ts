@@ -14,6 +14,7 @@ import {
     IconMapPin,
     IconMoneybag,
     IconNews,
+    IconTopologyRing3,
     IconPhone,
     IconPrompt,
     IconQuote,
@@ -27,7 +28,6 @@ import { TailwindIcon } from "@/components/icons/TailwindIcon";
 import {
     PythonOriginal,
     JavaOriginal,
-    COriginal,
     Html5Original,
     Css3Original,
     JavascriptOriginal,
@@ -38,9 +38,11 @@ import {
     DjangoPlain,
     PycharmOriginal,
     IntellijOriginal,
-    QtOriginal,
     AnacondaOriginal,
     GitOriginal,
+    SupabaseOriginal,
+    FastapiOriginal,
+    DatadogOriginal,
     JekyllOriginal,
     ScikitlearnOriginal,
     NumpyOriginal,
@@ -356,10 +358,6 @@ export const skills = [
         title: "Java",
     },
     {
-        icon: COriginal,
-        title: "C",
-    },
-    {
         icon: Html5Original,
         title: "HTML",
     },
@@ -392,6 +390,10 @@ export const skills = [
         title: "Django",
     },
     {
+        icon: FastapiOriginal,
+        title: "FastAPI",
+    },
+    {
         icon: PycharmOriginal,
         title: "PyCharm",
     },
@@ -400,8 +402,8 @@ export const skills = [
         title: "IntelliJ",
     },
     {
-        icon: QtOriginal,
-        title: "Qt C++",
+        icon: SupabaseOriginal,
+        title: "Supabase",
     },
     {
         icon: AnacondaOriginal,
@@ -410,6 +412,14 @@ export const skills = [
     {
         icon: GitOriginal,
         title: "Git",
+    },
+    {
+        icon: DatadogOriginal,
+        title: "Datadog",
+    },
+    {
+        icon: IconTopologyRing3,
+        title: "Hazelcast",
     },
 ];
 

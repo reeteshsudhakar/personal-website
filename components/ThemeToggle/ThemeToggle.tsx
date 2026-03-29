@@ -19,7 +19,7 @@ export function ThemeToggle() {
                 <Button
                     variant="ghost"
                     size="icon"
-                    className="text-foreground hover:bg-accent"
+                    className="rounded-full border border-white/60 bg-background/70 text-foreground shadow-sm backdrop-blur hover:bg-accent dark:border-white/10 dark:bg-background/60"
                     aria-label="Toggle theme"
                 >
                     {resolvedTheme === "dark" ? <Moon className="size-4" /> : <Sun className="size-4" />}

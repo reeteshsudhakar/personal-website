@@ -40,12 +40,12 @@ export function ToolsCommandPalette() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setOpen(true)}
-                className="gap-2 text-muted-foreground hover:text-foreground"
+                className="h-10 rounded-full border border-white/60 bg-background/70 px-3.5 text-muted-foreground shadow-sm backdrop-blur transition-all hover:border-primary/25 hover:bg-background hover:text-foreground dark:border-white/10 dark:bg-background/60"
                 aria-label="Jump to tool (⌘K)"
             >
                 <Search className="size-4 shrink-0" />
                 <span className="hidden sm:inline">Jump to tool</span>
-                <kbd className="pointer-events-none hidden h-5 select-none items-center gap-0.5 rounded border border-border px-1.5 font-mono text-[10px] font-medium sm:inline-flex">
+                <kbd className="pointer-events-none hidden h-5 select-none items-center gap-0.5 rounded-full border border-border/80 bg-background/80 px-2 font-mono text-[10px] font-medium sm:inline-flex">
                     ⌘K
                 </kbd>
             </Button>
