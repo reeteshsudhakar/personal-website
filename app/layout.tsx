@@ -4,7 +4,7 @@ import { IBM_Plex_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/googl
 import { ThemeProvider } from "next-themes";
 import AppWrapper from "@/components/AppWrapper/AppWrapper";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 
 const bodyFont = Plus_Jakarta_Sans({
     subsets: ["latin"],
@@ -23,6 +23,7 @@ const monoFont = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://www.reeteshsudhakar.com"),
     title: {
         default: "Reetesh Sudhakar - Software Developer",
         template: "%s | Reetesh Sudhakar",
@@ -59,15 +60,14 @@ export const metadata: Metadata = {
     },
 };
 
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                <meta
-                    name="viewport"
-                    content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
-                />
-            </head>
             <body className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable}`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <TooltipProvider>

@@ -3,7 +3,7 @@
 import React, { useRef, useState, useCallback, useLayoutEffect } from "react";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { navbarFooterItems, navbarBlurbs } from "@/lib/constants";
+import { navbarFooterItems, navbarBlurbs } from "@/lib/nav-constants";
 import { cn } from "@/lib/utils";
 
 interface NavbarItem {
